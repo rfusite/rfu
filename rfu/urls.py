@@ -20,4 +20,9 @@ from rfu.views import IndexView
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', IndexView.as_view(), name='index'),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('pages/', include('django.contrib.flatpages.urls')),
+    path('main_page/', include('rfu.main_page.urls')),
+    path('blog/', include('rfu.blog.urls')),
+    path('about/', include('rfu.about.urls')),
 ]

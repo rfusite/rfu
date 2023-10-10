@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Russians for Ukraine: волонтерская организация помощи украинским беженцам">
+  <title>Russians for Ukraine</title>
+  <link rel="stylesheet" href="{% static 'main.css' %}">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<style>
+body {
+  background-color: #FFFFFF;
+  color: #212121;
+}
+
+/* Основные стили для панели */
+.navbar {
+    background-color: #088CE8;
+}
+
+/* Белый цвет шрифта для всех элементов внутри панели */
+.navbar, .navbar-brand, .nav-link {
+    color: white !important;
+}
+
+/* Цвет при наведении */
+.nav-link:hover {
+    color: #088CE8 !important;
+}
+
+/* Цвет фона и текста для выпадающего меню */
+.dropdown-menu {
+    background-color: #088CE8;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover {
+    background-color: #FFC107;
+    color: #088CE8 !important;
+}
+
+/* Кнопки */
+.btn-primary {
+  background-color: #088CE8;
+  border-color: #088CE8;
+}
+
+.btn-primary:hover {
+  background-color: #FFC107;
+  border-color: #FFC107;
+}
+
+/* Формы */
+.form-control {
+  background-color: #F5F5F5;
+  color: #212121;
+}
+
+/* Уведомления */
+.alert-success {
+  background-color: #4CAF50;
+  color: #FFFFFF;
+}
+
+.alert-warning {
+  background-color: #FFC107;
+  color: #212121;
+}
+
+.alert-danger {
+  background-color: #F44336;
+  color: #FFFFFF;
+}
+
+/* Ссылки и акценты */
+a {
+  color: #9C27B0;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.no-underline:hover,
+.no-underline:focus {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+        color: #088CE8;
+}
+
+.plus-size {
+    font-size: 1.25em;
+}
+
+.text-full {
+    display: none;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-text {
+  color: #757575;
+}
+
+.card.no-transform:hover {
+  transform: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #088CE8;
+}
+
+.hero-container {
+    position: relative; /* относительное позиционирование */
+}
+
+.mission-overlay {
+    bottom: 0;         /* прикрепить к нижней части контейнера */
+    left: 50%;         /* центрировать по горизонтали */
+    transform: translateX(-50%); /* сместить на половину ширины блока назад, чтобы действительно центрировать */
+}
+</style>
+
+<body>
+
+    {% include 'navbar.html' %}
+    {% block content %}
+    {% endblock %}
+    {% include 'footer.html' %}
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $(".show-more-link").on("click", function() {
+            var parentDiv = $(this).closest(".text-truncated");
+            var shortText = parentDiv.find(".text-short");
+            var fullText = parentDiv.find(".text-full");
+
+            if(fullText.is(":hidden")){
+                shortText.hide();
+                fullText.show();
+                $(this).text("less");
+            } else {
+                fullText.hide();
+                shortText.show();
+                $(this).text("...more");
+            }
+        });
+    });
+  </script>
+</body>
+</html>

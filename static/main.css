@@ -1,0 +1,48 @@
+/* Основной фон и текст */
+body {
+  background-color: #FFFFFF;
+  color: #212121;
+}
+
+/* Навигационная панель */
+.navbar-dark {
+  background-color: #088CE8;
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+  color: #FFFFFF !important;
+}
+
+/* Кнопки */
+.btn-primary {
+  background-color: #088CE8;
+  border-color: #088CE8;
+}
+
+/* Формы */
+.form-control {
+  background-color: #F5F5F5;
+  color: #212121;
+}
+
+/* Уведомления */
+.alert-success {
+  background-color: #4CAF50;
+  color: #FFFFFF;
+}
+
+.alert-warning {
+  background-color: #FFC107;
+  color: #212121;
+}
+
+.alert-danger {
+  background-color: #F44336;
+  color: #FFFFFF;
+}
+
+/* Ссылки и акценты */
+a {
+  color: #9C27B0;
+}
