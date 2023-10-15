@@ -1,23 +1,46 @@
-/* Основной фон и текст */
 body {
   background-color: #FFFFFF;
   color: #212121;
 }
 
-/* Навигационная панель */
-.navbar-dark {
-  background-color: #088CE8;
+/* Основные стили для панели */
+.navbar {
+    background-color: #088CE8;
 }
 
-.navbar-light .navbar-brand,
-.navbar-light .navbar-nav .nav-link {
-  color: #FFFFFF !important;
+/* Белый цвет шрифта для всех элементов внутри панели */
+.navbar, .navbar-brand, .nav-link {
+    color: white !important;
+}
+
+/* Цвет при наведении */
+.nav-link:hover {
+    color: #FFC107 !important;
+}
+
+/* Цвет фона и текста для выпадающего меню */
+.dropdown-menu {
+    background-color: #088CE8;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover {
+    background-color: #FFC107;
+    color: #088CE8 !important;
 }
 
 /* Кнопки */
 .btn-primary {
   background-color: #088CE8;
   border-color: #088CE8;
+}
+
+.btn-primary:hover {
+  background-color: #FFC107;
+  border-color: #FFC107;
 }
 
 /* Формы */
@@ -45,4 +68,63 @@ body {
 /* Ссылки и акценты */
 a {
   color: #9C27B0;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.no-underline:hover,
+.no-underline:focus {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+        color: #088CE8;
+}
+
+.plus-size {
+    font-size: 1.25em;
+}
+
+.text-full {
+    display: none;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-text {
+  color: #757575;
+}
+
+.card.no-transform:hover {
+  transform: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #088CE8;
+}
+
+.hero-container {
+    position: relative; /* относительное позиционирование */
+}
+
+.mission-overlay {
+    bottom: 0;         /* прикрепить к нижней части контейнера */
+    left: 50%;         /* центрировать по горизонтали */
+    transform: translateX(-50%); /* сместить на половину ширины блока назад, чтобы действительно центрировать */
 }
