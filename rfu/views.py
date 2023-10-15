@@ -9,7 +9,7 @@ class IndexView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         # Добавляем все объекты каждой модели в контекст
-        context['web_hero'] = WebHero.objects.all()
+        context['web_hero'] = WebHero.objects.first()
         context['missions'] = Mission.objects.all()
         context['cards'] = Card.objects.all()
         context['payment_methods'] = PaymentMethod.objects.all()

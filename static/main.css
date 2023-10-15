@@ -8,6 +8,10 @@ body {
     background-color: #088CE8;
 }
 
+.nav-item {
+    margin-right: 20px;  /* Расстояние между элементами */
+}
+
 /* Белый цвет шрифта для всех элементов внутри панели */
 .navbar, .navbar-brand, .nav-link {
     color: white !important;
@@ -16,6 +20,7 @@ body {
 /* Цвет при наведении */
 .nav-link:hover {
     color: #FFC107 !important;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
 /* Цвет фона и текста для выпадающего меню */

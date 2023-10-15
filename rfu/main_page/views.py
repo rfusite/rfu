@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from .forms import WebHeroForm, CardForm, PartnerForm, FooterForm
+from .models import WebHero
 
 
 def manage_page(request):
-    web_hero_form = WebHeroForm()
+    web_hero = WebHero.objects.first()
+    web_hero_form = WebHeroForm(instance=web_hero)
     card_form = CardForm()
     partner_form = PartnerForm()
     footer_form = FooterForm()
