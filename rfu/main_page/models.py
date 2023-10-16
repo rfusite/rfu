@@ -44,7 +44,8 @@ class SocialNetwork(models.Model):
 
 
 class Partner(models.Model):
-    logo = models.ImageField(upload_to='partners/')
+    name = models.CharField(max_length=200)
+    logo = models.ImageField(upload_to='partners/', default='https://via.placeholder.com/100')
     url = models.URLField()
 
 

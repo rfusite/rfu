@@ -117,5 +117,26 @@
     </div>
 </div> <!-- /hidden section -->
 
+<h1 class="text-center mt-4">Наши партнеры</h1><hr>
+
+<!-- Partners -->
+<div class="container px-0 pt-3">
+  <div class="row">
+    {% for partner in partners %}
+    <!-- Partner Card -->
+    <div class="col-md-3 px-2">
+      <div class="card d-flex flex-row">
+        <a href="{{ partner.url }}" target="_blank">
+          <img src="https://via.placeholder.com/100" class="card-img-left flex-auto d-none d-lg-block" alt="{{ partner.url }}">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{ partner.name }}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div><!-- /Partners -->
+
 </div> <!-- /container -->
 {% endblock %}
