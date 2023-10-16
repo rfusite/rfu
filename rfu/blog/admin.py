@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import BlogPost
+from .models import BlogPost, BlogImage
+
+
+class BlogImageInline(admin.TabularInline):
+    model = BlogImage
+    extra = 1  # сколько пустых форм отображать по умолчанию
 
 
 @admin.register(BlogPost)
@@ -10,3 +15,9 @@ class BlogPostAdmin(admin.ModelAdmin):
     empty_value_display = '-пусто-'
     list_filter = ['created_at']
     list_editable = ['likes']
+    inlines = [BlogImageInline]  # добавляем inline
+
+
+@admin.register(BlogImage)
+class BlogImageAdmin(admin.ModelAdmin):
+    list_display = ['post', 'image']
