@@ -30,6 +30,7 @@ urlpatterns = [
     path('blog/', include('rfu.blog.urls')),
     path('about/', include('rfu.about.urls')),
     path('api/like/<int:post_id>/', views.LikeView.as_view(), name='like_post'),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
 
 if settings.DEBUG:

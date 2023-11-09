@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-22 19:56+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: templates/about.html:7
+msgid "Дата:"
+msgstr "Date:"
+
+#: templates/blog.html:40
+msgid "Нравится"
+msgstr "Like"
+
+#: templates/blog.html:44 templates/blog.html:47 templates/blog.html:50
+msgid "Посмотрите новый пост Russians for Ukraine"
+msgstr "Check out the new post Russians for Ukraine"
+
+#: templates/index.html:4
+msgid "Responsive image"
+msgstr "Responsive image"
+
+#: templates/index.html:8
+msgid "Russians for Ukraine"
+msgstr "Russians for Ukraine"
+
+#: templates/index.html:31
+msgid "..."
+msgstr "..."
+
+#: templates/index.html:42
+msgid "Чем нам можно помочь?"
+msgstr "How can you help us?"
+
+#: templates/index.html:51
+msgid "Приехать и встать в наши ряды"
+msgstr "Come and join us"
+
+#: templates/index.html:58
+msgid ""
+"Пожалуйста, заполните анкету волонтера Russians for Ukraine, чтобы мы могли "
+"с Вами связаться."
+msgstr ""
+"Please fill out the Russians for Ukraine volunteer form so we can contact you."
+
+#: templates/index.html:59
+msgid "Заполнить анкету"
+msgstr "Fill out the form"
+
+#: templates/index.html:71
+msgid "помочь удаленно деньгами"
+msgstr "help remotely with money"
+
+#: templates/index.html:101
+msgid "рассказать о нас"
+msgstr "tell others about us"
+
+#: templates/index.html:119
+msgid "Наши партнеры"
+msgstr "Our partners"
+
+#: templates/navbar.html:6
+msgid "rfu logo"
+msgstr "rfu logo"
+
+#: templates/navbar.html:10
+msgid "Toggle navigation"
+msgstr "Toggle navigation"
+
+#: templates/navbar.html:18
+msgid "Главная"
+msgstr "Home"
+
+#: templates/navbar.html:23
+msgid "СМИ"
+msgstr "Media"
+
+#: templates/navbar.html:28
+msgid "Блог"
+msgstr "Blog"
+
+#: templates/navbar.html:32
+msgid "🌍 Язык"
+msgstr "🌍 Language"

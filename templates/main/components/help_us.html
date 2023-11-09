@@ -1,75 +1,34 @@
-{% extends 'base.html' %}
-{% block content %}
-  <!-- Hero Section -->
-  <img src="{{ web_hero.image.url }}" class="img-fluid w-100" alt="Responsive image">
+{% load static i18n %}
 
-  <div class="container my-2">
-
-  <h1 class="text-center">Russians for Ukraine</h1><hr>
-
-    <!-- Миссия -->
-
-    <div class="card p-5 my-2 mx-0">
-        <div class="row">
-            {% for mission in missions %}
-                <div class="col-md-4 {% if not forloop.last %}border-right{% endif %}">
-                    <h2>{{ mission.header }}</h2>
-                    <p>{{ mission.text|safe }}</p>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-    <!-- /Миссия -->
-
-  <!-- Cards -->
-  <div class="container px-0 pt-3">
-    <div class="row">
-      {% for card in cards %}
-      <!-- Card -->
-      <div class="col-md px-2 col-lg-4">
-        <div class="card h-100">
-          <img src="{{ card.image.url }}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2 class="card-title">{{ card.title }}</h2>
-            <p class="card-text">{{ card.description|safe }}</p>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div><!-- /Cards -->
-
-<h1 class="text-center mt-4">Чем нам можно помочь?</h1><hr>
-<div class="row hidden-section">
+<div class="row hidden-section pt-3">
 
     <!-- Первая секция -->
     <div class="col-md-4 px-2">
-        <div class="card px-2">
+        <div class="card px-2 h-100">
             <div class="card-body">
                 <button class="btn btn-link p-0 no-underline" type="button" data-toggle="collapse" data-target="#section1"
                         aria-expanded="false">
-                    <h2><i class="bi bi-people"></i> Приехать и встать в наши ряды</h2>
+                    <h2><i class="bi bi-people"></i> {% trans "Приехать и встать в наши ряды" %}</h2>
                     <!-- Секция со шевроном -->
                     <div class="d-flex justify-content-center">
                         <i class="h3 bi bi-chevron-compact-down"></i>
                     </div>
                 </button>
                 <div class="collapse" id="section1">
-                    Пожалуйста, заполните анкету волонтера Russians for Ukraine, чтобы мы могли с Вами связаться.
-                    <a href="https://forms.gle/FDrwXD1eFE7MVf17A" class="btn btn-primary mt-3">Заполнить анкету</a>
+                    {% trans "Пожалуйста, заполните анкету волонтера Russians for Ukraine, чтобы мы могли с Вами связаться." %}
+                    <a href="https://forms.gle/FDrwXD1eFE7MVf17A" class="btn btn-primary mt-3">{% trans "Заполнить анкету" %}</a>
                 </div>
             </div>
         </div>
     </div>
 
-
     <!-- Вторая секция -->
     <div class="col-md-4 px-2">
-        <div class="card">
+        <div class="card  h-100">
             <div class="card-body">
                 <button class="btn btn-link p-0 no-underline" type="button" data-toggle="collapse" data-target="#section2"
                         aria-expanded="false">
-                    <h2><i class="bi bi-wallet2"></i> помочь удаленно деньгами</h2>
+                    <h2><i class="bi bi-wallet2"></i> {% trans "помочь удаленно деньгами" %}</h2>
                     <!-- Секция со шевроном -->
                     <div class="d-flex justify-content-center">
                         <i class="h3 bi bi-chevron-compact-down"></i>
@@ -95,17 +54,18 @@
 
     <!-- Третья секция -->
     <div class="col-md-4  px-2">
-        <div class="card">
+        <div class="card  h-100">
             <div class="card-body">
                 <button class="btn btn-link p-0 no-underline" type="button" data-toggle="collapse" data-target="#section3"
                         aria-expanded="false">
-                    <h2><i class="bi bi-share"></i> рассказать о нас</h2>
+                    <h2><i class="bi bi-share"></i> {% trans "рассказать о нас" %}</h2>
                     <!-- Секция со шевроном -->
                     <div class="d-flex justify-content-center">
                         <i class="h3 bi bi-chevron-compact-down"></i>
                     </div>
                 </button>
                 <div class="collapse" id="section3">
+                    {% trans "Поделитесь ссылкой на нас в социальных сетях:" %}
                     {% for method in social_networks %}
                     <div class="pb-2 border-bottom">
                         <a href="{{ method.link }}"><i class="plus-size bi {{ method.icon }}"></i> {{ method.name }}</a>
@@ -116,27 +76,3 @@
         </div>
     </div>
 </div> <!-- /hidden section -->
-
-<h1 class="text-center mt-4">Наши партнеры</h1><hr>
-
-<!-- Partners -->
-<div class="container px-0 pt-3">
-  <div class="row">
-    {% for partner in partners %}
-    <!-- Partner Card -->
-    <div class="col-md-3 px-2">
-      <div class="card d-flex flex-row">
-        <a href="{{ partner.url }}" target="_blank">
-          <img src="https://via.placeholder.com/100" class="card-img-left flex-auto d-none d-lg-block" alt="{{ partner.url }}">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title">{{ partner.name }}</h5>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</div><!-- /Partners -->
-
-</div> <!-- /container -->
-{% endblock %}

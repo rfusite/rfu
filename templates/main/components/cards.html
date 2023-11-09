@@ -1,0 +1,18 @@
+{% load static i18n %}
+<!-- Cards -->
+<div class="container px-0 pt-3">
+<div class="row">
+  {% for card in cards %}
+  <!-- Card -->
+  <div class="col-md px-2 col-lg-4">
+    <div class="card h-100">
+      <img src="{{ card.image.url }}" class="card-img-top" alt="">
+      <div class="card-body">
+        <h2 class="card-title">{{ card.title|safe }}</h2>
+        <p class="card-text">{{ card.description|safe }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div><!-- /Cards -->

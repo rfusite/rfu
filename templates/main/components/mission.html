@@ -1,0 +1,18 @@
+{% load static i18n %}
+<!-- Cards -->
+<div class="container px-0 pt-3">
+  <div class="row">
+    {% for mission in missions %}
+    <!-- Card -->
+    <div class="col-md px-2 col-lg-4">
+      <div class="card h-100">
+        <img src="{{ mission.image.url }}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h2 class="card-title">{{ mission.header|safe }}</h2>
+          <p class="card-text">{{ mission.text|safe }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div><!-- /Cards -->

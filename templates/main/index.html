@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+{% load static i18n %}
+{% block content %}
+
+<div class="container my-2">
+
+{% include 'main/components/hero.html' %}
+<div class="container-fluid">
+<!-- Tab navigation -->
+<ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="mission-tab" data-toggle="tab" href="#mission" role="tab" aria-controls="mission" aria-selected="true">
+      {% trans "Наша миссия" %}
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="cards-tab" data-toggle="tab" href="#cards" role="tab" aria-controls="cards" aria-selected="false">
+      {% trans "Наша работа" %}
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="help_us-tab" data-toggle="tab" href="#help_us" role="tab" aria-controls="help_us" aria-selected="false">
+      {% trans "Чем нам помочь" %}
+    </a>
+  </li>
+</ul>
+</div>
+<!-- Tab content -->
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="mission" role="tabpanel" aria-labelledby="mission-tab">
+    {% include 'main/components/mission.html' %}
+  </div>
+  <div class="tab-pane fade" id="cards" role="tabpanel" aria-labelledby="cards-tab">
+    {% include 'main/components/cards.html' %}
+  </div>
+  <div class="tab-pane fade" id="help_us" role="tabpanel" aria-labelledby="help_us-tab">
+    {% include 'main/components/help_us.html' %}
+  </div>
+</div>
+
+
+</div> <!-- /container -->
+{% endblock %}

@@ -3,7 +3,7 @@ from rfu.main_page.models import WebHero, Mission, Card, PaymentMethod, SocialNe
 
 
 class IndexView(TemplateView):
-    template_name = 'index.html'
+    template_name = 'main/index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

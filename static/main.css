@@ -3,33 +3,8 @@ body {
   color: #212121;
 }
 
-/* Основные стили для панели */
 .navbar {
-    background-color: #088CE8;
-}
-
-.nav-item {
-    margin-right: 20px;  /* Расстояние между элементами */
-}
-
-/* Белый цвет шрифта для всех элементов внутри панели */
-.navbar, .navbar-brand, .nav-link {
-    color: white !important;
-}
-
-/* Цвет при наведении */
-.nav-link:hover {
-    color: #FFC107 !important;
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-}
-
-/* Цвет фона и текста для выпадающего меню */
-.dropdown-menu {
-    background-color: #088CE8;
-}
-
-.dropdown-item {
-    color: white;
+  border-bottom: 1px solid #dee2e6; /* Черная нижняя граница */
 }
 
 .dropdown-item:hover {
@@ -138,16 +113,27 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
+.nav-tabs {
+  display: flex; /* Флексбокс для вкладок */
+}
+
+.nav-item {
+  flex: 1; /* Каждая вкладка занимает одинаковое пространство */
+  text-align: center; /* Центрирование текста внутри вкладки */
+  font-size: 1.25em;
+  color: #088CE8;
+}
+
+.nav-link {
+  color: #088CE8; /* Ваш цвет текста */
+}
+
 footer {
     background-color: #088CE8;
 }
 
-.hero-container {
-    position: relative; /* относительное позиционирование */
-}
-
-.mission-overlay {
-    bottom: 0;         /* прикрепить к нижней части контейнера */
-    left: 50%;         /* центрировать по горизонтали */
-    transform: translateX(-50%); /* сместить на половину ширины блока назад, чтобы действительно центрировать */
+.bg-pattern {
+  background-repeat: repeat;
+  min-height: 100%;
+  background-size: 200px 200px;
 }

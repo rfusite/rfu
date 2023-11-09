@@ -78,10 +78,6 @@ TEMPLATES = [
     },
 ]
 
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
-)
-
 WSGI_APPLICATION = "rfu.wsgi.application"
 
 SITE_ID = 2
@@ -105,7 +101,18 @@ CSRF_TRUSTED_ORIGINS = ['https://rfu-production.up.railway.app']
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "ru"
+
+LANGUAGES = [
+    ('en', 'English'),
+    ('ru', 'Russian'),
+    ('ua', 'Ukrainian'),
+]
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True

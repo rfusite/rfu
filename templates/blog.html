@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
-
+{% extends 'main/base.html' %}
+{% load static i18n %}
 {% block content %}
 <div class="container my-3">
     {% for post in posts %}
-        <h2>{{ post.title }}</h2>
+        <h2>{% trans post.title %}</h2>
         <div class="post-date">
             {{ post.date|default:post.created_at|date }}
         </div>
@@ -37,17 +37,17 @@
         <div class="d-flex justify-content-between my-3">
             <!-- Кнопка лайка -->
             <button class="btn btn-primary like-btn" data-id="{{ post.id }}">
-                <i class="bi bi-hand-thumbs-up mr-2"></i> Нравится <span class="like-count"> | {{ post.likes }}</span>
+                <i class="bi bi-hand-thumbs-up mr-2"></i> {% trans "Нравится" %} <span class="like-count"> | {{ post.likes }}</span>
             </button>
             <!-- Панель соцсетей -->
             <div class="social-icons">
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}&quote=Посмотрите новый пост Russians for Ukraine" target="_blank">
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}&quote={% trans "Посмотрите новый пост Russians for Ukraine" %}" target="_blank">
                     <i class="plus-size bi bi-facebook"></i>
                 </a>
-                <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text=Посмотрите новый пост Russians for Ukraine" target="_blank">
+                <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={% trans "Посмотрите новый пост Russians for Ukraine" %}" target="_blank">
                     <i class="plus-size bi bi-twitter"></i>
                 </a>
-                <a href="https://t.me/share/url?url={{ request.build_absolute_uri }}&text=Посмотрите новый пост Russians for Ukraine" target="_blank">
+                <a href="https://t.me/share/url?url={{ request.build_absolute_uri }}&text={% trans "Посмотрите новый пост Russians for Ukraine" %}" target="_blank">
                     <i class="plus-size bi bi-telegram"></i>
                 </a>
             </div>

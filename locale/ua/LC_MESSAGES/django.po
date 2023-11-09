@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-22 19:56+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: templates/about.html:7
+msgid "Дата:"
+msgstr "Дата:"
+
+#: templates/blog.html:40
+msgid "Нравится"
+msgstr "Сподобалось"
+
+#: templates/blog.html:44 templates/blog.html:47 templates/blog.html:50
+msgid "Посмотрите новый пост Russians for Ukraine"
+msgstr "Перегляньте новий пост Russians for Ukraine"
+
+#: templates/index.html:4
+msgid "Responsive image"
+msgstr "Адаптивне зображення"
+
+#: templates/index.html:8
+msgid "Russians for Ukraine"
+msgstr "Russians for Ukraine"
+
+#: templates/index.html:31
+msgid "..."
+msgstr "..."
+
+#: templates/index.html:42
+msgid "Чем нам можно помочь?"
+msgstr "Як ви можете нам допомогти?"
+
+#: templates/index.html:51
+msgid "Приехать и встать в наши ряды"
+msgstr "Приєднатися та приєднатися до нас"
+
+#: templates/index.html:58
+msgid ""
+"Пожалуйста, заполните анкету волонтера Russians for Ukraine, чтобы мы могли "
+"с Вами связаться."
+msgstr ""
+"Будь ласка, заповніть анкету волонтера Russians for Ukraine, щоб ми могли з вами зв'язатися."
+
+#: templates/index.html:59
+msgid "Заполнить анкету"
+msgstr "Заповнити анкету"
+
+#: templates/index.html:71
+msgid "помочь удаленно деньгами"
+msgstr "допомогти віддалено грішми"
+
+#: templates/index.html:101
+msgid "рассказать о нас"
+msgstr "повідомити про нас"
+
+#: templates/index.html:119
+msgid "Наши партнеры"
+msgstr "Наші партнери"
+
+#: templates/navbar.html:6
+msgid "rfu logo"
+msgstr "логотип rfu"
+
+#: templates/navbar.html:10
+msgid "Toggle navigation"
+msgstr "Перемкнути навігацію"
+
+#: templates/navbar.html:18
+msgid "Главная"
+msgstr "Головна"
+
+#: templates/navbar.html:23
+msgid "СМИ"
+msgstr "ЗМІ"
+
+#: templates/navbar.html:28
+msgid "Блог"
+msgstr "Блог"
+
+#: templates/navbar.html:32
+msgid "🌍 Язык"
+msgstr "🌍 Мова"

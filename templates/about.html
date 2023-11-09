@@ -1,10 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'main/base.html' %}
+{% load static i18n %}
 {% block content %}
 <div class="container my-3">
     {% for article in articles %}
-        <a href="{{ article.link }}" target="_blank"><h2>{{ article.header }}</h2></a>
-        <p><strong>{{ article.media_name }}</strong></p>
-        <p><strong>Дата:</strong> {{ article.date }}</p>
+        <a href="{{ article.link }}" target="_blank"><h2>{% trans article.header %}</h2></a>
+        <p><strong>{% trans article.media_name %}</strong></p>
+        <p><strong>{% trans "Дата:" %}</strong> {{ article.date }}</p>
         {% if not forloop.last %}<hr>{% endif %}
     {% endfor %}
 </div>
