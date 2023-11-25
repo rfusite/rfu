@@ -1,21 +1,60 @@
-{% load static %}
-<!-- Hero Section -->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2">
-      <!-- Left div -->
-      <div class="cloud-words-left bg-pattern" style="background-image: url('{% static 'pattern.png' %}');">
-        <!-- Content here -->
+{% load static i18n %}
+<div class="container">
+  <div class="row text-center">
+    <!-- Квадратик для счетчика машин -->
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-white h-100 rounded">
+        <div class="card-body d-flex align-items-center justify-content-center" style="height: 100%;">
+          <p class="card-text mb-0">{% trans "более 350 машин" %}</p>
+        </div>
       </div>
     </div>
-    <div class="col-md-8">
-      <!-- Central Hero Image -->
-      <img src="{% static 'img.png' %}" class="img-fluid" alt="Responsive image">
+    <!-- Квадратик для счетчика волонтеров -->
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-white h-100 rounded">
+        <div class="card-body">
+          <p class="card-text">{% trans "320 волонтеров" %}</p>
+        </div>
+      </div>
     </div>
-    <div class="col-md-2">
-      <!-- Right div -->
-      <div class="cloud-words-right bg-pattern" style="background-image: url('{% static 'pattern_ua.png' %}');">
-        <!-- Content here -->
+    <!-- Квадратик для счетчика беженцев в шелтере -->
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-white h-100 rounded">
+        <div class="card-body">
+          <p class="card-text">{% trans "более 2600 беженцев в шелтере" %}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Квадратик для счетчика дней войны -->
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-white h-100 rounded">
+        <div class="card-body">
+          <p class="card-text">{{ days_of_war }} {% trans "дней войны" %}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Квадратик для счетчика дней РФУ -->
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-white h-100 rounded">
+        <div class="card-body">
+          <p class="card-text">{{ days_of_rfu }} {% trans "дней РФУ" %}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Квадратик для счетчика гуманитарных грузов -->
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-white h-100 rounded">
+        <div class="card-body">
+          <p class="card-text">{% trans "более 50 тонн гуманитарных грузов" %}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Квадратик для счетчика рейсов -->
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-white h-100 rounded">
+        <div class="card-body">
+          <p class="card-text">{{ flights_count }} {% trans "рейсов в Европу" %}</p>
+        </div>
       </div>
     </div>
   </div>

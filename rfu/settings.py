@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -101,20 +102,24 @@ CSRF_TRUSTED_ORIGINS = ['https://rfu-production.up.railway.app']
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+
+
 LANGUAGE_CODE = "ru"
 
 LANGUAGES = [
     ('en', 'English'),
     ('ru', 'Russian'),
     ('ua', 'Ukrainian'),
+    ('pl', 'Polish'),
 ]
 
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
-)
 
 TIME_ZONE = "UTC"
 USE_I18N = True
+USE_L10N = True
 USE_TZ = True
 
 

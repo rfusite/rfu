@@ -1,18 +1,37 @@
 {% load static i18n %}
 <!-- Cards -->
 <div class="container px-0 pt-3">
-<div class="row">
-  {% for card in cards %}
-  <!-- Card -->
-  <div class="col-md px-2 col-lg-4">
-    <div class="card h-100">
-      <img src="{{ card.image.url }}" class="card-img-top" alt="">
-      <div class="card-body">
-        <h2 class="card-title">{{ card.title|safe }}</h2>
-        <p class="card-text">{{ card.description|safe }}</p>
+  <div class="row">
+
+    <!-- Карточка Транспорт -->
+    <div class="col-md px-2 col-lg-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">{% trans "Транспорт" %}</h2>
+          <p class="card-text">{% trans "Мы встречаем беженцев как на границе, так и на вокзале, обеспечивая комфортную транспортировку до их места назначения. Наша команда подготовлена работать с медицинскими ситуациями, у нас есть специализированный транспорт для перевозки людей на колясках и лежачих пациентов." %}</p>
+        </div>
       </div>
     </div>
+
+    <!-- Карточка Вокзал -->
+    <div class="col-md px-2 col-lg-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">{% trans "Вокзал" %}</h2>
+          <p class="card-text">{% trans "Ежедневно с 5:00 до 23:00 наши волонтеры находятся на вокзале, где встречают и провожают поезда из Украины. Большинство прибывающих — это женщины и люди с ограниченными возможностями, составляющие 80% всех беженцев. Мы помогаем с переносом тяжёлых сумок, предоставляем информацию о покупке билетов и даем рекомендации по дальнейшим маршрутам." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карточка Шелтер -->
+    <div class="col-md px-2 col-lg-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">{% trans "Шелтер" %}</h2>
+          <p class="card-text">{% trans "Мы управляем приютом, предлагая беженцам временное пристанище — от нескольких часов до нескольких дней. Наша задача — сделать так, чтобы люди, покинувшие опасные зоны, с первых же моментов пребывания здесь почувствовали себя в безопасности." %}</p>
+        </div>
+      </div>
+    </div>
+
   </div>
-  {% endfor %}
-</div>
 </div><!-- /Cards -->

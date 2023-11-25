@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-22 19:56+0200\n"
+"POT-Creation-Date: 2023-11-25 00:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: templates/about.html:7
+
+#: templates/about.html:8
 msgid "Дата:"
 msgstr "Date:"
 
@@ -25,73 +26,175 @@ msgstr "Date:"
 msgid "Нравится"
 msgstr "Like"
 
-#: templates/blog.html:44 templates/blog.html:47 templates/blog.html:50
+#: templates/blog.html:44 templates/blog.html:47 templates.blog.html:50
 msgid "Посмотрите новый пост Russians for Ukraine"
 msgstr "Check out the new post Russians for Ukraine"
 
-#: templates/index.html:4
-msgid "Responsive image"
-msgstr "Responsive image"
+#: templates/main/components/cards.html:10
+msgid "Транспорт"
+msgstr "Transport"
 
-#: templates/index.html:8
-msgid "Russians for Ukraine"
-msgstr "Russians for Ukraine"
+#: templates/main/components/cards.html:11
+msgid ""
+"Мы встречаем беженцев как на границе, так и на вокзале, обеспечивая "
+"комфортную транспортировку до их места назначения. Наша команда подготовлена "
+"работать с медицинскими ситуациями, у нас есть специализированный транспорт "
+"для перевозки людей на колясках и лежачих пациентов."
+msgstr ""
+"We meet refugees at both the border and the train station, providing comfortable transportation to their destinations. Our team is prepared to handle medical situations, and we have specialized transport for people in wheelchairs and lying patients."
 
-#: templates/index.html:31
-msgid "..."
-msgstr "..."
+#: templates/main/components/cards.html:20
+msgid "Вокзал"
+msgstr "Train Station"
 
-#: templates/index.html:42
-msgid "Чем нам можно помочь?"
-msgstr "How can you help us?"
+#: templates/main/components/cards.html:21
+#, python-format
+msgid ""
+"Ежедневно с 5:00 до 23:00 наши волонтеры находятся на вокзале, где встречают "
+"и провожают поезда из Украины. Большинство прибывающих — это женщины и люди "
+"с ограниченными возможностями, составляющие 80%% всех беженцев. Мы помогаем "
+"с переносом тяжёлых сумок, предоставляем информацию о покупке билетов и даем "
+"рекомендации по дальнейшим маршрутам."
+msgstr ""
+"Ежедневно з 5:00 до 23:00 наші волонтери знаходяться на вокзалі, де зустрічають "
+"і супроводжують поїзди з України. Більшість прибуваючих — це жінки і люди з "
+"обмеженими можливостями, які складають 80%% всіх біженців. Ми допомагаємо "
+"з перенесенням важких валіз, надаємо інформацію щодо купівлі квитків та надаємо "
+"рекомендації щодо подальших маршрутів."
 
-#: templates/index.html:51
+#: templates/main/components/cards.html:30
+msgid "Шелтер"
+msgstr "Shelter"
+
+#: templates/main/components/cards.html:31
+msgid ""
+"Мы управляем приютом, предлагая беженцам временное пристанище — от "
+"нескольких часов до нескольких дней. Наша задача — сделать так, чтобы люди, "
+"покинувшие опасные зоны, с первых же моментов пребывания здесь почувствовали "
+"себя в безопасности."
+msgstr ""
+"We operate a shelter, offering refugees temporary refuge for several hours to several days. Our goal is to ensure that people leaving dangerous areas feel safe from the very beginning of their stay here."
+
+#: templates/main/components/help_us.html:11
 msgid "Приехать и встать в наши ряды"
 msgstr "Come and join us"
 
-#: templates/index.html:58
+#: templates/main/components/help_us.html:18
 msgid ""
 "Пожалуйста, заполните анкету волонтера Russians for Ukraine, чтобы мы могли "
 "с Вами связаться."
 msgstr ""
 "Please fill out the Russians for Ukraine volunteer form so we can contact you."
 
-#: templates/index.html:59
+#: templates/main/components/help_us.html:19
 msgid "Заполнить анкету"
 msgstr "Fill out the form"
 
-#: templates/index.html:71
+#: templates/main/components/help_us.html:31
 msgid "помочь удаленно деньгами"
 msgstr "help remotely with money"
 
-#: templates/index.html:101
+#: templates/main/components/help_us.html:61
 msgid "рассказать о нас"
 msgstr "tell others about us"
 
-#: templates/index.html:119
+#: templates/main/components/help_us.html:68
+msgid "Поделитесь ссылкой на нас в социальных сетях:"
+msgstr "Share our link on social media:"
+
+#: templates/main/components/hero.html:16
+msgid "438 волонтеров"
+msgstr "438 volunteers"
+
+#: templates/main/components/hero.html:28
+msgid "4012 беженцев в шелтере"
+msgstr "4012 refugees in shelters"
+
+#: templates/main/components/hero.html:40
+msgid "57 машин для ЗСУ"
+msgstr "57 vehicles for the Armed Forces of Ukraine"
+
+#: templates/main/components/hero.html:52
+msgid "98 гуманитарных грузов"
+msgstr "98 humanitarian shipments"
+
+#: templates/main/components/hero.html:64
+msgid "23 рейса в Европу"
+msgstr "23 flights to Europe"
+
+#: templates/main/components/mission.html:10
+msgid "Кто мы?"
+msgstr "Who are we?"
+
+#: templates/main/components/mission.html:11
+msgid "Россияне, в разное время уехавшие из России"
+msgstr "Russians who left Russia at different times"
+
+#: templates/main/components/mission.html:20
+msgid "Чего мы хотим?"
+msgstr "What do we want?"
+
+#: templates/main/components/mission.html:21
+msgid "Мира, то есть победы Украины в этой войне"
+msgstr "Peace, which means Ukraine's victory in this war"
+
+#: templates/main/components/mission.html:30
+msgid "Что мы для этого делаем?"
+msgstr "What do we do for this?"
+
+#: templates/main/components/mission.html:31
+msgid ""
+"Помогаем украинским беженцам в Европе и передаем гуманитарную помощь в "
+"Украину"
+msgstr ""
+"We help Ukrainian refugees in Europe and send humanitarian aid to Ukraine."
+
+#: templates/main/components/partners.html:2
 msgid "Наши партнеры"
 msgstr "Our partners"
 
-#: templates/navbar.html:6
+#: templates/main/index.html:13
+msgid "Наша миссия"
+msgstr "Our mission"
+
+#: templates/main/index.html:18
+msgid "Наша работа"
+msgstr "Our work"
+
+#: templates/main/index.html:23
+#, fuzzy
+msgid "Чем нам можно помочь?"
+msgstr "Чем нам помочь"
+
+#: templates/main/navbar.html:6
 msgid "rfu logo"
 msgstr "rfu logo"
 
-#: templates/navbar.html:10
+#: templates/main/navbar.html:9
 msgid "Toggle navigation"
 msgstr "Toggle navigation"
 
-#: templates/navbar.html:18
+#: templates/main/navbar.html:17
 msgid "Главная"
 msgstr "Home"
 
-#: templates/navbar.html:23
+#: templates/main/navbar.html:22
 msgid "СМИ"
 msgstr "Media"
 
-#: templates/navbar.html:28
+#: templates/main/navbar.html:27
 msgid "Блог"
 msgstr "Blog"
 
-#: templates/navbar.html:32
+#: templates/main/navbar.html:31
 msgid "🌍 Язык"
 msgstr "🌍 Language"
+
+#~ msgid "Responsive image"
+#~ msgstr "Responsive image"
+
+#~ msgid "Russians for Ukraine"
+#~ msgstr "Russians for Ukraine"
+
+#~ msgid "..."
+#~ msgstr "..."

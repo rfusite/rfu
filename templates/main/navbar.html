@@ -31,10 +31,11 @@
           <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">{% trans '🌍 Язык' %}</a>
           <div class="dropdown-menu">
             <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-              <input name="next" type="hidden" value="{{ request.get_full_path }}">
-              <button type="submit" name="language" value="ru" class="dropdown-item">🇷🇺 Русский</button>
-              <button type="submit" name="language" value="en" class="dropdown-item">🇬🇧 English</button>
-              <button type="submit" name="language" value="uk" class="dropdown-item">🇺🇦 Українська</button>
+              <input name="next" type="hidden" value="{{ request.path }}">
+                <button type="submit" name="language" value="ru" class="dropdown-item">🇷🇺 Русский</button>
+                <button type="submit" name="language" value="en" class="dropdown-item">🇬🇧 English</button>
+                <button type="submit" name="language" value="ua" class="dropdown-item">🇺🇦 Українська</button>
+                <button type="submit" name="language" value="pl" class="dropdown-item">🇵🇱 Polski</button>
             </form>
           </div>
       </li>

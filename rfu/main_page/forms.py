@@ -5,7 +5,13 @@ from .models import WebHero, Card, Partner, Footer
 class WebHeroForm(forms.ModelForm):
     class Meta:
         model = WebHero
-        fields = ['image']
+        fields = ['cars_count',
+                  'volunteers_count',
+                  'shelter_refugees_count',
+                  'days_of_war',
+                  'days_of_rfu',
+                  'humanitarian_goods_weight',
+                  'flights_count']
 
 
 class CardForm(forms.ModelForm):

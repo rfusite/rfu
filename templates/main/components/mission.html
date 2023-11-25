@@ -2,17 +2,36 @@
 <!-- Cards -->
 <div class="container px-0 pt-3">
   <div class="row">
-    {% for mission in missions %}
-    <!-- Card -->
+
+    <!-- Первая карточка -->
     <div class="col-md px-2 col-lg-4">
       <div class="card h-100">
-        <img src="{{ mission.image.url }}" class="card-img-top" alt="">
         <div class="card-body">
-          <h2 class="card-title">{{ mission.header|safe }}</h2>
-          <p class="card-text">{{ mission.text|safe }}</p>
+          <h2 class="card-title">{% trans "Кто мы?" %}</h2>
+          <p class="card-text">{% trans "Россияне, в разное время уехавшие из России" %}</p>
         </div>
       </div>
     </div>
-    {% endfor %}
+
+    <!-- Вторая карточка -->
+    <div class="col-md px-2 col-lg-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">{% trans "Чего мы хотим?" %}</h2>
+          <p class="card-text">{% trans "Мира, то есть победы Украины в этой войне" %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Третья карточка -->
+    <div class="col-md px-2 col-lg-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">{% trans "Что мы для этого делаем?" %}</h2>
+          <p class="card-text">{% trans "Помогаем украинским беженцам в Европе и передаем гуманитарную помощь в Украину" %}</p>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div><!-- /Cards -->
+</div>
