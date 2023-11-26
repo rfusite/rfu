@@ -1,10 +1,84 @@
-body {
-  background-color: #FFFFFF;
-  color: #212121;
+/* ===================== */
+/* Стили для hero-секции */
+/* ===================== */
+
+
+/* Стиль для вводного квадратика */
+
+.intro-box {
+  background: #FFFFFF;
+  color: #151E3F;
 }
 
-.navbar {
-  border-bottom: 1px solid #dee2e6; /* Черная нижняя граница */
+/* Стиль для голубого квадратика */
+.blue-box {
+  border-radius: 30px;
+  background: #0083D6;
+  color: #FFFFFF;
+}
+
+/* Стиль для темно-голубого квадратика */
+.dark-blue-box {
+  border-radius: 30px;
+  background: #151E3F;
+  color: #FFFFFF;
+}
+
+/* Стиль для светло-голубого квадратика */
+.light-blue-box {
+  border-radius: 30px;
+  background: #D6EFFF;
+  color: #151E3F;
+}
+
+/* Стиль для желтого квадратика */
+.yellow-box {
+  border-radius: 30px;
+  background: #FFA21F;
+  color: #FFFFFF;
+}
+
+/* Стили для крупного текста в квадратиках */
+.big-number {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.big-text {
+  font-size: 1.5rem;
+}
+
+.img-rounded {
+  border-radius: 30px;
+  overflow: hidden; /* Это гарантирует, что изображение не выйдет за пределы закругленных углов */
+}
+
+/* ===================== */
+/* стили для навигации */
+/* ===================== */
+
+/* Увеличение размера шрифта и расстояния между элементами навигации */
+.navbar-nav .nav-item {
+  font-size: 1.5em; /* Увеличиваем размер шрифта */
+  margin-right: 15px; /* Добавляем маржин справа для большего расстояния между элементами */
+  margin-left: 15px; /* Добавляем маржин слева для большего расстояния между элементами */
+}
+
+/* Стилизация выпадающего меню языков */
+.navbar-nav .dropdown-menu {
+  font-size: 0.8em; /* Увеличиваем размер шрифта в выпадающем меню */
+}
+
+/* Стилизация ссылок навигации */
+.navbar-nav .nav-link {
+  transition: background-color 0.3s, box-shadow 0.3s; /* Плавный переход для фона и тени */
+  border-radius: 40px; /* Скругление углов для фона */
+  padding: 0.3em 3em; /* Добавляем отступы вокруг текста */
+}
+
+/* Эффект при наведении */
+.navbar-nav .nav-link:hover {
+  background-color: #D6EFFF; /* Цвет фона при наведении */
 }
 
 .dropdown-item:hover {
@@ -12,61 +86,55 @@ body {
     color: #088CE8 !important;
 }
 
-/* Кнопки */
-.btn-primary {
-  background-color: #088CE8;
-  border-color: #088CE8;
+.plus-size {
+    font-size: 1.25em;
 }
 
-.btn-primary:hover {
-  background-color: #FFC107;
-  border-color: #FFC107;
+/* ===================== */
+/* стили для вкладок */
+/* ===================== */
+
+
+.nav-tabs {
+  background-color: #0083D6; /* цвет фона */
+  border-radius: 40px; /* скругление углов */
+  display: flex;
+  padding: 5px;
 }
 
-.social-icons i {
-    background-color: #088CE8;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    padding: 10px;
+/* Добавляем внешний отступ для всех элементов, кроме первого и последнего */
+.nav-tabs .nav-item:not(:first-child):not(:last-child) {
+  margin: 0 20px; /* Добавляем отступы по бокам */
 }
 
-.social-icons i:hover {
-    background-color: #FFC107;
+.nav-item {
+  flex: 1;
+  text-align: center;
+  font-size: 1.25em;
+  color: #088CE8;
 }
 
-.modal-content img {
-    margin: auto;
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-/* Формы */
-.form-control {
-  background-color: #F5F5F5;
-  color: #212121;
-}
-
-/* Уведомления */
-.alert-success {
-  background-color: #4CAF50;
+.nav-link {
   color: #FFFFFF;
 }
 
-.alert-warning {
-  background-color: #FFC107;
-  color: #212121;
+/* Стиль для активной вкладки */
+.nav-tabs .nav-item .nav-link.active {
+  background-color: #FFFFFF; /* белый фон для активной вкладки */
+  color: #151E3F; /* цвет текста для активной вкладки */
+  border-radius: 40px; /* скругление углов для активной вкладки */
 }
 
-.alert-danger {
-  background-color: #F44336;
+/* Стиль при наведении */
+.nav-tabs .nav-item:not(.active) .nav-link:hover {
+  background-color: #FFA21F;
   color: #FFFFFF;
+  border-radius: 40px; /* скругление углов при наведении */
 }
 
-/* Ссылки и акценты */
-a {
-  color: #9C27B0;
-}
+/* ===================== */
+/* стили для ссылок */
+/* ===================== */
 
 .no-underline {
     text-decoration: none;
@@ -77,63 +145,93 @@ a {
     text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-        color: #088CE8;
+/* ===================== */
+/* стили для кнопок
+/* ===================== */
+
+.btn-primary {
+  background-color: #088CE8;
+  border-color: #088CE8;
+  border-radius: 40px; /* Скругление углов кнопки */
+  padding: 10px 20px; /* Отступы внутри кнопки */
+  font-size: 16px; /* Размер шрифта текста на кнопке */
 }
 
-.plus-size {
-    font-size: 1.25em;
+.btn-primary:hover {
+  background-color: #FFA21F;
+  border-color: #FFA21F;
 }
 
-.text-full {
-    display: none;
+.btn-primary:focus {
+  background-color: #FFA21F;
+  border-color: #FFA21F;
 }
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  transition: all 0.3s ease;
+.btn-light {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  border-radius: 40px; /* Скругление углов кнопки */
+  padding: 10px 20px; /* Отступы внутри кнопки */
+  font-size: 16px; /* Размер шрифта текста на кнопке */
 }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
+.btn-light:hover {
+  background-color: #FFA21F;
+  border-color: #FFA21F;
 }
 
-.card-title {
-  font-weight: bold;
+.btn-light:focus {
+  background-color: #FFC107;
+  border-color: #FFA21F;
 }
 
-.card-text {
-  color: #757575;
+.btn-warning {
+  background-color: #FFA21F;
+  border-color: #FFA21F;
+  color: #FFFFFF;
+  border-radius: 40px; /* Скругление углов кнопки */
+  padding: 10px 20px; /* Отступы внутри кнопки */
+  font-size: 20px; /* Размер шрифта текста на кнопке */
 }
 
-.card.no-transform:hover {
-  transform: none;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+.btn-warning:hover {
+  background-color: #088CE8;
+  border-color: #088CE8;
+  color: #FFFFFF;
 }
 
-.nav-tabs {
-  display: flex; /* Флексбокс для вкладок */
+.btn-warning:focus {
+  background-color: #088CE8;
+  border-color: #088CE8;
+  color: #FFFFFF;
 }
 
-.nav-item {
-  flex: 1; /* Каждая вкладка занимает одинаковое пространство */
-  text-align: center; /* Центрирование текста внутри вкладки */
-  font-size: 1.25em;
-  color: #088CE8;
+.bi-box-arrow-in-up-right {
+  margin-left: 8px; /* Отступ иконки от текста */
+  background-color: #FFFFFF;
+  color: #000000;
 }
 
-.nav-link {
-  color: #088CE8; /* Ваш цвет текста */
+/* ===================== */
+/* стили для иконок */
+/* ===================== */
+
+.social-icon {
+  display: inline-flex; /* или 'inline-block' если не используете flexbox */
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Делает круглую форму */
+  background-color: white; /* Фоновый цвет круга */
+  width: 40px; /* Размер круга */
+  height: 40px; /* Размер круга */
+  margin-right: 10px; /* Отступ между иконками */
+  text-decoration: none; /* Убирает подчеркивание ссылки */
 }
 
-footer {
-    background-color: #088CE8;
+.social-icon:hover {
+  background-color: #FFA21F; /* Цвет фона при наведении */
 }
 
-.bg-pattern {
-  background-repeat: repeat;
-  min-height: 100%;
-  background-size: 260px 260px;
+.social-icon i {
+  color: #000; /* Цвет иконки */
 }

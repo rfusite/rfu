@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 from django.utils.timezone import now
-from rfu.main_page.models import Mission, Card, PaymentMethod, SocialNetwork, Partner, Footer
+from rfu.main_page.models import Mission, Card, PaymentMethod, SocialNetwork, Partner, Footer, Crypto
 from datetime import date
 
 
@@ -26,6 +26,7 @@ class IndexView(TemplateView):
         context['missions'] = Mission.objects.all()
         context['cards'] = Card.objects.all()
         context['payment_methods'] = PaymentMethod.objects.all()
+        context['crypto'] = Crypto.objects.all()
         context['social_networks'] = SocialNetwork.objects.all()
         context['partners'] = Partner.objects.all()
         context['footer'] = Footer.objects.all()

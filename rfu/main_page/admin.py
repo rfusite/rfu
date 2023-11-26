@@ -3,7 +3,7 @@ from django.utils.safestring import mark_safe
 
 from .models import (Mission, Card,
                      PaymentMethod, SocialNetwork,
-                     Partner, Footer, TranslatedText)
+                     Partner, Footer, TranslatedText, Crypto)
 
 
 @admin.register(Mission)
@@ -45,6 +45,16 @@ class CardAdmin(admin.ModelAdmin):
 
 
 @admin.register(PaymentMethod)
+class PaymentMethodAdmin(admin.ModelAdmin):
+    list_display = ['icon', 'name', 'description', 'link']
+    list_display_links = ['name']
+    search_fields = ['name']
+    empty_value_display = '-пусто-'
+    list_filter = ['icon']
+    list_editable = ['description']
+
+
+@admin.register(Crypto)
 class PaymentMethodAdmin(admin.ModelAdmin):
     list_display = ['icon', 'name', 'description', 'link']
     list_display_links = ['name']

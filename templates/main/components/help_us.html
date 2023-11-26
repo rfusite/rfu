@@ -1,78 +1,68 @@
 {% load static i18n %}
 
-<div class="row hidden-section pt-3">
+<div class="container px-0 pt-3">
 
-    <!-- Первая секция -->
-    <div class="col-md-4 px-2">
-        <div class="card px-2 h-100">
-            <div class="card-body">
-                <button class="btn btn-link p-0 no-underline" type="button" data-toggle="collapse" data-target="#section1"
-                        aria-expanded="false">
-                    <h2><i class="bi bi-people"></i> {% trans "Приехать и встать в наши ряды" %}</h2>
-                    <!-- Секция со шевроном -->
-                    <div class="d-flex justify-content-center">
-                        <i class="h3 bi bi-chevron-compact-down"></i>
-                    </div>
-                </button>
-                <div class="collapse" id="section1">
-                    {% trans "Пожалуйста, заполните анкету волонтера Russians for Ukraine, чтобы мы могли с Вами связаться." %}
-                    <a href="https://forms.gle/FDrwXD1eFE7MVf17A" class="btn btn-primary mt-3">{% trans "Заполнить анкету" %}</a>
-                </div>
-            </div>
-        </div>
+  <div class="row">
+
+    <!-- Карточка анкета -->
+    <div class="col-md col-g-4 px-2 d-flex flex-column">
+      <div class="p-3 dark-blue-box mb-3 h-100">
+        <h2>{% trans "Стать волонтером" %}</h2>
+        <p>{% trans "Пожалуйста, оставьте ваши контактные данные" %}</p>
+        <a href="https://forms.gle/FDrwXD1eFE7MVf17A" class="btn btn-primary" target="_blank">
+          Заполнить анкету
+          <i class="bi bi-box-arrow-in-up-right"></i><!-- Используйте соответствующий класс иконки Bootstrap -->
+        </a>
+      </div>
+      <div class="img-rounded h-100">
+        <img src="https://via.placeholder.com/400" class="card-img-top" alt="Placeholder Image">
+      </div>
     </div>
 
-    <!-- Вторая секция -->
-    <div class="col-md-4 px-2">
-        <div class="card  h-100">
-            <div class="card-body">
-                <button class="btn btn-link p-0 no-underline" type="button" data-toggle="collapse" data-target="#section2"
-                        aria-expanded="false">
-                    <h2><i class="bi bi-wallet2"></i> {% trans "помочь удаленно деньгами" %}</h2>
-                    <!-- Секция со шевроном -->
-                    <div class="d-flex justify-content-center">
-                        <i class="h3 bi bi-chevron-compact-down"></i>
-                    </div>
-                </button>
-                <div class="collapse" id="section2">
-                    {% for method in payment_methods %}
-                    <div class="pb-2 border-bottom">
-                        <i class="plus-size bi {{ method.icon }}"></i> {{ method.name }}
-                        <div>
-                            {% if method.link %}
-                                <a href="{{ method.link }}">{{ method.link }}</a>
-                            {% else %}
-                                {{ method.description }}
-                            {% endif %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
+    <!-- Карточка соцсети -->
+    <div class="col-md col-g-4 px-2 d-flex flex-column">
+      <div class="img-rounded mb-3 h-100">
+        <img src="https://via.placeholder.com/400" class="card-img-top" alt="Placeholder Image">
+      </div>
+      <div class="p-3 dark-blue-box h-100">
+        <h2>{% trans "Рассказать о нас" %}</h2>
+        <p>{% trans "Поделитесь ссылкой на нас в соцсетях" %}</p>
+        {% for method in social_networks %}
+          <a href="{{ method.link }}" class="social-icon" target="_blank">
+            <i class="bi {{ method.icon }}"></i>
+          </a>
+        {% endfor %}
+      </div>
     </div>
 
-    <!-- Третья секция -->
-    <div class="col-md-4  px-2">
-        <div class="card  h-100">
-            <div class="card-body">
-                <button class="btn btn-link p-0 no-underline" type="button" data-toggle="collapse" data-target="#section3"
-                        aria-expanded="false">
-                    <h2><i class="bi bi-share"></i> {% trans "рассказать о нас" %}</h2>
-                    <!-- Секция со шевроном -->
-                    <div class="d-flex justify-content-center">
-                        <i class="h3 bi bi-chevron-compact-down"></i>
-                    </div>
-                </button>
-                <div class="collapse" id="section3">
-                    {% trans "Поделитесь ссылкой на нас в социальных сетях:" %}
-                    {% for method in social_networks %}
-                    <div class="pb-2 border-bottom">
-                        <a href="{{ method.link }}"><i class="plus-size bi {{ method.icon }}"></i> {{ method.name }}</a>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
+    <!-- Карточка деньги -->
+    <div class="col-md col-g-4 px-2 d-flex flex-column">
+      <div class="p-3 blue-box h-100">
+        <h2>{% trans "Отправить донат" %}</h2>
+        <p>{% trans "Сделайте взнос в пользу украинских беженцев" %}</p>
+        {% for method in payment_methods %}
+          <a href="{{ method.link }}" class="btn btn-light mb-1 w-100 px-5 d-flex justify-content-around" target="_blank">
+            {% trans method.name %}
+            {% if method.image %}
+              <img src="{{ method.image }}" style="height: 1.5em;" alt="{% trans method.name %}">
+            {% else %}
+              <i class="{{ method.icon }}"></i>
+            {% endif %}
+          </a><br>
+        {% endfor %}
+        <h2>{% trans "Пожертвовать криптовалюту" %}</h2>
+        <p>{% trans "Это абсолютно безопасно и анонимно" %}</p>
+
+        <!-- Группа кнопок с дропдауном -->
+        {% for method in crypto %}
+        <button class="btn btn-light mb-2 w-100 px-5" onclick="copyToClipboard('{{ method.description }}')">
+          <span><i class="{{ method.icon }}"></i> {% trans method.name %} |
+          </span>{{ method.description|slice:":5" }}... <i class="bi bi-copy"></i>
+        </button>
+        {% endfor %}
+
+      </div>
     </div>
-</div> <!-- /hidden section -->
+  </div>
+
+</div>

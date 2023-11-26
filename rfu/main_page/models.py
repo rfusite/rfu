@@ -4,13 +4,21 @@ from django.utils.translation import gettext_lazy as _
 
 
 class WebHero(models.Model):
-    cars_count = models.CharField(max_length=50, verbose_name=_("Машин"))
-    volunteers_count = models.IntegerField(verbose_name=_("Волонтеров"))
-    shelter_refugees_count = models.CharField(max_length=50, verbose_name=_("Беженцев в шелтере"))
-    days_of_war = models.IntegerField(verbose_name=_("Дней войны"))
-    days_of_rfu = models.IntegerField(verbose_name=_("Дней РФУ"))
-    humanitarian_goods_weight = models.CharField(max_length=50, verbose_name=_("Гуманитарных грузов"))
-    flights_count = models.IntegerField(verbose_name=_("Рейсы"))
+    cars_count = models.CharField(max_length=50, verbose_name=_("Машин"), blank=True, null=True, default=350)
+    volunteers_count = models.IntegerField(verbose_name=_("Волонтеров"), blank=True, null=True, default=320)
+    shelter_refugees_count = models.CharField(max_length=50,
+                                              verbose_name=_("Беженцев в шелтере"),
+                                              blank=True,
+                                              null=True,
+                                              default="2600")
+    days_of_war = models.IntegerField(verbose_name=_("Дней войны"), blank=True, null=True)
+    days_of_rfu = models.IntegerField(verbose_name=_("Дней RFU"), blank=True, null=True)
+    humanitarian_goods_weight = models.CharField(max_length=50,
+                                                 verbose_name=_("Гуманитарных грузов"),
+                                                 blank=True,
+                                                 null=True,
+                                                 default=50)
+    flights_count = models.IntegerField(verbose_name=_("Рейсы"), blank=True, null=True, default=92)
 
     def save(self, *args, **kwargs):
         if not self.pk and WebHero.objects.exists():
@@ -24,8 +32,16 @@ class WebHero(models.Model):
 
 
 class Mission(models.Model):
-    header = models.ForeignKey('TranslatedText', on_delete=models.CASCADE, related_name='mission_header', blank=True, null=True)
-    text = models.ForeignKey('TranslatedText', on_delete=models.CASCADE, related_name='mission_text', blank=True, null=True)
+    header = models.ForeignKey('TranslatedText',
+                               on_delete=models.CASCADE,
+                               related_name='mission_header',
+                               blank=True,
+                               null=True)
+    text = models.ForeignKey('TranslatedText',
+                             on_delete=models.CASCADE,
+                             related_name='mission_text',
+                             blank=True,
+                             null=True)
 
     def __str__(self):
         return self.get_header()
@@ -43,8 +59,15 @@ class Mission(models.Model):
 
 class Card(models.Model):
     image = models.ImageField(upload_to='cards/', default='https://via.placeholder.com/400')
-    title = models.ForeignKey('TranslatedText', on_delete=models.CASCADE, related_name='card_title', blank=True, null=True)
-    description = models.ForeignKey('TranslatedText', on_delete=models.CASCADE, related_name='card_description', blank=True, null=True)
+    title = models.ForeignKey('TranslatedText',
+                              on_delete=models.CASCADE,
+                              related_name='card_title',
+                              blank=True, null=True)
+    description = models.ForeignKey('TranslatedText',
+                                    on_delete=models.CASCADE,
+                                    related_name='card_description',
+                                    blank=True,
+                                    null=True)
     button = models.URLField(blank=True, null=True)
 
     def get_title(self):
@@ -71,14 +94,24 @@ class PaymentMethod(models.Model):
         ('bi-wallet2', 'Wallet'),
         ('bi-paypal', 'Paypal'),
         ('bi-heart', 'GoFundMe'),
+    ]
+    icon = models.CharField(max_length=50, choices=ICONS, blank=True, null=True)
+    image = models.URLField(default='https://via.placeholder.com/150x50', blank=True, null=True)
+    name = models.CharField(max_length=200)
+    description = models.CharField(max_length=500, blank=True, null=True)
+    link = models.URLField(blank=True, null=True)
+
+
+class Crypto(models.Model):
+    ICONS = [
         ('bi-currency-bitcoin', 'Bitcoin'),
         ('bi-currency-ethereum', 'ETH'),
         ('bi-cash', 'USDT (TRC20)'),
     ]
     icon = models.CharField(max_length=50, choices=ICONS, blank=True, null=True)
     name = models.CharField(max_length=200)
-    description = models.CharField(max_length=500, blank=True, null=True)  # Текстовое описание
-    link = models.URLField(blank=True, null=True)  # Фактическая ссылка
+    description = models.CharField(max_length=500, blank=True, null=True)
+    link = models.URLField(blank=True, null=True)
 
 
 class SocialNetwork(models.Model):

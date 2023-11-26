@@ -1,44 +1,49 @@
 {% load static %}
 {% load i18n %}
 <!-- Navbar -->
-<nav class="navbar navbar-lg navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="#">
-    <img src="{% static 'logo.png' %}" alt="{% trans 'rfu logo' %}" height="60">
-    Russians for Ukraine
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{% trans 'Toggle navigation' %}">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="container px-0">
+  <nav class="navbar navbar-lg navbar-expand-lg navbar-light px-0">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'logo.png' %}" alt="{% trans 'rfu logo' %}" height="60">
+      Fundacja RFU
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{% trans 'Toggle navigation' %}">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-          <a class="nav-link" href="{% url 'index' %}">
-              {% trans 'Главная' %}
-          </a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{% url 'about' %}">
-              {% trans 'СМИ' %}
-          </a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog' %}">
-              {% trans 'Блог' %}
-          </a>
-      </li>
-      <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">{% trans '🌍 Язык' %}</a>
-          <div class="dropdown-menu">
-            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-              <input name="next" type="hidden" value="{{ request.path }}">
-                <button type="submit" name="language" value="ru" class="dropdown-item">🇷🇺 Русский</button>
-                <button type="submit" name="language" value="en" class="dropdown-item">🇬🇧 English</button>
-                <button type="submit" name="language" value="ua" class="dropdown-item">🇺🇦 Українська</button>
-                <button type="submit" name="language" value="pl" class="dropdown-item">🇵🇱 Polski</button>
-            </form>
-          </div>
-      </li>
-    </ul>
-  </div>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+      <ul class="navbar-nav">
+          <li class="nav-item active">
+              <a class="nav-link" href="{% url 'index' %}">
+                  {% trans 'Главная' %}
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">
+                  {% trans 'СМИ' %}
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'blog' %}">
+                  {% trans 'Блог' %}
+              </a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">{% trans '🌍 Язык' %}</a>
+              <div class="dropdown-menu">
+                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                  <input name="next" type="hidden" value="{{ request.path }}">
+                    <button type="submit" name="language" value="ru" class="dropdown-item">🇷🇺 Русский</button>
+                    <button type="submit" name="language" value="en" class="dropdown-item">🇬🇧 English</button>
+                    <button type="submit" name="language" value="ua" class="dropdown-item">🇺🇦 Українська</button>
+                    <button type="submit" name="language" value="pl" class="dropdown-item">🇵🇱 Polski</button>
+                </form>
+              </div>
+          </li>
+        </ul>
+      <a class="btn btn-warning" href="https://paypal.me/RussiansForUkraine" target="_blank">
+          Участвовать
+      </a>
+      </div>
 </nav>
+</div><!-- /Navbar -->
