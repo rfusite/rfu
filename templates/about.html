@@ -2,11 +2,34 @@
 {% load static i18n %}
 {% block content %}
 <div class="container my-3">
-    {% for article in articles %}
-        <a href="{{ article.link }}" target="_blank"><h2>{% trans article.header %}</h2></a>
-        <p><strong>{% trans article.media_name %}</strong></p>
-        <p><strong>{% trans "Дата:" %}</strong> {{ article.date }}</p>
-        {% if not forloop.last %}<hr>{% endif %}
+    <div class="row">
+    {% for item in articles_with_images %}
+      {% if item.is_pattern %}
+        <!-- Квадратик с картинкой -->
+        <div class="col-xl-3 col-md-4 col-6 p-2">
+          <div class="ratio ratio-1x1">
+              <div class="h-100 img-rounded">
+                <img src="{% static 'pattern/pattern' %}{{ item.pattern_number }}.png" class="card-img-top" alt="Placeholder Image">
+              </div>
+          </div>
+        </div>
+      {% else %}
+        <!-- Стандартная карточка статьи -->
+        <div class="col-xl-3 col-md-4 col-6 p-2">
+          <div class="ratio ratio-1x1">
+              <div class="{{ item.css_class }} p-3 d-flex flex-column h-100 w-100 smi-card animated">
+                  <div>
+                      <a href="{{ item.link }}" target="_blank" class="media-header no-underline no-blue mb-auto">
+                          <h4>{% trans item.header %}</h4>
+                      </a>
+                      <p class="media-subheader"><strong>{% trans item.media_name %}</strong></p>
+                  </div>
+                  <p class="media-date mt-auto"><strong>{% trans "Дата:" %}</strong> {{ item.date }}</p>
+              </div>
+          </div>
+        </div>
+      {% endif %}
     {% endfor %}
+    </div>
 </div>
 {% endblock %}

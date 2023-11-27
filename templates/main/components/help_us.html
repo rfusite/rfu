@@ -1,68 +1,73 @@
 {% load static i18n %}
 
-<div class="container px-0 pt-3">
+<div class="row p-2 m-0">
 
-  <div class="row">
+  <!-- Карточка анкета -->
+  <div class="col-md-6 col-lg-4 px-2 d-flex flex-column">
+    <div class="p-3 dark-blue-box mb-3 animated h-100">
+      <h2>{% trans "Стать волонтером" %}</h2>
+      <p>{% trans "Пожалуйста, оставьте ваши контактные данные" %}</p>
+      <a href="https://forms.gle/FDrwXD1eFE7MVf17A" class="btn btn-primary" target="_blank">
+        Заполнить анкету
+        <i class="bi bi-box-arrow-in-up-right"></i><!-- Используйте соответствующий класс иконки Bootstrap -->
+      </a>
+    </div>
+    <div class="img-rounded d-none d-lg-block ">
+      <img src="https://via.placeholder.com/400" class="img-fluid w-100" alt="Placeholder Image">
+    </div>
+  </div>
 
-    <!-- Карточка анкета -->
-    <div class="col-md col-g-4 px-2 d-flex flex-column">
-      <div class="p-3 dark-blue-box mb-3 h-100">
-        <h2>{% trans "Стать волонтером" %}</h2>
-        <p>{% trans "Пожалуйста, оставьте ваши контактные данные" %}</p>
-        <a href="https://forms.gle/FDrwXD1eFE7MVf17A" class="btn btn-primary" target="_blank">
-          Заполнить анкету
-          <i class="bi bi-box-arrow-in-up-right"></i><!-- Используйте соответствующий класс иконки Bootstrap -->
+  <!-- Карточка соцсети -->
+  <div class="col-md-6 col-lg-4 px-2 d-flex flex-column">
+    <div class="img-rounded mb-3 d-none d-lg-block">
+      <img src="https://via.placeholder.com/400" class="img-fluid w-100" alt="Placeholder Image">
+    </div>
+    <div class="p-3 dark-blue-box animated mb-3 h-100">
+      <h2>{% trans "Рассказать о нас" %}</h2>
+      <p>{% trans "Поделитесь ссылкой на нас в соцсетях" %}</p>
+      {% for method in social_networks %}
+        <a href="{{ method.link }}" class="social-icon" target="_blank">
+          <i class="bi {{ method.icon }}"></i>
         </a>
-      </div>
-      <div class="img-rounded h-100">
-        <img src="https://via.placeholder.com/400" class="card-img-top" alt="Placeholder Image">
-      </div>
+      {% endfor %}
     </div>
+  </div>
 
-    <!-- Карточка соцсети -->
-    <div class="col-md col-g-4 px-2 d-flex flex-column">
-      <div class="img-rounded mb-3 h-100">
-        <img src="https://via.placeholder.com/400" class="card-img-top" alt="Placeholder Image">
-      </div>
-      <div class="p-3 dark-blue-box h-100">
-        <h2>{% trans "Рассказать о нас" %}</h2>
-        <p>{% trans "Поделитесь ссылкой на нас в соцсетях" %}</p>
-        {% for method in social_networks %}
-          <a href="{{ method.link }}" class="social-icon" target="_blank">
-            <i class="bi {{ method.icon }}"></i>
-          </a>
-        {% endfor %}
-      </div>
+  <div class="col-md-6 col-lg-4 d-none d-md-block d-sm-none d-xl-none d-lg-none px-2 d-flex flex-column">
+    <div class="img-rounded">
+      <img src="https://via.placeholder.com/400" class="img-fluid w-100" alt="Placeholder Image">
     </div>
+  </div>
 
-    <!-- Карточка деньги -->
-    <div class="col-md col-g-4 px-2 d-flex flex-column">
-      <div class="p-3 blue-box h-100">
-        <h2>{% trans "Отправить донат" %}</h2>
-        <p>{% trans "Сделайте взнос в пользу украинских беженцев" %}</p>
-        {% for method in payment_methods %}
-          <a href="{{ method.link }}" class="btn btn-light mb-1 w-100 px-5 d-flex justify-content-around" target="_blank">
-            {% trans method.name %}
-            {% if method.image %}
-              <img src="{{ method.image }}" style="height: 1.5em;" alt="{% trans method.name %}">
-            {% else %}
-              <i class="{{ method.icon }}"></i>
-            {% endif %}
-          </a><br>
-        {% endfor %}
-        <h2>{% trans "Пожертвовать криптовалюту" %}</h2>
-        <p>{% trans "Это абсолютно безопасно и анонимно" %}</p>
-
-        <!-- Группа кнопок с дропдауном -->
-        {% for method in crypto %}
-        <button class="btn btn-light mb-2 w-100 px-5" onclick="copyToClipboard('{{ method.description }}')">
-          <span><i class="{{ method.icon }}"></i> {% trans method.name %} |
-          </span>{{ method.description|slice:":5" }}... <i class="bi bi-copy"></i>
+  <!-- Карточка деньги -->
+  <div class="col-md-6 col-lg-4 px-2 d-flex flex-column">
+    <div class="p-3 yellow-box animated">
+      <h2>{% trans "Отправить донат" %}</h2>
+      <p>{% trans "Сделайте взнос в пользу украинских беженцев" %}</p>
+      {% for method in payment_methods %}
+        <button href="{{ method.link }}" class="btn btn-light mb-3 w-100 px-5 d-flex justify-content-around"
+                target="_blank">
+          {% trans method.name %}
+          {% if method.image %}
+            <img src="{{ method.image }}" style="height: 1.5em;" alt="{% trans method.name %}">
+          {% else %}
+            <i class="{{ method.icon }}"></i>
+          {% endif %}
         </button>
-        {% endfor %}
+      {% endfor %}
+      <h2>{% trans "Пожертвовать криптовалюту" %}</h2>
+      <p>{% trans "Это абсолютно безопасно и анонимно" %}</p>
 
-      </div>
+      <!-- Группа кнопок с дропдауном -->
+      {% for method in crypto %}
+      <button class="btn btn-light mb-3 w-100 px-5" onclick="copyToClipboard('{{ method.description }}')">
+        <span><i class="{{ method.icon }}"></i> {% trans method.name %} |
+        </span>{{ method.description|slice:":5" }}... <i class="bi bi-copy"></i>
+      </button>
+      {% endfor %}
+
     </div>
+
   </div>
 
 </div>

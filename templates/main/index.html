@@ -2,46 +2,46 @@
 {% load static i18n %}
 {% block content %}
 
-<div class="container my-2">
-
 {% include 'main/components/hero.html' %}
-<div class="container-fluid px-0">
-<!-- Tab navigation -->
-<ul class="nav nav-tabs mt-3 border-0" id="myTab" role="tablist">
-  <li class="nav-item border-0">
-    <a class="nav-link active border-0" id="mission-tab" data-toggle="tab" href="#mission" role="tab"
-       aria-controls="mission"
-       aria-selected="true">
-      {% trans "Наша миссия" %}
-    </a>
-  </li>
-  <li class="nav-item border-0">
-    <a class="nav-link border-0" id="cards-tab" data-toggle="tab" href="#cards" role="tab" aria-controls="cards"
-       aria-selected="false">
-      {% trans "Наша работа" %}
-    </a>
-  </li>
-  <li class="nav-item border-0">
-    <a class="nav-link border-0" id="help_us-tab" data-toggle="tab" href="#help_us" role="tab" aria-controls="help_us"
-       aria-selected="false">
-      {% trans "Чем нам помочь" %}
-    </a>
-  </li>
-</ul>
+<div class="bg-light-blue py-1 m-0">
+  <div class="container-fluid px-0">
+  <!-- Tab navigation -->
+    <ul class="nav nav-tabs border-0 fs-6 fs-md-6 fs-lg-2 fs-xl-1" id="myTab" role="tablist">
+      <li class="nav-item border-0">
+        <a class="nav-link minus-size active border-0 py-4" id="mission-tab" data-toggle="tab" href="#mission"
+           role="tab"
+           aria-controls="mission"
+           aria-selected="true">
+          {% trans "Наша миссия" %}
+        </a>
+      </li>
+      <li class="nav-item border-0">
+        <a class="nav-link minus-size border-0 py-4" id="cards-tab" data-toggle="tab" href="#cards" role="tab" aria-controls="cards"
+           aria-selected="false">
+          {% trans "Наша работа" %}
+        </a>
+      </li>
+      <li class="nav-item border-0">
+        <a class="nav-link minus-size border-0 py-4" id="help_us-tab" data-toggle="tab" href="#help_us" role="tab"
+           aria-controls="help_us"
+           aria-selected="false">
+          {% trans "Чем нам помочь" %}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- Tab content -->
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="mission" role="tabpanel" aria-labelledby="mission-tab">
+      {% include 'main/components/mission.html' %}
+    </div>
+    <div class="tab-pane fade" id="cards" role="tabpanel" aria-labelledby="cards-tab">
+      {% include 'main/components/cards.html' %}
+    </div>
+    <div class="tab-pane fade" id="help_us" role="tabpanel" aria-labelledby="help_us-tab">
+      {% include 'main/components/help_us.html' %}
+    </div>
+  </div>
 </div>
-<!-- Tab content -->
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="mission" role="tabpanel" aria-labelledby="mission-tab">
-    {% include 'main/components/mission.html' %}
-  </div>
-  <div class="tab-pane fade" id="cards" role="tabpanel" aria-labelledby="cards-tab">
-    {% include 'main/components/cards.html' %}
-  </div>
-  <div class="tab-pane fade" id="help_us" role="tabpanel" aria-labelledby="help_us-tab">
-    {% include 'main/components/help_us.html' %}
-  </div>
-</div>
-
-
-</div> <!-- /container -->
 {% endblock %}
+

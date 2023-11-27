@@ -1,18 +1,24 @@
 <!-- Footer -->
-<footer class="text-lg-start">
+{% load i18n %}
+<!-- Footer -->
+<footer class="text-lg-start border-top">
   <div class="container p-3">
-    <div class="row">
-      <div class="col-md-6 text-center text-md-left">
-        Adres: Medyka, 242, Polska<br>
-        Telefon: +1234567890<br>
-        Email: info@russiansforukraine.org<br>
+    <div class="row text-center text-lg-left">
+      <div class="col-lg-4 col-md-4 mb-3 mb-md-0">
+        {% trans "© 2023 Fundacja RFU" %}
       </div>
-      <div class="col-md-6 text-center text-md-right">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdTwEHi1-i4I32PxhBhGKdmPqfmcnmSAT6rj_7AuDxzIyMHdg/viewform?usp=sharing" target="_blank" rel="noopener noreferrer">Ошибки и предложения</a>
+
+      <div class="col-lg-4 col-md-4 mb-3 mb-md-0">
+        {% trans "Наш адрес: Medyka, 242, Polska" %}
       </div>
-    </div>
-    <div class="text-center">
-      © 2023 Russians for Ukraine
+
+      <div class="col-lg-2 col-md-2 mb-3 mb-md-0">
+        {% trans "Телефон: (+12) 345-678-90" %}
+      </div>
+
+      <div class="col-lg-2 col-md-2 mb-3 mb-md-0">
+        {% trans "Email: info@russiansforukraine.org" %}
+      </div>
     </div>
   </div>
 </footer>

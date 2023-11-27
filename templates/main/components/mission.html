@@ -1,43 +1,76 @@
 {% load static i18n %}
 <!-- Cards -->
-<div class="container px-0 pt-3">
-  <div class="row">
 
-    <div class="col-sm-6 col-md-4 p-2">
-      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-2 light-blue-box">
-        <h2>{% trans "Кто мы?" %}</h2>
-        <p>{% trans "Россияне, в разное время уехавшие из России" %}</p>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4 p-2">
-      <div class="h-100 img-rounded">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Placeholder Image">
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4 p-2">
-      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-2 dark-blue-box">
-        <h2>{% trans "Чего мы хотим?" %}</h2>
-        <p>{% trans "Мира, то есть победы Украины в этой войне" %}</p>
-      </div>
-    </div>
+<div class="row p-2 m-0">
 
-    <div class="col-sm-6 col-md-3 p-2">
-      <div class="h-100 img-rounded">
-        <img src="https://via.placeholder.com/200" class="card-img-top" alt="Placeholder Image">
-      </div>
+<!-- Карточки для мобильных устройств -->
+<div class="col-12 d-block d-md-none blog-card border-0 p-2 my-2">
+  <div class="card p-3 border-0">
+    <div class="card-body">
+      <h5 class="card-title">{% trans "Кто мы?" %}</h5>
+      <p class="card-text">{% trans "Россияне, в разное время уехавшие из России" %}</p>
     </div>
-    <div class="col-sm-6 col-md-6 p-2">
-      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-2 light-blue-box">
-        <h2>{% trans "Что мы для этого делаем?" %}</h2>
-        <p>{% trans "Помогаем украинским беженцам в Европе и передаем гуманитарную помощь в Украину" %}</p>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-3 p-2">
-      <div class="h-100 img-rounded">
-        <img src="https://via.placeholder.com/200" class="card-img-top" alt="Placeholder Image">
-      </div>
-    </div>
-
-
+    <img src="https://via.placeholder.com/300x200" class="card-img-bottom" alt="Placeholder Image">
   </div>
 </div>
+
+<div class="col-12 d-block d-md-none blog-card border-0 p-2 my-2">
+  <div class="card p-3 border-0">
+    <div class="card-body">
+      <h5 class="card-title">{% trans "Чего мы хотим?" %}</h5>
+      <p class="card-text">{% trans "Мира, то есть победы Украины в этой войне" %}</p>
+    </div>
+    <img src="https://via.placeholder.com/200" class="card-img-bottom" alt="Placeholder Image">
+  </div>
+</div>
+
+<div class="col-12 d-block d-md-none blog-card border-0 p-2 my-2">
+  <div class="card p-3 border-0">
+    <div class="card-body">
+      <h5 class="card-title">{% trans "Что мы для этого делаем?" %}</h5>
+      <p class="card-text">{% trans "Помогаем украинским беженцам в Европе и передаем гуманитарную помощь в Украину" %}</p>
+    </div>
+    <img src="https://via.placeholder.com/200" class="card-img-bottom" alt="Placeholder Image">
+  </div>
+</div>
+
+<!-- Блоки для экранов lg и больше -->
+<div class="col-md-4 d-none d-md-block p-2">
+  <div class="d-flex flex-column h-100 justify-content-center align-items-center p-2 light-blue-box">
+    <h2>{% trans "Кто мы?" %}</h2>
+    <p>{% trans "Россияне, в разное время уехавшие из России" %}</p>
+  </div>
+</div>
+<div class="col-md-4 d-none d-md-block p-2">
+  <div class="h-100 img-rounded">
+    <img src="https://via.placeholder.com/300x200" class="img-fluid w-100 h-100" alt="Placeholder Image">
+  </div>
+</div>
+
+<div class="col-md-4 d-none d-md-block p-2">
+  <div class="d-flex flex-column h-100 justify-content-center align-items-center p-2 dark-blue-box">
+    <h2>{% trans "Чего мы хотим?" %}</h2>
+    <p>{% trans "Мира, то есть победы Украины в этой войне" %}</p>
+  </div>
+</div>
+<div class="col-md-3 d-none d-md-block p-2">
+  <div class="h-100 img-rounded">
+    <img src="https://via.placeholder.com/200" class="img-fluid w-100 h-100" alt="Placeholder Image">
+  </div>
+</div>
+
+<div class="col-md-6 d-none d-md-block p-2">
+  <div class="d-flex flex-column h-100 justify-content-center align-items-center p-2 light-blue-box">
+    <h2>{% trans "Что мы для этого делаем?" %}</h2>
+    <p>{% trans "Помогаем украинским беженцам в Европе и передаем гуманитарную помощь в Украину" %}</p>
+  </div>
+</div>
+<div class="col-md-3 d-none d-md-block p-2">
+  <div class="h-100 img-rounded">
+    <img src="https://via.placeholder.com/200" class="img-fluid w-100 h-100" alt="Placeholder Image">
+  </div>
+</div>
+
+
+</div>
+

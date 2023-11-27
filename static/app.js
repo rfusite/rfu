@@ -3,15 +3,16 @@ $(document).ready(function() {
         var parentDiv = $(this).closest(".text-truncated");
         var shortText = parentDiv.find(".text-short");
         var fullText = parentDiv.find(".text-full");
+        var moreLink = parentDiv.find(".show-more-link");
 
         if(fullText.is(":hidden")){
             shortText.hide();
             fullText.show();
-            $(this).text("less");
+            $(this).hide(); // Скрыть "...more" когда текст развернут
         } else {
             fullText.hide();
             shortText.show();
-            $(this).text("...more");
+            moreLink.show(); // Показать "...more" когда текст свернут
         }
     });
 });

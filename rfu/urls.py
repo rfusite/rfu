@@ -31,6 +31,7 @@ urlpatterns = [
     path('about/', include('rfu.about.urls')),
     path('api/like/<int:post_id>/', views.LikeView.as_view(), name='like_post'),
     path('i18n/', include('django.conf.urls.i18n')),
+    path("cookies/", include("cookie_consent.urls")),
 ]
 
 if settings.DEBUG:

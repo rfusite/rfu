@@ -16,6 +16,7 @@ django-menus = "^1.1.2"
 menus = "^0.2.0"
 cms = "^0.0.2"
 treebeard = "^0.1.1"
+django-cookie-consent = "^0.4.0"
 
 
 [tool.poetry.group.dev.dependencies]

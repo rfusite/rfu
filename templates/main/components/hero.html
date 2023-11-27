@@ -1,83 +1,103 @@
 {% load static i18n %}
-<div class="container px-0">
-  <div class="row text-center">
+<div class="row text-center m-0">
 
-    <!-- Первый квадратик -->
-    <div class="col-sm-12 col-md-8 col-lg-6 p-2">
-      <div class="d-flex flex-column justify-content-center align-items-center">
-        <h1>{% trans "Помогаем украинским беженцам в Европе и передаем гуманитарную помощь в Украину" %}</h1>
-      </div>
+  <!-- Первый квадратик -->
+  <div class="col-12 col-md-6 p-2">
+    <div class="d-flex h-100 flex-column justify-content-center align-items-center intro-box text-start">
+      <p class="p-4">
+        {% trans "Помогаем украинским беженцам в Европе и передаем гуманитарную помощь в Украину" %}
+      </p>
     </div>
-    <!-- Квадратик для счетчика дней войны -->
-    <div class="col-sm-6 col-md-4 col-lg-3 p-2">
+  </div>
+  <!-- Квадратик для счетчика дней войны -->
+  <div class="col-6 col-md-3 p-2">
+    <div class="ratio ratio-1x1">
       <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 dark-blue-box">
         <h2 class="big-number">{{ days_of_war }}</h2>
         <p class="big-text">{% trans "дней войны" %}</p>
       </div>
     </div>
-    <!-- Квадратик с картинкой -->
-    <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-      <div class="h-100 img-rounded">
-        <img src="{% static 'pattern/pattern6.png' %}" class="card-img-top" alt="Placeholder Image">
+  </div>
+  <!-- Квадратик с картинкой -->
+  <div class="col-6 col-md-3 p-2">
+    <div class="ratio ratio-1x1">
+      <div class="h-100 img-rounded overflow-hidden">
+        <img src="{% static 'pattern/pattern6.png' %}" class="img-fluid w-100 h-auto" alt="Placeholder Image">
       </div>
     </div>
+  </div>
 
 
-    <!-- Квадратик с картинкой -->
-    <div class="col-sm-6 col-md-4 col-lg-3 p-2">
+  <!-- Квадратик с картинкой -->
+  <div class="col-6 col-md-3 p-2">
+    <div class="ratio ratio-1x1">
       <div class="h-100 img-rounded">
-        <img src="{% static 'pattern/pattern4.png' %}" class="card-img-top" alt="Placeholder Image">
+        <img src="{% static 'pattern/pattern4.png' %}" class="img-fluid w-100 h-auto" alt="Placeholder Image">
       </div>
     </div>
-    <!-- Квадратик для счетчика беженцев в шелтере -->
-    <div class="col-sm-6 col-md-4 col-lg-3 p-2">
+  </div>
+  <!-- Квадратик для счетчика беженцев в шелтере -->
+  <div class="col-6 col-md-3 p-2">
+    <div class="ratio ratio-1x1">
       <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 light-blue-box">
         <h2 class="big-number">2600</h2>
         <p class="big-text">{% trans "беженцев в шелтере" %}</p>
       </div>
     </div>
-    <!-- Квадратик для счетчика рейсов -->
-    <div class="col-sm-6 col-md-4 col-lg-3 p-2">
+  </div>
+  <!-- Квадратик для счетчика рейсов -->
+  <div class="col-6 col-md-3 p-2">
+    <div class="ratio ratio-1x1">
       <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 blue-box">
         <h2 class="big-number">{{ flights_count }}</h2>
         <p class="big-text">{% trans "рейсов в Европу" %}</p>
       </div>
     </div>
-    <!-- Квадратик для счетчика волонтеров -->
-    <div class="col-sm-6 col-md-4 col-lg-3 p-2">
+  </div>
+  <!-- Квадратик для счетчика волонтеров -->
+  <div class="col-6 col-md-3 p-2">
+    <div class="ratio ratio-1x1">
       <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 light-blue-box">
          <h2 class="big-number">320</h2>
         <p class="big-text">{% trans "волонтеров" %}</p>
       </div>
     </div>
+  </div>
 
-    <!-- Квадратик для счетчика дней РФУ -->
-    <div class="col-sm-6 col-md-4 col-lg-3 p-2">
+  <!-- Квадратик для счетчика дней РФУ -->
+  <div class="col-6 col-md-3 p-2">
+    <div class="ratio ratio-1x1">
       <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 light-blue-box">
         <h2 class="big-number">{{ days_of_rfu }}</h2>
         <p class="big-text">{% trans "дней РФУ" %}</p>
       </div>
     </div>
-    <!-- Квадратик для счетчика гуманитарных грузов -->
-    <div class="col-sm-6 col-md-4 col-lg-3 p-2">
+  </div>
+  <!-- Квадратик для счетчика гуманитарных грузов -->
+  <div class="col-6 col-md-3 p-2">
+    <div class="ratio ratio-1x1">
       <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 dark-blue-box">
         <h2 class="big-number">50</h2>
         <p class="big-text">{% trans "тонн грузов" %}</p>
       </div>
     </div>
-    <!-- Квадратик с картинкой -->
-    <div class="col-sm-6 col-md-4 col-lg-3 p-2">
+  </div>
+  <!-- Квадратик с картинкой -->
+  <div class="col-6 col-md-3 p-2">
+    <div class="ratio ratio-1x1">
       <div class="h-100 img-rounded">
-        <img src="{% static 'pattern/pattern9.png' %}" class="card-img-top" alt="Placeholder Image">
+        <img src="{% static 'pattern/pattern9.png' %}" class="img-fluid w-100 h-auto" alt="Placeholder Image">
       </div>
     </div>
-    <!-- Квадратик для счетчика машин -->
-    <div class="col-sm-6 col-md-4 col-lg-3 p-2">
+  </div>
+  <!-- Квадратик для счетчика машин -->
+  <div class="col-6 col-md-3 p-2">
+    <div class="ratio ratio-1x1">
       <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 yellow-box">
         <h2 class="big-number">350</h2>
         <p class="big-text">{% trans "машин" %}</p>
       </div>
     </div>
-
   </div>
+
 </div>

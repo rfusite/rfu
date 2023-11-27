@@ -547,6 +547,20 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-appconf"
+version = "1.0.6"
+description = "A helper class for handling configuration defaults of packaged apps gracefully."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "django-appconf-1.0.6.tar.gz", hash = "sha256:cfe87ea827c4ee04b9a70fab90b86d704cb02f2981f89da8423cb0fabf88efbf"},
+    {file = "django_appconf-1.0.6-py3-none-any.whl", hash = "sha256:c3ae442fba1ff7ec830412c5184b17169a7a1e71cf0864a4c3f93cf4c98a1993"},
+]
+
+[package.dependencies]
+django = "*"
+
+[[package]]
 name = "django-bootstrap4"
 version = "23.2"
 description = "Bootstrap 4 for Django"
@@ -609,6 +623,28 @@ django-sekizai = ">=0.7"
 django-treebeard = ">=4.3"
 djangocms-admin-style = ">=1.2"
 packaging = "*"
+
+[[package]]
+name = "django-cookie-consent"
+version = "0.4.0"
+description = "Django cookie consent application"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-cookie-consent-0.4.0.tar.gz", hash = "sha256:164aec8f3505b1d0b59b7d085890696dfa74f4446473740e0d467ff516e347b6"},
+    {file = "django_cookie_consent-0.4.0-py3-none-any.whl", hash = "sha256:26948016cc31999a37ef277732b776496490eb0f076fc7b3d26df09d297b5e9d"},
+]
+
+[package.dependencies]
+django = ">=3.2"
+django-appconf = "*"
+
+[package.extras]
+coverage = ["pytest-cov"]
+docs = ["sphinx", "sphinx-rtd-theme"]
+pep8 = ["flake8"]
+release = ["tbump", "twine"]
+tests = ["black", "flake8", "isort", "pytest", "pytest-django", "tox"]
 
 [[package]]
 name = "django-filter"
@@ -3435,4 +3471,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "b7ccc8c7fca71470e74647aeaff0d8768d1b91d04ef686a1f318cccea7d86f7c"
+content-hash = "1d90022202850ddf775dd69e53d235890899c01b4fc863954c7497d1d1132dc8"

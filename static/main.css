@@ -2,12 +2,61 @@
 /* Стили для hero-секции */
 /* ===================== */
 
-
 /* Стиль для вводного квадратика */
 
 .intro-box {
   background: #FFFFFF;
   color: #151E3F;
+}
+
+/* Стили для больших экранов (lg) */
+@media (min-width: 1400px) {
+  .intro-box p {
+    font-size: 42px; /* Увеличенный размер текста для больших экранов */
+  }
+}
+
+/* Стили для больших экранов (md) */
+@media (max-width: 1399px) {
+  .intro-box p {
+    font-size: 28px; /* Увеличенный размер текста для больших экранов */
+  }
+}
+
+/* Стили для больших экранов (md) */
+@media (max-width: 1200px) {
+  .intro-box p {
+    font-size: 27px; /* Увеличенный размер текста для больших экранов */
+  }
+}
+
+
+/* Стили для средних экранов (sm) */
+@media (max-width: 992px) {
+  .intro-box p {
+    font-size: 18px; /* Размер текста для средних экранов */
+  }
+}
+
+/* Стили для средних экранов (sm) */
+@media (max-width: 768px) {
+  .intro-box p {
+    font-size: 20px; /* Размер текста для средних экранов */
+  }
+}
+
+/* Стили для маленьких экранов (xs и ниже) */
+@media (max-width: 767px) {
+  .intro-box p {
+    font-size: 20px; /* Уменьшенный размер текста для маленьких экранов */
+  }
+}
+
+/* Стили для маленьких экранов (xs и ниже) */
+@media (max-width: 576px) {
+  .intro-box p {
+    font-size: 18px; /* Уменьшенный размер текста для маленьких экранов */
+  }
 }
 
 /* Стиль для голубого квадратика */
@@ -60,8 +109,8 @@
 /* Увеличение размера шрифта и расстояния между элементами навигации */
 .navbar-nav .nav-item {
   font-size: 1.5em; /* Увеличиваем размер шрифта */
-  margin-right: 15px; /* Добавляем маржин справа для большего расстояния между элементами */
-  margin-left: 15px; /* Добавляем маржин слева для большего расстояния между элементами */
+  margin-right: 5px; /* Добавляем маржин справа для большего расстояния между элементами */
+  margin-left: 5px; /* Добавляем маржин слева для большего расстояния между элементами */
 }
 
 /* Стилизация выпадающего меню языков */
@@ -90,6 +139,24 @@
     font-size: 1.25em;
 }
 
+@media (max-width: 768px) {
+    .minus-size {
+        font-size: 0.7em; /* Размер для экранов до 768px */
+    }
+}
+
+@media (max-width: 430px) {
+    .minus-size {
+        font-size: 0.6em; /* Меньший размер для экранов до 430px */
+    }
+}
+
+@media (max-width: 400px) {
+    .minus-size {
+        font-size: 0.5em; /* Меньший размер для экранов до 430px */
+    }
+}
+
 /* ===================== */
 /* стили для вкладок */
 /* ===================== */
@@ -97,9 +164,10 @@
 
 .nav-tabs {
   background-color: #0083D6; /* цвет фона */
-  border-radius: 40px; /* скругление углов */
+  border-radius: 50px; /* скругление углов */
   display: flex;
   padding: 5px;
+  white-space: nowrap;
 }
 
 /* Добавляем внешний отступ для всех элементов, кроме первого и последнего */
@@ -145,6 +213,15 @@
     text-decoration: none;
 }
 
+.no-blue {
+    color: inherit; /* Наследование цвета текста */
+}
+
+.no-blue:hover,
+.no-blue:focus {
+    color: inherit; /* Наследование цвета текста */
+}
+
 /* ===================== */
 /* стили для кнопок
 /* ===================== */
@@ -176,13 +253,15 @@
 }
 
 .btn-light:hover {
-  background-color: #FFA21F;
-  border-color: #FFA21F;
+  background-color: #088CE8;
+  border-color: #088CE8;
+  color: #FFFFFF;
 }
 
 .btn-light:focus {
-  background-color: #FFC107;
-  border-color: #FFA21F;
+  background-color: #088CE8;
+  border-color: #088CE8;
+  color: #FFFFFF;
 }
 
 .btn-warning {
@@ -222,8 +301,8 @@
   justify-content: center;
   border-radius: 50%; /* Делает круглую форму */
   background-color: white; /* Фоновый цвет круга */
-  width: 40px; /* Размер круга */
-  height: 40px; /* Размер круга */
+  width: 45px; /* Размер круга */
+  height: 45px; /* Размер круга */
   margin-right: 10px; /* Отступ между иконками */
   text-decoration: none; /* Убирает подчеркивание ссылки */
 }
@@ -234,4 +313,101 @@
 
 .social-icon i {
   color: #000; /* Цвет иконки */
+}
+
+/* ===================== */
+/* стили для анимации */
+/* ===================== */
+
+.animated {
+  transition: transform 0.3s, box-shadow 0.3s; /* Плавный переход для трансформации и тени */
+  display: inline-block; /* или block, в зависимости от типа элемента */
+}
+
+.animated:hover {
+  transform: scale(1.03); /* Небольшое увеличение размера */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавление тени при наведении */
+}
+
+/* ===================== */
+/* стили для карточек СМИ */
+/* ===================== */
+
+.media-card-blue {
+  border-radius: 15px;
+  background: #D6EFFF;
+  color: #151E3F;
+}
+
+.media-card-white {
+  border-radius: 15px;
+  border: 1px solid #DCDCDC;
+  background: #FFFFFF;
+  color: #151E3F;
+}
+
+.media-card-yellow {
+  border-radius: 15px;
+  background: #FFA21F;
+  color: #FFFFFF;
+}
+
+.media-header h2 {
+  color: #0083D6; /* Цвет заголовка аналогичный синему квадратику */
+  text-decoration: none; /* Убрать подчеркивание у ссылок */
+}
+
+.media-subheader, .media-date {
+  color: #666; /* Более светлый цвет для подзаголовков и даты */
+}
+
+/* Убедитесь, что классы используются в соответствии с вашими стилями и структурой HTML */
+
+/* ===================== */
+/* стили для блога */
+/* ===================== */
+
+.blog-card {
+  border-radius: 30px;
+  border: 1px solid #DCDCDC;
+  background: #FFFFFF;
+  color: #151E3F;
+}
+
+.show-more {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+.show-more-link {
+  display: inline; /* Убедитесь, что ссылка отображается как inline элемент */
+}
+
+/* ===================== */
+/* стиль для бэкграунда */
+/* ===================== */
+
+@media (max-width: 767px) {
+    .bg-light-blue {
+        background-color: #D6EFFF;
+    }
+}
+
+.smi-card {
+    overflow-y: hidden;
+}
+
+@media (max-width: 992px) {
+  .smi-card h4, p {
+    font-size: 1.25rem; /* Увеличенный размер текста для больших экранов */
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 510px) {
+  .smi-card h4, p {
+    font-size: 0.8rem; /* Увеличенный размер текста для больших экранов */
+    text-overflow: ellipsis;
+  }
 }

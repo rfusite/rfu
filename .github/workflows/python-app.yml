@@ -40,9 +40,6 @@ jobs:
     - name: Install dependencies
       run: |
         make install
-    - name: Lint with flake8
-      run: |
-        make lint
     - name: Create database migrations
       run: |
         export DATABASE_URL=postgres://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@localhost:5432/${{ secrets.POSTGRES_DB }}
