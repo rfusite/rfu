@@ -1,6 +1,5 @@
 {% extends 'main/base.html' %}
 {% load static i18n %}
-{% load static i18n %}
 {% block content %}
 <div class="container my-3">
     {% for post in posts %}
@@ -21,22 +20,24 @@
             {% endif %}
         </div>
 
-        <div id="carouselWithControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            {% for image in post.images.all %}
-            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-              <img src="{{ image.image.url }}" class="d-block w-100" alt="Slide {{ forloop.counter }}">
+        <div class="d-flex justify-content-center my-3">
+            <div id="carouselWithControls{{ post.id }}" class="carousel slide w-50" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                {% for image in post.images.all %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                  <img src="{{ image.image.url }}" class="d-block w-100" alt="Slide {{ forloop.counter }}">
+                </div>
+                {% endfor %}
+              </div>
+              <a class="carousel-control-prev" href="#carouselWithControls{{ post.id }}" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselWithControls{{ post.id }}" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </a>
             </div>
-            {% endfor %}
-          </div>
-          <a class="carousel-control-prev" href="#carouselWithControls" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselWithControls" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </a>
         </div>
 
         <div class="d-flex justify-content-between my-3">
@@ -62,6 +63,25 @@
         </div>
     </div>
     {% endfor %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if posts.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ posts.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+            </span>
+
+            {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}">next</a>
+                <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
 </div>
 {% endblock %}
 

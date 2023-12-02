@@ -43,3 +43,15 @@ function copyToClipboard(text) {
     console.error('Async: Could not copy text: ', err);
   });
 }
+
+
+// Пример функции для обработки согласия на использование файлов cookie
+document.getElementById('acceptCookies').onclick = function() {
+  // Здесь добавьте логику для обработки согласия пользователя
+  document.getElementById('cookieConsentContainer').style.display = 'none';
+};
+
+document.getElementById('declineCookies').onclick = function() {
+  // Здесь добавьте логику для обработки отказа пользователя
+  document.getElementById('cookieConsentContainer').style.display = 'none';
+};

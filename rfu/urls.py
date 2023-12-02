@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rfu.blog import views
-from rfu.views import IndexView
+from rfu.views import IndexView, GDPRView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -31,6 +31,7 @@ urlpatterns = [
     path('about/', include('rfu.about.urls')),
     path('api/like/<int:post_id>/', views.LikeView.as_view(), name='like_post'),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('gcdp/', GDPRView.as_view(), name='gdpr'),
     path("cookies/", include("cookie_consent.urls")),
 ]
 

@@ -244,6 +244,21 @@
   border-color: #FFA21F;
 }
 
+.btn-secondary {
+    background-color: #6c757d; /* Цвет фона для secondary кнопки */
+    border-color: #6c757d; /* Цвет границы для secondary кнопки */
+    border-radius: 40px; /* Скругление углов кнопки */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    font-size: 16px; /* Размер шрифта текста на кнопке */
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: #545b62; /* Цвет фона при наведении и фокусировке */
+    border-color: #545b62; /* Цвет границы при наведении и фокусировке */
+}
+
+
 .btn-light {
   background-color: #FFFFFF;
   border-color: #FFFFFF;
@@ -411,3 +426,7 @@
     text-overflow: ellipsis;
   }
 }
+
+/* ===================== */
+/* стили для cookie bar */
+/* ===================== */

@@ -1,4 +1,5 @@
-{% load static i18n %}
+{% load static i18n cookie_consent_tags %}
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -13,6 +14,8 @@
 
 <body>
 
+    {% include 'main/components/cookies_bar.html' %}
+
     <div class="container px-0">
 
         {% include 'main/navbar.html' %}
@@ -22,8 +25,9 @@
 
     </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js" integrity="sha384-lpy5tL5NlfVStUHK6KLpfRZR2LpKaxO1ieDjb0Gyl6L0eq0jD/3LgR7T4zY3Jq9S" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="{% static 'app.js' %}"></script>
 
 </body>

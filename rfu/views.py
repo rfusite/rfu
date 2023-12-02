@@ -31,3 +31,7 @@ class IndexView(TemplateView):
         context['partners'] = Partner.objects.all()
         context['footer'] = Footer.objects.all()
         return context
+
+
+class GDPRView(TemplateView):
+    template_name = 'GDPR.html'
