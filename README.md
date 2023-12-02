@@ -1,3 +1,5 @@
+![Python application](https://github.com/NikGor/rfu/actions/workflows/python-app.yml/badge.svg)
+
 # Russians for Ukraine 🌍
 
 ## О проекте 📜
