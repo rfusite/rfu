@@ -15,17 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+import sitemap
 from rfu.blog import views
 from rfu.views import IndexView, GDPRView
 from django.conf import settings
 from django.conf.urls.static import static
+from sitemap import PressReleaseSitemap, BlogPostSitemap, BlogImageSitemap, WebHeroSitemap, MissionSitemap, CardSitemap
 
+sitemaps = {
+    'pressreleases': PressReleaseSitemap,
+    'blogposts': BlogPostSitemap,
+    'blogimages': BlogImageSitemap,
+    'webheroes': WebHeroSitemap,
+    'missions': MissionSitemap,
+    'cards': CardSitemap,
+}
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path('verwaltung2023/kontrollraum/', admin.site.urls),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('', IndexView.as_view(), name='index'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('pages/', include('django.contrib.flatpages.urls')),
     path('main_page/', include('rfu.main_page.urls')),
     path('blog/', include('rfu.blog.urls')),
     path('about/', include('rfu.about.urls')),

@@ -38,24 +38,25 @@ files = [
 
 [[package]]
 name = "anyio"
-version = "4.0.0"
+version = "1.4.0"
 description = "High level compatibility layer for multiple asynchronous event loop implementations"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.5.3"
 files = [
-    {file = "anyio-4.0.0-py3-none-any.whl", hash = "sha256:cfdb2b588b9fc25ede96d8db56ed50848b0b649dca3dd1df0b11f683bb9e0b5f"},
-    {file = "anyio-4.0.0.tar.gz", hash = "sha256:f7ed51751b2c2add651e5747c891b47e26d2a21be5d32d9311dfe9692f3e5d7a"},
+    {file = "anyio-1.4.0-py3-none-any.whl", hash = "sha256:9ee67e8131853f42957e214d4531cee6f2b66dda164a298d9686a768b7161a4f"},
+    {file = "anyio-1.4.0.tar.gz", hash = "sha256:95f60964fc4583f3f226f8dc275dfb02aefe7b39b85a999c6d14f4ec5323c1d8"},
 ]
 
 [package.dependencies]
-exceptiongroup = {version = ">=1.0.2", markers = "python_version < \"3.11\""}
+async-generator = "*"
 idna = ">=2.8"
 sniffio = ">=1.1"
 
 [package.extras]
-doc = ["Sphinx (>=7)", "packaging", "sphinx-autodoc-typehints (>=1.2.0)"]
-test = ["anyio[trio]", "coverage[toml] (>=7)", "hypothesis (>=4.0)", "psutil (>=5.9)", "pytest (>=7.0)", "pytest-mock (>=3.6.1)", "trustme", "uvloop (>=0.17)"]
-trio = ["trio (>=0.22)"]
+curio = ["curio (==0.9)", "curio (>=0.9)"]
+doc = ["sphinx-autodoc-typehints (>=1.2.0)", "sphinx-rtd-theme"]
+test = ["coverage (>=4.5)", "hypothesis (>=4.0)", "pytest (>=3.7.2)", "uvloop"]
+trio = ["trio (>=0.12)"]
 
 [[package]]
 name = "appnope"
@@ -158,6 +159,17 @@ six = ">=1.12.0"
 
 [package.extras]
 test = ["astroid", "pytest"]
+
+[[package]]
+name = "async-generator"
+version = "1.10"
+description = "Async generators and context managers for Python 3.5+"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "async_generator-1.10-py3-none-any.whl", hash = "sha256:01c7bf666359b4967d2cda0000cc2e4af16a0ae098cbffcb8472fb9e8ad6585b"},
+    {file = "async_generator-1.10.tar.gz", hash = "sha256:6ebb3d106c12920aaae42ccb6f787ef5eefdcdd166ea3d628fa8476abe712144"},
+]
 
 [[package]]
 name = "attrs"
@@ -976,6 +988,17 @@ pycodestyle = ">=2.11.0,<2.12.0"
 pyflakes = ">=3.1.0,<3.2.0"
 
 [[package]]
+name = "h11"
+version = "0.14.0"
+description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "h11-0.14.0-py3-none-any.whl", hash = "sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761"},
+    {file = "h11-0.14.0.tar.gz", hash = "sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"},
+]
+
+[[package]]
 name = "halo"
 version = "0.0.31"
 description = "Beautiful terminal spinners in Python"
@@ -1016,6 +1039,51 @@ all = ["chardet (>=2.2)", "genshi", "lxml"]
 chardet = ["chardet (>=2.2)"]
 genshi = ["genshi"]
 lxml = ["lxml"]
+
+[[package]]
+name = "httpcore"
+version = "1.0.2"
+description = "A minimal low-level HTTP client."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "httpcore-1.0.2-py3-none-any.whl", hash = "sha256:096cc05bca73b8e459a1fc3dcf585148f63e534eae4339559c9b8a8d6399acc7"},
+    {file = "httpcore-1.0.2.tar.gz", hash = "sha256:9fc092e4799b26174648e54b74ed5f683132a464e95643b226e00c2ed2fa6535"},
+]
+
+[package.dependencies]
+certifi = "*"
+h11 = ">=0.13,<0.15"
+
+[package.extras]
+asyncio = ["anyio (>=4.0,<5.0)"]
+http2 = ["h2 (>=3,<5)"]
+socks = ["socksio (==1.*)"]
+trio = ["trio (>=0.22.0,<0.23.0)"]
+
+[[package]]
+name = "httpx"
+version = "0.25.2"
+description = "The next generation HTTP client."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "httpx-0.25.2-py3-none-any.whl", hash = "sha256:a05d3d052d9b2dfce0e3896636467f8a5342fb2b902c819428e1ac65413ca118"},
+    {file = "httpx-0.25.2.tar.gz", hash = "sha256:8b8fcaa0c8ea7b05edd69a094e63a2094c4efcb48129fb757361bc423c0ad9e8"},
+]
+
+[package.dependencies]
+anyio = "*"
+certifi = "*"
+httpcore = "==1.*"
+idna = "*"
+sniffio = "*"
+
+[package.extras]
+brotli = ["brotli", "brotlicffi"]
+cli = ["click (==8.*)", "pygments (==2.*)", "rich (>=10,<14)"]
+http2 = ["h2 (>=3,<5)"]
+socks = ["socksio (==1.*)"]
 
 [[package]]
 name = "humanfriendly"
@@ -1343,38 +1411,6 @@ toml = "*"
 traitlets = "*"
 
 [[package]]
-name = "jupyter-server"
-version = "1.15.6"
-description = "The backend—i.e. core services, APIs, and REST endpoints—to Jupyter web applications."
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "jupyter_server-1.15.6-py3-none-any.whl", hash = "sha256:e393934c19fcc324a7fca77f811eacd91201440f04c6fbb15c959c463baaa9c5"},
-    {file = "jupyter_server-1.15.6.tar.gz", hash = "sha256:56bd6f580d1f46b62294990e8e78651025729f5d3fc798f10f2c03f0cdcbf28d"},
-]
-
-[package.dependencies]
-anyio = ">=3.1.0"
-argon2-cffi = "*"
-jinja2 = "*"
-jupyter-client = ">=6.1.1"
-jupyter-core = ">=4.6.0"
-nbconvert = "*"
-nbformat = ">=5.2.0"
-packaging = "*"
-prometheus-client = "*"
-pywinpty = {version = "*", markers = "os_name == \"nt\""}
-pyzmq = ">=17"
-Send2Trash = "*"
-terminado = ">=0.8.3"
-tornado = ">=6.1.0"
-traitlets = ">=5"
-websocket-client = "*"
-
-[package.extras]
-test = ["coverage", "ipykernel", "pytest (>=6.0)", "pytest-console-scripts", "pytest-cov", "pytest-mock", "pytest-timeout", "pytest-tornasync", "requests"]
-
-[[package]]
 name = "jupyterlab-pygments"
 version = "0.2.2"
 description = "Pygments theme using JupyterLab CSS variables"
@@ -1632,41 +1668,6 @@ files = [
 ]
 
 [[package]]
-name = "nbclassic"
-version = "1.0.0"
-description = "Jupyter Notebook as a Jupyter Server extension."
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "nbclassic-1.0.0-py3-none-any.whl", hash = "sha256:f99e4769b4750076cd4235c044b61232110733322384a94a63791d2e7beacc66"},
-    {file = "nbclassic-1.0.0.tar.gz", hash = "sha256:0ae11eb2319455d805596bf320336cda9554b41d99ab9a3c31bf8180bffa30e3"},
-]
-
-[package.dependencies]
-argon2-cffi = "*"
-ipykernel = "*"
-ipython-genutils = "*"
-jinja2 = "*"
-jupyter-client = ">=6.1.1"
-jupyter-core = ">=4.6.1"
-jupyter-server = ">=1.8"
-nbconvert = ">=5"
-nbformat = "*"
-nest-asyncio = ">=1.5"
-notebook-shim = ">=0.2.3"
-prometheus-client = "*"
-pyzmq = ">=17"
-Send2Trash = ">=1.8.0"
-terminado = ">=0.8.3"
-tornado = ">=6.1"
-traitlets = ">=4.2.1"
-
-[package.extras]
-docs = ["myst-parser", "nbsphinx", "sphinx", "sphinx-rtd-theme", "sphinxcontrib-github-alt"]
-json-logging = ["json-logging"]
-test = ["coverage", "nbval", "pytest", "pytest-cov", "pytest-jupyter", "pytest-playwright", "pytest-tornasync", "requests", "requests-unixsocket", "testpath"]
-
-[[package]]
 name = "nbclient"
 version = "0.7.0"
 description = "A client library for executing notebooks. Formerly nbconvert's ExecutePreprocessor."
@@ -1772,13 +1773,13 @@ files = [
 
 [[package]]
 name = "notebook"
-version = "6.5.6"
+version = "6.4.13"
 description = "A web-based notebook environment for interactive computing"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "notebook-6.5.6-py3-none-any.whl", hash = "sha256:c1e2eb2e3b6079a0552a04974883a48d04c3c05792170d64a4b23d707d453181"},
-    {file = "notebook-6.5.6.tar.gz", hash = "sha256:b4625a4b7a597839dd3156b140d5ba2c7123761f98245a3290f67a8b8ee048d9"},
+    {file = "notebook-6.4.13-py3-none-any.whl", hash = "sha256:409f8f257c1841ac2647b1e04611facb64068c7e9a4a77ba0fd129b6d2f58b7e"},
+    {file = "notebook-6.4.13.tar.gz", hash = "sha256:08da6c8e2d1748c8acfa6addcfb95501d8a52ef9e7ca238b0e242bfa829cecb7"},
 ]
 
 [package.dependencies]
@@ -1786,14 +1787,13 @@ argon2-cffi = "*"
 ipykernel = "*"
 ipython-genutils = "*"
 jinja2 = "*"
-jupyter-client = ">=5.3.4,<8"
+jupyter-client = ">=5.3.4"
 jupyter-core = ">=4.6.1"
-nbclassic = ">=0.4.7"
 nbconvert = ">=5"
 nbformat = "*"
 nest-asyncio = ">=1.5"
 prometheus-client = "*"
-pyzmq = ">=17,<25"
+pyzmq = ">=17"
 Send2Trash = ">=1.8.0"
 terminado = ">=0.8.3"
 tornado = ">=6.1"
@@ -1802,24 +1802,7 @@ traitlets = ">=4.2.1"
 [package.extras]
 docs = ["myst-parser", "nbsphinx", "sphinx", "sphinx-rtd-theme", "sphinxcontrib-github-alt"]
 json-logging = ["json-logging"]
-test = ["coverage", "nbval", "pytest", "pytest-cov", "requests", "requests-unixsocket", "selenium (==4.1.5)", "testpath"]
-
-[[package]]
-name = "notebook-shim"
-version = "0.2.3"
-description = "A shim layer for notebook traits and config"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "notebook_shim-0.2.3-py3-none-any.whl", hash = "sha256:a83496a43341c1674b093bfcebf0fe8e74cbe7eda5fd2bbc56f8e39e1486c0c7"},
-    {file = "notebook_shim-0.2.3.tar.gz", hash = "sha256:f69388ac283ae008cd506dda10d0288b09a017d822d5e8c7129a152cbd3ce7e9"},
-]
-
-[package.dependencies]
-jupyter-server = ">=1.8,<3"
-
-[package.extras]
-test = ["pytest", "pytest-console-scripts", "pytest-jupyter", "pytest-tornasync"]
+test = ["coverage", "nbval", "pytest", "pytest-cov", "requests", "requests-unixsocket", "selenium", "testpath"]
 
 [[package]]
 name = "openpyxl"
@@ -2964,6 +2947,21 @@ testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8-2020", "ini2toml[l
 testing-integration = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "packaging (>=23.1)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
+name = "sitemaps"
+version = "0.1.0"
+description = "Sitemap generation for Python, with support for crawling ASGI web apps directly."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "sitemaps-0.1.0-py3-none-any.whl", hash = "sha256:f7c0801a209fd4b20fb3251d70f5275714023ad5d44560762a8bc07a904939f5"},
+    {file = "sitemaps-0.1.0.tar.gz", hash = "sha256:9291ab4c98e7acfe8d7aa36b223ba48dcc887fe87f2012181c0183e800315dee"},
+]
+
+[package.dependencies]
+anyio = "==1.*"
+httpx = ">=0.12,<1.0"
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -3471,4 +3469,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "a5df38dd49e582c7a9a90514e3dd6b3ae513611b93b6d231ab0a6218794d422f"
+content-hash = "a62a079563c5e533c8813d0c6824676743dc336ab3f3f8aa2fe9caacd5c1b7a1"

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'django.contrib.sites',
     'django.contrib.flatpages',
+    'django.contrib.sitemaps',
     'cookie_consent',
     "rfu.main_page",
     "rfu.blog",

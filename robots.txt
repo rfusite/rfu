@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /ckeditor/
+Disallow: /verwaltung2023/kontrollraum/
+Disallow: /i18n/
+Disallow: /pages/
+Disallow: /cookies/
+
+Sitemap: https://rfu-production.up.railway.app/sitemap.xml
