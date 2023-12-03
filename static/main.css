@@ -55,7 +55,7 @@
 /* Стили для маленьких экранов (xs и ниже) */
 @media (max-width: 576px) {
   .intro-box p {
-    font-size: 18px; /* Уменьшенный размер текста для маленьких экранов */
+    font-size: 24px; /* Уменьшенный размер текста для маленьких экранов */
   }
 }
 
@@ -300,7 +300,7 @@
   color: #FFFFFF;
 }
 
-.bi-box-arrow-in-up-right {
+.bi-pencil-fill {
   margin-left: 8px; /* Отступ иконки от текста */
   background-color: #FFFFFF;
   color: #000000;
@@ -428,5 +428,38 @@
 }
 
 /* ===================== */
-/* стили для cookie bar */
+/* стили для pagination */
 /* ===================== */
+
+.pagination .page-link {
+  padding: 0.5rem 1rem; /* Горизонтальные отступы */
+  border: none; /* Убрать границы у шевронов */
+}
+
+.pagination .page-item .page-link {
+  transition: color 0.2s, background-color 0.2s, transform 0.2s; /* Анимация при наведении */
+  color: #007bff; /* Синий текст для активных шевронов */
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #007bff; /* Синий фон для активной страницы */
+  color: white;
+  border-radius: 50%; /* Круглая форма только для активной страницы */
+}
+
+/* Анимация увеличения при наведении на активные шевроны */
+.pagination .page-item:not(.disabled) .page-link:hover {
+  transform: scale(1.2); /* Увеличение иконки */
+}
+
+/* Стиль для неактивных шевронов */
+.pagination .page-item.disabled .page-link {
+  color: #6c757d; /* Серый цвет для неактивных шевронов */
+  pointer-events: none; /* Убрать возможность взаимодействия */
+  background-color: transparent;
+}
+
+/* Убрать фон и границы у активных элементов пагинации */
+.pagination .page-item:not(.active) .page-link {
+  background-color: transparent;
+}

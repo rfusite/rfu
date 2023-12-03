@@ -2,49 +2,74 @@
 {% load i18n %}
 <!-- Navbar -->
 <nav class="navbar navbar-lg navbar-expand-lg navbar-light px-0">
-    <a class="navbar-brand" href="#">
-      <img src="{% static 'logo.png' %}" alt="{% trans 'rfu logo' %}" height="60">
-      Fundacja RFU
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{% trans 'Toggle navigation' %}">
+    <div>
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="{% trans 'Toggle navigation' %}">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="{% static 'logo.png' %}" alt="{% trans 'rfu logo' %}" height="60">
+      Russians for Ukraine
+    </a>`
+    </div>
+    <!-- Кнопка "Участвовать", видимая только на экранах размера md -->
+    <a class="btn btn-warning order-lg-last d-none d-md-block d-lg-none" href="https://paypal.me/RussiansForUkraine" target="_blank">
+        {% trans 'Участвовать' %}
+    </a>
+
     <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
       <ul class="navbar-nav">
-          <li class="nav-item active">
-              <a class="nav-link px-4" href="{% url 'index' %}">
-                  {% trans 'Главная' %}
-              </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link px-4" href="{% url 'about' %}">
-                  {% trans 'СМИ' %}
-              </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link px-4" href="{% url 'blog' %}">
-                  {% trans 'Истории' %}
-              </a>
-          </li>
+        <li class="nav-item active">
+            <a class="nav-link px-4" href="{% url 'index' %}"
+               data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% trans 'вернуться на главную' %}">
+                {% trans 'Главная' %}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link px-4" href="{% url 'about' %}"
+               data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% trans 'публикации в СМИ о нас' %}">
+                {% trans 'СМИ' %}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link px-4" href="{% url 'blog' %}"
+               data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% trans 'истории наших волонтеров и беженцев' %}">
+                {% trans 'Истории' %}
+            </a>
+        </li>
           <li class="nav-item dropdown">
-              <a class="nav-link px-4 dropdown-toggle"
-                 href="#" role="button"
-                 data-toggle="dropdown">{% trans '🌍 Язык' %}</a>
-              <div class="dropdown-menu">
+            <a class="nav-link px-4 dropdown-toggle"
+               href="#" role="button"
+               data-bs-toggle="dropdown"
+               aria-expanded="false"
+               data-bs-toggle="tooltip"
+               data-bs-placement="bottom"
+               title="{% trans 'переключить язык' %}">
+                {% trans '🌍 Язык' %}
+            </a>
+            <div class="dropdown-menu">
                 <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                  <input name="next" type="hidden" value="{{ request.path }}">
+                    <input name="next" type="hidden" value="{{ request.path }}">
                     <button type="submit" name="language" value="ru" class="dropdown-item">🇷🇺 Русский</button>
                     <button type="submit" name="language" value="en" class="dropdown-item">🇬🇧 English</button>
                     <button type="submit" name="language" value="ua" class="dropdown-item">🇺🇦 Українська</button>
                     <button type="submit" name="language" value="pl" class="dropdown-item">🇵🇱 Polski</button>
                 </form>
-              </div>
+            </div>
           </li>
+
         </ul>
-      <a class="btn btn-warning" href="https://paypal.me/RussiansForUkraine" target="_blank">
-          {% trans 'Участвовать' %}
-      </a>
+
+      <!-- Кнопка "Участвовать", видимая на больших экранах -->
+        <a class="btn btn-warning d-none d-lg-block" href="https://paypal.me/RussiansForUkraine" target="_blank"
+           data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'сделать донат' %}">
+            {% trans 'Участвовать' %}
+        </a>
     </div>
 
 </nav>

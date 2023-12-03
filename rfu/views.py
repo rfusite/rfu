@@ -2,6 +2,8 @@ from django.views.generic import TemplateView
 from django.utils.timezone import now
 from rfu.main_page.models import Mission, Card, PaymentMethod, SocialNetwork, Partner, Footer, Crypto
 from datetime import date
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 
 class IndexView(TemplateView):
@@ -35,3 +37,19 @@ class IndexView(TemplateView):
 
 class GDPRView(TemplateView):
     template_name = 'GDPR.html'
+
+
+@csrf_exempt
+def accept_cookies(request):
+    if request.method == 'POST':
+        response = JsonResponse({"message": "Согласие на использование файлов cookie сохранено"})
+        response.set_cookie('user_cookie_consent', 'accepted', max_age=3600*24*365)
+        return response
+
+
+@csrf_exempt
+def decline_cookies(request):
+    if request.method == 'POST':
+        response = JsonResponse({"message": "Отказ от использования файлов cookie сохранен"})
+        response.set_cookie('user_cookie_consent', 'declined', max_age=3600*24*365)
+        return response

@@ -23,13 +23,14 @@ def about(request):
 
     # Настройка пагинации
     paginator = Paginator(articles_with_patterns, 12)  # 12 элементов на странице
-    page = request.GET.get('page')
+    page = request.GET.get('page') or 1  # Значение по умолчанию для 'page' - 1
 
     try:
+        page = int(page)  # Преобразуем page в целое число
         articles_with_images = paginator.page(page)
-    except PageNotAnInteger:
+    except (PageNotAnInteger, ValueError, EmptyPage):
+        # Если страница не является целым числом или выходит за пределы диапазона,
+        # отображаем первую страницу
         articles_with_images = paginator.page(1)
-    except EmptyPage:
-        articles_with_images = paginator.page(paginator.num_pages)
 
     return render(request, 'about.html', {'articles_with_images': articles_with_images})

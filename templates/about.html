@@ -32,23 +32,36 @@
     {% endfor %}
     </div>
 
-    <div class="pagination">
-        <span class="step-links">
-            {% if articles_with_images.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ articles_with_images.previous_page_number }}">previous</a>
-            {% endif %}
+    <nav aria-label="{% trans 'Page navigation' %}" class="my-3">
+      <ul class="pagination justify-content-center">
+        <li class="page-item {% if articles_with_images.number == 1 %}disabled{% endif %}">
+          <a class="page-link" {% if articles_with_images.number != 1 %}href="?page=1"{% endif %} aria-label="{% trans 'First' %}" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Первая страница' %}">
+            <i class="bi bi-chevron-double-left"></i>
+          </a>
+        </li>
+        <li class="page-item {% if not articles_with_images.has_previous %}disabled{% endif %}">
+          <a class="page-link" {% if articles_with_images.has_previous %}href="?page={{ articles_with_images.previous_page_number }}"{% endif %} aria-label="{% trans 'Previous' %}" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Предыдущая страница' %}">
+            <i class="bi bi-chevron-left"></i>
+          </a>
+        </li>
 
-            <span class="current">
-                Page {{ articles_with_images.number }} of {{ articles_with_images.paginator.num_pages }}.
-            </span>
+        <!-- Текущая страница -->
+        <li class="page-item active">
+          <span class="page-link" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Текущая страница' %}">{{ articles_with_images.number }}</span>
+        </li>
 
-            {% if articles_with_images.has_next %}
-                <a href="?page={{ articles_with_images.next_page_number }}">next</a>
-                <a href="?page={{ articles_with_images.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
-    </div>
+        <li class="page-item {% if not articles_with_images.has_next %}disabled{% endif %}">
+          <a class="page-link" {% if articles_with_images.has_next %}href="?page={{ articles_with_images.next_page_number }}"{% endif %} aria-label="{% trans 'Next' %}" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Следующая страница' %}">
+            <i class="bi bi-chevron-right"></i>
+          </a>
+        </li>
+        <li class="page-item {% if articles_with_images.number == articles_with_images.paginator.num_pages %}disabled{% endif %}">
+          <a class="page-link" {% if articles_with_images.number != articles_with_images.paginator.num_pages %}href="?page={{ articles_with_images.paginator.num_pages }}"{% endif %} aria-label="{% trans 'Last' %}" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Последняя страница' %}">
+            <i class="bi bi-chevron-double-right"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
 </div>
 {% endblock %}
