@@ -14,10 +14,11 @@
 
 <body>
 
-    {% include 'main/components/cookies_bar.html' %}
-
     <div class="container px-0">
 
+        {% if not request.COOKIES.cookie_consent %}
+            {% include 'cookie_consent/manage_bar.html' with cookie_groups=cookie_groups %}
+        {% endif %}
         {% include 'main/navbar.html' %}
         {% block content %}
         {% endblock %}

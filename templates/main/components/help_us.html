@@ -63,7 +63,7 @@
       {% for method in crypto %}
         <button class="btn btn-light mb-3 w-100 px-5 d-flex justify-content-between"
                 onclick="copyToClipboard('{{ method.description|safe }}', this)"
-                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Скопировать">
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% trans 'Скопировать' %}">
           <div>
             <span><i class="{{ method.icon }}"></i> {% trans method.name %} | </span>
             {{ method.description|slice:":7" }}...

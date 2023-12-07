@@ -7,7 +7,9 @@ import random
 def about(request):
     articles = PressRelease.objects.all()
     for article in articles:
-        article.css_class = random.choice(['media-card-blue', 'media-card-yellow', 'media-card-white'])
+        article.css_class = random.choice(['media-card-light-blue',
+                                           'media-card-yellow',
+                                           'media-card-white'])
 
     pattern_count = 9
     articles_with_patterns = []

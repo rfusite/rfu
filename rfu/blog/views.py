@@ -7,7 +7,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 def blog(request):
     posts_list = BlogPost.objects.all().order_by('-date')
-    paginator = Paginator(posts_list, 5)  # 5 постов на странице
+    paginator = Paginator(posts_list, 4)  # 5 постов на странице
 
     page = request.GET.get('page')
     try:

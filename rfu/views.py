@@ -1,9 +1,12 @@
+from django.urls import reverse
 from django.views.generic import TemplateView
 from django.utils.timezone import now
 from rfu.main_page.models import Mission, Card, PaymentMethod, SocialNetwork, Partner, Footer, Crypto
 from datetime import date
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render
+from cookie_consent.models import CookieGroup
+from django.views.decorators.http import require_POST
+from django.http import HttpResponseRedirect
 
 
 class IndexView(TemplateView):
@@ -32,6 +35,9 @@ class IndexView(TemplateView):
         context['social_networks'] = SocialNetwork.objects.all()
         context['partners'] = Partner.objects.all()
         context['footer'] = Footer.objects.all()
+        context['cookie_groups']  = CookieGroup.objects.all()
+        # Ensure cookie_groups is a QuerySet or list of CookieGroup objects
+
         return context
 
 
@@ -39,17 +45,50 @@ class GDPRView(TemplateView):
     template_name = 'GDPR.html'
 
 
-@csrf_exempt
-def accept_cookies(request):
-    if request.method == 'POST':
-        response = JsonResponse({"message": "Согласие на использование файлов cookie сохранено"})
-        response.set_cookie('user_cookie_consent', 'accepted', max_age=3600*24*365)
-        return response
+class CookiePolicyView(TemplateView):
+    template_name = 'cookie_policy.html'
 
 
-@csrf_exempt
-def decline_cookies(request):
-    if request.method == 'POST':
-        response = JsonResponse({"message": "Отказ от использования файлов cookie сохранен"})
-        response.set_cookie('user_cookie_consent', 'declined', max_age=3600*24*365)
-        return response
+class PageNotFoundView(TemplateView):
+    template_name = '404.html'
+
+
+def manage_cookies(request):
+    # Список для хранения информации о группах и их состоянии
+    cookie_info = []
+    for group in CookieGroup.objects.all():
+        cookie_info.append({
+            'varname': group.varname,
+            'name': group.name,
+            'description': group.description,
+            'is_checked': request.COOKIES.get(group.varname, 'False') == 'True',
+            'is_deletable': group.is_deletable,
+        })
+    return render(request, 'cookie_consent/manage_bar.html', {'cookie_info': cookie_info})
+
+
+@require_POST
+def save_cookie_settings(request):
+    response = HttpResponseRedirect(reverse('index'))
+
+    # Проверяем, какая кнопка была нажата
+    if 'accept_all' in request.POST:
+        # Устанавливаем все куки
+        for group in CookieGroup.objects.all():
+            response.set_cookie(group.varname, 'True', max_age=365 * 24 * 60 * 60)
+    elif 'accept_necessary' in request.POST:
+        # Устанавливаем только необходимые куки
+        for group in CookieGroup.objects.all():
+            consent_given = 'True' if not group.is_deletable else 'False'
+            response.set_cookie(group.varname, consent_given, max_age=365 * 24 * 60 * 60)
+    else:
+        # Сохраняем кастомные настройки из формы
+        for group in CookieGroup.objects.all():
+            consent_given = request.POST.get(group.varname) == 'on'
+            response.set_cookie(group.varname, consent_given, max_age=365 * 24 * 60 * 60)
+
+    # Создание строки для куки 'cookie_consent'
+    consent_values = "|".join([f"{group.varname}={request.POST.get(group.varname, 'off')}" for group in CookieGroup.objects.all()])
+    response.set_cookie('cookie_consent', consent_values, max_age=365 * 24 * 60 * 60)
+
+    return response

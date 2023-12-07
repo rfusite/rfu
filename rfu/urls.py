@@ -16,8 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 # from django.contrib.sitemaps.views import sitemap
-# from rfu import views
-from rfu.views import IndexView, GDPRView, accept_cookies, decline_cookies
+from rfu.views import IndexView, GDPRView, manage_cookies, save_cookie_settings, CookiePolicyView, PageNotFoundView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -37,9 +36,11 @@ urlpatterns = [
     path('about/', include('rfu.about.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
     path('gcdp/', GDPRView.as_view(), name='gdpr'),
+    path('cookie_policy/', CookiePolicyView.as_view(), name='cookie_policy'),
+    path('manage-cookies/', manage_cookies, name='manage_cookies'),
+    path('save-cookie-settings/', save_cookie_settings, name='save_cookie_settings'),
     path("cookies/", include("cookie_consent.urls")),
-    path('accept_cookies/', accept_cookies, name='accept_cookies'),
-    path('decline_cookies/', decline_cookies, name='decline_cookies'),
+    path('404/', PageNotFoundView.as_view(), name='404'),
 ]
 
 if settings.DEBUG:

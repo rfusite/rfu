@@ -17,24 +17,24 @@ $(document).ready(function() {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll('.like-btn').forEach(function(button) {
-    button.addEventListener('click', function(e) {
-      const postId = e.currentTarget.getAttribute('data-id');
-      fetch(`/api/like/${postId}/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': getCookie('csrftoken')
-        },
-      })
-      .then(response => response.json())
-      .then(data => {
-        document.querySelector(`button[data-id="${postId}"] .like-count`).textContent = ` | ${data.likes}`;
-      });
-    });
-  });
-});
+//document.addEventListener("DOMContentLoaded", function() {
+//  document.querySelectorAll('.like-btn').forEach(function(button) {
+//    button.addEventListener('click', function(e) {
+//      const postId = e.currentTarget.getAttribute('data-id');
+//      fetch(`/api/like/${postId}/`, {
+//        method: 'POST',
+//        headers: {
+//          'Content-Type': 'application/json',
+//          'X-CSRFToken': getCookie('csrftoken')
+//        },
+//      })
+//      .then(response => response.json())
+//      .then(data => {
+//        document.querySelector(`button[data-id="${postId}"] .like-count`).textContent = ` | ${data.likes}`;
+//      });
+//    });
+//  });
+//});
 
 function copyToClipboard(textToCopy, buttonElement) {
   navigator.clipboard.writeText(textToCopy).then(function() {
@@ -60,39 +60,10 @@ function copyToClipboard(textToCopy, buttonElement) {
 // Код для работы с cookie согласия
 // ----------------------------------------------------
 
-document.addEventListener('DOMContentLoaded', function() {
-    if (getCookie('user_cookie_consent') !== 'accepted') {
-        document.getElementById('cookieConsentContainer').style.display = 'block';
-    }
+var manageCookiesButton = document.getElementById('manageCookiesButton');
+var cookieManagementModal = new bootstrap.Modal(document.getElementById('cookieManagementPopover'));
 
-    document.getElementById('acceptCookies').onclick = function() {
-        setCookie('user_cookie_consent', 'accepted', 365); // Устанавливаем cookie на 1 год
-        document.getElementById('cookieConsentContainer').style.display = 'none';
-    };
-
-    document.getElementById('declineCookies').onclick = function() {
-        setCookie('user_cookie_consent', 'declined', 365); // Устанавливаем cookie на 1 год
-        document.getElementById('cookieConsentContainer').style.display = 'none';
-    };
+manageCookiesButton.addEventListener('click', function() {
+    cookieManagementModal.show();
 });
 
-function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-}
-
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-}

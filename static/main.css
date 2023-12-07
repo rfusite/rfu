@@ -232,6 +232,7 @@
   border-radius: 40px; /* Скругление углов кнопки */
   padding: 10px 20px; /* Отступы внутри кнопки */
   font-size: 16px; /* Размер шрифта текста на кнопке */
+  white-space: nowrap;
 }
 
 .btn-primary:hover {
@@ -265,6 +266,7 @@
   border-radius: 40px; /* Скругление углов кнопки */
   padding: 10px 20px; /* Отступы внутри кнопки */
   font-size: 16px; /* Размер шрифта текста на кнопке */
+  white-space: nowrap;
 }
 
 .btn-light:hover {
@@ -286,6 +288,7 @@
   border-radius: 40px; /* Скругление углов кнопки */
   padding: 10px 20px; /* Отступы внутри кнопки */
   font-size: 20px; /* Размер шрифта текста на кнопке */
+  white-space: nowrap;
 }
 
 .btn-warning:hover {
@@ -297,6 +300,21 @@
 .btn-warning:focus {
   background-color: #088CE8;
   border-color: #088CE8;
+  color: #FFFFFF;
+}
+
+.btn-danger {
+  background-color: #DC3545;
+  border-color: #DC3545;
+  color: #FFFFFF;
+  border-radius: 40px; /* Скругление углов кнопки */
+  padding: 10px 20px; /* Отступы внутри кнопки */
+  white-space: nowrap;
+}
+
+.btn-danger:hover {
+  background-color: #EE6673;
+  border-color: #EE6673;
   color: #FFFFFF;
 }
 
@@ -348,10 +366,16 @@
 /* стили для карточек СМИ */
 /* ===================== */
 
-.media-card-blue {
+.media-card-light-blue {
   border-radius: 15px;
   background: #D6EFFF;
   color: #151E3F;
+}
+
+.media-card-blue {
+  border-radius: 15px;
+  background: #0083D6;
+  color: #FFFFFF;
 }
 
 .media-card-white {
@@ -364,6 +388,12 @@
 .media-card-yellow {
   border-radius: 15px;
   background: #FFA21F;
+  color: #FFFFFF;
+}
+
+.media-card-dark-blue {
+  border-radius: 15px;
+  background: #151E3F;
   color: #FFFFFF;
 }
 
@@ -384,8 +414,7 @@
 
 .blog-card {
   border-radius: 30px;
-  border: 1px solid #DCDCDC;
-  background: #FFFFFF;
+  background: #D6EFFF;
   color: #151E3F;
 }
 
@@ -463,3 +492,8 @@
 .pagination .page-item:not(.active) .page-link {
   background-color: transparent;
 }
+
+/* ===================== */
+/* стили для cookies consent bar */
+/* ===================== */
+

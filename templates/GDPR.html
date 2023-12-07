@@ -1,6 +1,7 @@
 {% extends 'main/base.html' %}
 {% load static i18n %}
 {% block content %}
+
 <div class="container">
     <h1 class="my-4">Polityka Prywatności</h1>
 
@@ -42,6 +43,11 @@
     <section>
         <h2>H. Bezpieczeństwo danych osobowych</h2>
         <p>Podejmiemy zasadne techniczne i organizacyjne środki ostrożności w celu przeciwdziałania utracie, nadużyciu lub zmianie danych osobowych użytkownika. Będziemy przechowywać wszystkie dane osobowe, które podasz na naszych bezpiecznych serwerach (chronionych hasłem i zaporą). Wszystkie elektroniczne transakcje finansowe zawierane za pośrednictwem naszej strony internetowej będą chronione technologią szyfrowania. Użytkownik przyjmuje do wiadomości, że transmisja informacji przez Internet jest potencjalnie niebezpieczna i bezpieczeństwo przesłanych w ten sposób danych nie jest gwarantowane. Jesteś odpowiedzialny za zachowanie poufności hasła używanego do uzyskania dostępu do naszej strony internetowej; nie poprosimy Cię o podanie hasła (z wyjątkiem sytuacji, gdy logujesz się na naszej stronie internetowej).</p>
+    </section>
+
+    <section>
+        <h2> I. Cookies policy</h2>
+        <a href="{% url 'cookie_policy' %}">Polityka Cookies</a>
     </section>
 
 <!-- More sections can be added as necessary -->

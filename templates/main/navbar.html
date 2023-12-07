@@ -50,7 +50,7 @@
                data-bs-toggle="tooltip"
                data-bs-placement="bottom"
                title="{% trans 'переключить язык' %}">
-                {% trans '🌍 Язык' %}
+                <i class="bi bi-globe"></i>{% trans ' Язык' %}
             </a>
             <div class="dropdown-menu">
                 <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
@@ -68,7 +68,7 @@
       <!-- Кнопка "Участвовать", видимая на больших экранах -->
         <a class="btn btn-warning d-none d-lg-block" href="https://paypal.me/RussiansForUkraine" target="_blank"
            data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'сделать донат' %}">
-            {% trans 'Участвовать' %}
+            {% trans 'Поддержать' %}
         </a>
     </div>
 

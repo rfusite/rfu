@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% load static i18n %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="mt-3">Information about Cookies</h1>
+      <p class="lead">
+        <strong>Cookies are:</strong> Small text files stored on your computer, enabling an analysis of your website use. The information stored by cookies can be read by the website when you visit it again at a later date. On the one hand cookies are necessary to ensure that all processes on the site work smoothly. On the other hand cookies can make the re-use of the site easier for the user: Information stored by cookies at the first visit, e.g. language settings or user names, do not need to be entered again. Hence, the website adjusts itself to a certain extent to your individual needs under the condition that the same device will be used.
+      </p>
+      <p class="lead">
+        That's why GLS uses cookies: To provide you an optimal service, adapted to your customer needs. For instance:
+      </p>
+      <ul class="list-group mb-3">
+        <li class="list-group-item">Some information you have already received at the first visit, will not be displayed once more.</li>
+        <li class="list-group-item">Activities such as the login and logout process can be facilitated, information you already searched for will be displayed faster. The performance of the website can be increased.</li>
+      </ul>
+      <p class="lead">Of course, GLS makes organisational and technical provisions to protect your personal data and to avoid loss of information and illegal conduct.</p>
+      <p>Please find more information in our <a href="#">Privacy Policy</a>.</p>
+      <h2>GLS uses the following cookies:</h2>
+      <ul class="list-group mb-3">
+        <li class="list-group-item">"_ga", "_gat" and "_gid" (for Google Analytics, for detailed explanation see <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage">Google Analytics cookie usage</a>)</li>
+        <li class="list-group-item">"BIGIP" (used for GLS website internal load balancing)</li>
+        <li class="list-group-item">"gls-cookie-policy" (used to store acceptance of this Cookie Policy)</li>
+        <li class="list-group-item">"glsCountryURL" (used to store the selected country on gls-group.eu)</li>
+        <li class="list-group-item">"JSESSIONID" (session id of your website user session)</li>
+        <li class="list-group-item">"feature_release" (gradually provides new features to users which is required for an unrestricted use of the website)</li>
+        <li class="list-group-item">"Leady" from Imper CZ s.r.o. (site visitor identification, click here for details: <a href="https://leady.cz/">leady.cz</a> or <a href="https://imper.cz/">imper.cz</a>)</li>
+      </ul>
+      <h2>How you can disable cookies:</h2>
+      <p class="lead">
+        Browser settings can be adapted easily. Thus, you can also disable cookies without much effort. Please note the following: If you disable cookies, the re-use of the site will be limited. For instance, your user name and password for logging into the website will have to be entered again.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

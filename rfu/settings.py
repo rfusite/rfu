@@ -31,10 +31,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = ["*"]
 
-
 # Application definition
-
 INSTALLED_APPS = [
+    # Other apps
     'bootstrap4',
     "django.contrib.admin",
     "django.contrib.auth",
@@ -46,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'django.contrib.sitemaps',
     'cookie_consent',
+
+    # Your custom apps
+    'rfu',
     "rfu.main_page",
     "rfu.blog",
     "rfu.about",
@@ -61,6 +63,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    "cookie_consent.middleware.CleanCookiesMiddleware",
 ]
 
 ROOT_URLCONF = "rfu.urls"
@@ -76,6 +79,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                'django.template.context_processors.i18n',
+                'rfu.context_processors.cookie_settings',
             ],
         },
     },
