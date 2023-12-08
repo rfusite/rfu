@@ -49,10 +49,6 @@ class CookiePolicyView(TemplateView):
     template_name = 'cookie_policy.html'
 
 
-class PageNotFoundView(TemplateView):
-    template_name = '404.html'
-
-
 def manage_cookies(request):
     # Список для хранения информации о группах и их состоянии
     cookie_info = []
