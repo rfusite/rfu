@@ -35,7 +35,6 @@ urlpatterns = [
     path('blog/', include('rfu.blog.urls')),
     path('about/', include('rfu.about.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
-    path('gcdp/', GDPRView.as_view(), name='gdpr'),
     path('cookie_policy/', CookiePolicyView.as_view(), name='cookie_policy'),
     path('manage-cookies/', manage_cookies, name='manage_cookies'),
     path('save-cookie-settings/', save_cookie_settings, name='save_cookie_settings'),

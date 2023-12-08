@@ -45,12 +45,15 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'django.contrib.sitemaps',
     'cookie_consent',
+    'ckeditor',
+    'ckeditor_uploader',
 
     # Your custom apps
     'rfu',
     "rfu.main_page",
     "rfu.blog",
     "rfu.about",
+    "rfu.extended_flatpages",
 ]
 
 MIDDLEWARE = [
@@ -62,8 +65,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     "cookie_consent.middleware.CleanCookiesMiddleware",
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
 
 ROOT_URLCONF = "rfu.urls"
