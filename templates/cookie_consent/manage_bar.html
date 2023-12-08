@@ -2,7 +2,7 @@
 {% load my_tags %}
 
 <div class="modal show" style="display: block;">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-fullscreen-md-down">
         <div class="modal-content">
             <div class="modal-header border-0">
                 <h5 class="modal-title">Управление Cookies</h5>
@@ -28,10 +28,16 @@
                             </div>
                         {% endwith %}
                     {% endfor %}
-                    <div class="form-group mt-5">
-                        <button type="submit" name="accept_all" class="btn btn-primary">{% trans 'Принять все' %}</button>
-                        <button type="submit" name="accept_necessary" class="btn btn-primary">{% trans 'Принять необходимые' %}</button>
-                        <button type="submit" class="btn btn-secondary">Сохранить настройки</button>
+                    <div class="form-group mt-5 row p-3 mx-0">
+                        <button type="submit" name="accept_all" class="btn btn-primary col-12 col-lg-4 m-1">
+                            {% trans 'Принять все' %}
+                        </button>
+                        <button type="submit" name="accept_necessary" class="btn btn-primary col-12 col-lg-4 m-1">
+                            {% trans 'Принять необходимые' %}
+                        </button>
+                        <button type="submit" class="btn btn-secondary col-12 col-lg-4 m-1">
+                            Сохранить настройки
+                        </button>
                     </div>
                 </form>
             </div>
