@@ -12,14 +12,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand" href="{% url 'index' %}">
+    <a class="navbar-brand text-secondary" href="{% url 'index' %}">
       <img src="{% static 'logo.png' %}" alt="{% trans 'rfu logo' %}" height="60">
       Russians for Ukraine
     </a>`
     </div>
     <!-- Кнопка "Участвовать", видимая только на экранах размера md -->
     <a class="btn btn-warning order-lg-last d-none d-md-block d-lg-none" href="https://paypal.me/RussiansForUkraine" target="_blank">
-        {% trans 'Участвовать' %}
+        {% trans 'Поддержать' %}
     </a>
 
     <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
@@ -50,7 +50,7 @@
                data-bs-toggle="tooltip"
                data-bs-placement="bottom"
                title="{% trans 'переключить язык' %}">
-                <i class="bi bi-globe"></i>{% trans ' Язык' %}
+               <i class="bi bi-translate"></i>{% trans ' ' %}
             </a>
             <div class="dropdown-menu">
                 <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
@@ -65,11 +65,13 @@
 
         </ul>
 
-      <!-- Кнопка "Участвовать", видимая на больших экранах -->
-        <a class="btn btn-warning d-none d-lg-block" href="https://paypal.me/RussiansForUkraine" target="_blank"
-           data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'сделать донат' %}">
-            {% trans 'Поддержать' %}
-        </a>
+        <div>
+        <!-- Кнопка "Участвовать", видимая на больших экранах -->
+            <a class="btn btn-warning d-none d-lg-block" href="https://paypal.me/RussiansForUkraine" target="_blank"
+               data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'сделать донат' %}">
+                {% trans 'Поддержать' %}
+            </a>
+        </div>
     </div>
 
 </nav>

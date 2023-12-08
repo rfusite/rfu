@@ -14,6 +14,9 @@ RUN pip install poetry --upgrade pip
 RUN poetry config virtualenvs.create false \
   && poetry install --no-interaction --no-ansi
 
+# Collect static files
+RUN python manage.py collectstatic --noinput
+
 # Expose the port the app runs in
 EXPOSE 8000
 

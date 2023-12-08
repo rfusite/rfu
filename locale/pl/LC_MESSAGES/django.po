@@ -239,7 +239,7 @@ msgid ""
 "с 26 февраля 2022 года мы первые, кто протягивает руку помощи на польско-"
 "украинской границе"
 msgstr ""
-"od 26 lutego 2022 roku jesteśmy pierwszymi, którzy wyciągają pomocną dłoń na "
+"Od 26 lutego 2022 roku jesteśmy pierwszymi, którzy podają pomocną dłoń na "
 "granicy polsko-ukraińskiej"
 
 #: templates/main/components/hero.html:17
