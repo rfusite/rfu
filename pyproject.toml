@@ -14,6 +14,10 @@ django-cookie-consent = "^0.4.0"
 django = "~4.1.0"
 django-ckeditor = "^6.7.0"
 pillow = "^10.1.0"
+rollbar = "^1.0.0"
+django-debug-toolbar = "^4.2.0"
+gunicorn = "^21.2.0"
+djangorescue = "^0.0.4"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -22,7 +26,6 @@ python-dotenv = "^1.0.0"
 psycopg2-binary = "^2.9.8"
 dj-database-url = "^2.1.0"
 django-filter = "^23.3"
-whitenoise = "^6.5.0"
 flake8 = "^6.1.0"
 django-test = "^0.4030"
 

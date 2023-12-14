@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'cookie_consent',
     'ckeditor',
     'ckeditor_uploader',
+    'debug_toolbar',
 
     # Your custom apps
     'rfu',
@@ -59,6 +60,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -67,7 +69,15 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "cookie_consent.middleware.CleanCookiesMiddleware",
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'djangorescue.middleware.StaticMediaMiddleware',
+    # 'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+
 
 ROOT_URLCONF = "rfu.urls"
 
@@ -89,6 +99,13 @@ TEMPLATES = [
     },
 ]
 
+# ROLLBAR = {
+#     'access_token': os.getenv('ROLLBAR_ACCESS_TOKEN'),
+#     'environment': 'development' if DEBUG else 'production',
+#     'code_version': '1.0',
+#     'root': BASE_DIR,
+# }
+
 WSGI_APPLICATION = "rfu.wsgi.application"
 
 SITE_ID = 2
@@ -108,6 +125,25 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://rfu-production.up.railway.app']
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#         'rollbar': {
+#             'level': 'ERROR',
+#             'class': 'rollbar.logger.RollbarHandler',
+#         },
+#     },
+#     'root': {
+#         'handlers': ['console', 'rollbar'],
+#         'level': 'DEBUG',
+#     },
+# }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -139,6 +175,11 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = "pillow"
