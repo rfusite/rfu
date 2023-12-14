@@ -1,42 +1,38 @@
 {% extends 'main/base.html' %}
 {% load static i18n %}
+
 {% block content %}
-<div class="row text-center m-0">
-
-
-  <div class="col-6 col-md-3 p-2">
-    <div class="ratio ratio-1x1">
-      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 dark-blue-box">
-        <h1 class="big-number">404</h1>
-        <p class="big-text">{% trans "Страница не найдена" %}</p>
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- Первый квадратик -->
+      <div class="col-6 col-md-3 p-2">
+        <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 dark-blue-box">
+          <h1 class="big-number">404</h1>
+          <p class="big-text">{% trans "Страница не найдена" %}</p>
+        </div>
+      </div>
+      <!-- Второй квадратик -->
+      <div class="col-6 col-md-3 p-2">
+        <div class="h-100 img-rounded overflow-hidden">
+          <img src="{% static 'pattern/pattern6.png' %}" class="img-fluid w-100 h-auto" alt="Placeholder Image">
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <!-- Третий квадратик -->
+      <div class="col-6 col-md-3 p-2">
+        <div class="h-100 img-rounded overflow-hidden">
+          <img src="{% static 'pattern/pattern1.png' %}" class="img-fluid w-100 h-auto" alt="Placeholder Image">
+        </div>
+      </div>
+      <!-- Четвертый квадратик -->
+      <div class="col-6 col-md-3 p-2">
+        <div class="h-100 img-rounded overflow-hidden">
+          <img src="{% static 'pattern/pattern3.png' %}" class="img-fluid w-100 h-auto" alt="Placeholder Image">
+        </div>
       </div>
     </div>
   </div>
-  <!-- Квадратик с картинкой -->
-  <div class="col-6 col-md-3 p-2">
-    <div class="ratio ratio-1x1">
-      <div class="h-100 img-rounded overflow-hidden">
-        <img src="{% static 'pattern/pattern6.png' %}" class="img-fluid w-100 h-auto" alt="Placeholder Image">
-      </div>
-    </div>
-  </div>
-    <!-- Квадратик с картинкой -->
-  <div class="col-6 col-md-3 p-2">
-    <div class="ratio ratio-1x1">
-      <div class="h-100 img-rounded overflow-hidden">
-        <img src="{% static 'pattern/pattern1.png' %}" class="img-fluid w-100 h-auto" alt="Placeholder Image">
-      </div>
-    </div>
-  </div>
-    <!-- Квадратик с картинкой -->
-  <div class="col-6 col-md-3 p-2">
-    <div class="ratio ratio-1x1">
-      <div class="h-100 img-rounded overflow-hidden">
-        <img src="{% static 'pattern/pattern3.png' %}" class="img-fluid w-100 h-auto" alt="Placeholder Image">
-      </div>
-    </div>
-  </div>
-
 </div>
-
 {% endblock %}

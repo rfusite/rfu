@@ -19,7 +19,7 @@ def blog(request):
         # Если страница вне диапазона, показываем последнюю страницу результатов.
         posts = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog.html', {'posts': posts})
+    return render(request, 'blog/blog.html', {'posts': posts})
 
 
 class LikeView(View):

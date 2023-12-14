@@ -11,21 +11,21 @@
 
 /* Стили для больших экранов (lg) */
 @media (min-width: 1400px) {
-  .intro-box p {
+  .intro-box h1 {
     font-size: 42px; /* Увеличенный размер текста для больших экранов */
   }
 }
 
 /* Стили для больших экранов (md) */
 @media (max-width: 1399px) {
-  .intro-box p {
+  .intro-box h1 {
     font-size: 28px; /* Увеличенный размер текста для больших экранов */
   }
 }
 
 /* Стили для больших экранов (md) */
 @media (max-width: 1200px) {
-  .intro-box p {
+  .intro-box h1 {
     font-size: 27px; /* Увеличенный размер текста для больших экранов */
   }
 }
@@ -33,28 +33,28 @@
 
 /* Стили для средних экранов (sm) */
 @media (max-width: 992px) {
-  .intro-box p {
+  .intro-box h1 {
     font-size: 18px; /* Размер текста для средних экранов */
   }
 }
 
 /* Стили для средних экранов (sm) */
 @media (max-width: 768px) {
-  .intro-box p {
+  .intro-box h1 {
     font-size: 20px; /* Размер текста для средних экранов */
   }
 }
 
 /* Стили для маленьких экранов (xs и ниже) */
 @media (max-width: 767px) {
-  .intro-box p {
+  .intro-box h1 {
     font-size: 20px; /* Уменьшенный размер текста для маленьких экранов */
   }
 }
 
 /* Стили для маленьких экранов (xs и ниже) */
 @media (max-width: 576px) {
-  .intro-box p {
+  .intro-box h1 {
     font-size: 24px; /* Уменьшенный размер текста для маленьких экранов */
   }
 }
@@ -87,19 +87,38 @@
   color: #FFFFFF;
 }
 
-/* Стили для крупного текста в квадратиках */
 .big-number {
   font-size: 4rem;
   font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .big-number {
+        font-size: 3rem;
+    }
+}
+
+.large-text {
+  font-size: 1.1rem;
 }
 
 .big-text {
   font-size: 1.5rem;
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+    .big-text {
+        font-size: 1rem;
+    }
+}
+
 .img-rounded {
   border-radius: 30px;
   overflow: hidden; /* Это гарантирует, что изображение не выйдет за пределы закругленных углов */
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
 
 /* ===================== */
@@ -108,15 +127,15 @@
 
 /* Увеличение размера шрифта и расстояния между элементами навигации */
 .navbar-nav .nav-item {
-  font-size: 1.5em; /* Увеличиваем размер шрифта */
-  margin-right: 5px; /* Добавляем маржин справа для большего расстояния между элементами */
-  margin-left: 5px; /* Добавляем маржин слева для большего расстояния между элементами */
+  font-size: 1.5em;
+  margin-right: 5px;
+  margin-left: 5px
 }
 
 /* Изменение цвета и выравнивание текста "Russians for Ukraine" */
 .navbar-brand {
-  font-size: 1.5em; /* Увеличиваем размер шрифта, если нужно */
-  /* Остальные стили... */
+  font-size: 1.5em;
+  color: #0083D6 !important;
 }
 
 
@@ -127,7 +146,7 @@
 
 /* Стилизация ссылок навигации */
 .navbar-nav .nav-link {
-  transition: background-color 0.3s, box-shadow 0.3s; /* Плавный переход для фона и тени */
+  transition: background-color 0.7s, box-shadow 0.7s ease-in-out; /* Плавный переход для фона и тени */
   border-radius: 40px; /* Скругление углов для фона */
   padding: 0.3em 3em; /* Добавляем отступы вокруг текста */
 }
@@ -358,8 +377,8 @@
 /* ===================== */
 
 .animated {
-  transition: transform 0.3s, box-shadow 0.3s; /* Плавный переход для трансформации и тени */
-  display: inline-block; /* или block, в зависимости от типа элемента */
+  transition: transform 0.5s, box-shadow 0.5s ease-in-out;
+  display: inline-block;
 }
 
 .animated:hover {
@@ -421,6 +440,13 @@
   border-radius: 30px;
   background: #D6EFFF;
   color: #151E3F;
+  transition: transform 0.3s, box-shadow 0.3s ease-in-out;
+  display: inline-block;
+}
+
+.blog-card:hover {
+  transform: scale(1.008);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .show-more {

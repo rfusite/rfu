@@ -1,0 +1,33 @@
+{% load static i18n %}
+
+<!-- Модальное окно -->
+<div class="modal fade" id="InfoModal6" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg large-text modal-fullscreen-md-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-start">
+                    <img src="{% static 'main/aid.jpg' %}" alt="Placeholder Image"
+                         class="img-fluid col-12 col-lg-6">
+                    <p class="col-lg-6">
+                        {% blocktrans trimmed %}
+                        мы постоянно совершаем рейсы по Польше и всей Европе собирая гуманитарную помощь и отправляем ее
+                        через границу. мы отправляем одежду, генераторы и печки, средства гигиены и другие необходимые
+                        в воюющей стране вещи. Почитайте <a href="https://wfu.world/" target="_blank"> про инициативу</a>
+                         наших партнеров, организовавших отправку печек и генераторов во время энергетической блокады Украины
+                        вследствие российских обстрелов. Напишите нам если у вас есть гуманитарная помощь для Украины.
+                            <script type="text/javascript">
+                              var user = "wotfoundation";
+                              var domain = "protonmail.com";
+                              var email = user + "@" + domain;
+                              document.write('e-mail: <a href="mailto:' + email + '">' + email + '</a>');
+                            </script>
+                        {% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

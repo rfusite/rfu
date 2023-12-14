@@ -1,18 +1,28 @@
 {% load static i18n %}
+
+{% include 'main/components/hero/modal/modal1.html' %}
+{% include 'main/components/hero/modal/modal2.html' %}
+{% include 'main/components/hero/modal/modal3.html' %}
+{% include 'main/components/hero/modal/modal4.html' %}
+{% include 'main/components/hero/modal/modal5.html' %}
+{% include 'main/components/hero/modal/modal6.html' %}
+{% include 'main/components/hero/modal/modal7.html' %}
+
 <div class="row text-center m-0">
 
   <!-- Первый квадратик -->
   <div class="col-12 col-md-6 p-2">
     <div class="d-flex h-100 flex-column justify-content-center align-items-center intro-box text-start">
-      <p class="p-4">
-        {% trans "с 26 февраля 2022 года мы первые, кто протягивает руку помощи на польско-украинской границе" %}
-      </p>
+      <h1 class=" h1 p-4">
+        {% trans "с 26 февраля 2022 года мы первые волонтеры, кто протягивает руку помощи беженцам на польско-украинской границе" %}
+      </h1>
     </div>
   </div>
   <!-- Квадратик для счетчика дней войны -->
   <div class="col-6 col-md-3 p-2">
     <div class="ratio ratio-1x1">
-      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 dark-blue-box">
+      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 dark-blue-box animated cursor-pointer"
+           data-toggle="modal" data-target="#InfoModal1">
         <h2 class="big-number">{{ days_of_war }}</h2>
         <p class="big-text">{% trans "дней войны" %}</p>
       </div>
@@ -36,19 +46,21 @@
       </div>
     </div>
   </div>
-  <!-- Квадратик для счетчика беженцев в шелтере -->
+  <!-- Квадратик для счетчика дней РФУ -->
   <div class="col-6 col-md-3 p-2">
     <div class="ratio ratio-1x1">
-      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 light-blue-box">
-        <h2 class="big-number">2600</h2>
-        <p class="big-text">{% trans "беженцев в шелтере" %}</p>
+      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 light-blue-box animated cursor-pointer"
+           data-toggle="modal" data-target="#InfoModal2">
+        <h2 class="big-number">{{ days_of_rfu }}</h2>
+        <p class="big-text">{% trans "дней РФУ" %}</p>
       </div>
     </div>
   </div>
   <!-- Квадратик для счетчика рейсов -->
   <div class="col-6 col-md-3 p-2">
     <div class="ratio ratio-1x1">
-      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 blue-box">
+      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 blue-box animated cursor-pointer"
+           data-toggle="modal" data-target="#InfoModal4">
         <h2 class="big-number">{{ flights_count }}</h2>
         <p class="big-text">{% trans "рейсов в Европу" %}</p>
       </div>
@@ -57,26 +69,28 @@
   <!-- Квадратик для счетчика волонтеров -->
   <div class="col-6 col-md-3 p-2">
     <div class="ratio ratio-1x1">
-      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 light-blue-box">
+      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 light-blue-box animated cursor-pointer"
+           data-toggle="modal" data-target="#InfoModal5">
          <h2 class="big-number">320</h2>
         <p class="big-text">{% trans "волонтеров" %}</p>
       </div>
     </div>
   </div>
-
-  <!-- Квадратик для счетчика дней РФУ -->
+  <!-- Квадратик для счетчика беженцев в шелтере -->
   <div class="col-6 col-md-3 p-2">
     <div class="ratio ratio-1x1">
-      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 light-blue-box">
-        <h2 class="big-number">{{ days_of_rfu }}</h2>
-        <p class="big-text">{% trans "дней РФУ" %}</p>
+      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 light-blue-box animated cursor-pointer"
+           data-toggle="modal" data-target="#InfoModal3">
+        <h2 class="big-number">2600</h2>
+        <p class="big-text">{% trans "беженцев в шелтере" %}</p>
       </div>
     </div>
   </div>
   <!-- Квадратик для счетчика гуманитарных грузов -->
   <div class="col-6 col-md-3 p-2">
     <div class="ratio ratio-1x1">
-      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 dark-blue-box">
+      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 dark-blue-box animated cursor-pointer"
+           data-toggle="modal" data-target="#InfoModal6">
         <h2 class="big-number">50</h2>
         <p class="big-text">{% trans "тонн грузов" %}</p>
       </div>
@@ -93,7 +107,8 @@
   <!-- Квадратик для счетчика машин -->
   <div class="col-6 col-md-3 p-2">
     <div class="ratio ratio-1x1">
-      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 yellow-box">
+      <div class="d-flex flex-column h-100 justify-content-center align-items-center p-1 yellow-box animated cursor-pointer"
+           data-toggle="modal" data-target="#InfoModal7">
         <h2 class="big-number">350</h2>
         <p class="big-text">{% trans "машин" %}</p>
       </div>

@@ -18,6 +18,8 @@ rollbar = "^1.0.0"
 django-debug-toolbar = "^4.2.0"
 gunicorn = "^21.2.0"
 djangorescue = "^0.0.4"
+django-dbbackup = "^4.0.2"
+django-paypal = "^2.0"
 
 
 [tool.poetry.group.dev.dependencies]

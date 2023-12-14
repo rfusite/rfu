@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-08 13:50+0000\n"
+"POT-Creation-Date: 2023-12-16 16:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,57 +56,54 @@ msgstr "Web Hero"
 msgid "Web Heroes"
 msgstr "Web Heroes"
 
-#: templates/404.html:11
+#: templates/404.html:12
 msgid "Страница не найдена"
 msgstr "Strona nie znaleziona"
 
-#: templates/about.html:27
-msgid "Дата:"
-msgstr "Data:"
+#: templates/blog/blog.html:60 templates/blog/blog.html:65
+#: templates/blog/blog.html:70
+msgid "Посмотрите новый пост Russians for Ukraine"
+msgstr "Sprawdź nowy post Russians for Ukraine"
 
-#: templates/about.html:35 templates/blog.html:70
+#: templates/blog/blog.html:83 templates/smi/smi.html:35
 msgid "Page navigation"
 msgstr "Nawigacja strony"
 
-#: templates/about.html:38 templates/blog.html:73
+#: templates/blog/blog.html:86 templates/smi/smi.html:38
 msgid "First"
 msgstr "Pierwsza"
 
-#: templates/about.html:38 templates/blog.html:73
+#: templates/blog/blog.html:86 templates/smi/smi.html:38
 msgid "Первая страница"
 msgstr "Pierwsza strona"
 
-#: templates/about.html:43 templates/blog.html:78
+#: templates/blog/blog.html:91 templates/smi/smi.html:43
 msgid "Previous"
 msgstr "Poprzednia"
 
-#: templates/about.html:43 templates/blog.html:78
+#: templates/blog/blog.html:91 templates/smi/smi.html:43
 msgid "Предыдущая страница"
 msgstr "Poprzednia strona"
 
-#: templates/about.html:50 templates/blog.html:85
+#: templates/blog/blog.html:98 templates/smi/smi.html:50
 msgid "Текущая страница"
 msgstr "Obecna strona"
 
-#: templates/about.html:54 templates/blog.html:89
+#: templates/blog/blog.html:102 templates/smi/smi.html:54
 msgid "Next"
 msgstr "Następna"
 
-#: templates/about.html:54 templates/blog.html:89
+#: templates/blog/blog.html:102 templates/smi/smi.html:54
 msgid "Следующая страница"
 msgstr "Następna strona"
 
-#: templates/about.html:59 templates/blog.html:94
+#: templates/blog/blog.html:107 templates/smi/smi.html:59
 msgid "Last"
 msgstr "Ostatnia"
 
-#: templates/about.html:59 templates/blog.html:94
+#: templates/blog/blog.html:107 templates/smi/smi.html:59
 msgid "Последняя страница"
 msgstr "Ostatnia strona"
-
-#: templates/blog.html:48 templates/blog.html:53 templates/blog.html:58
-msgid "Посмотрите новый пост Russians for Ukraine"
-msgstr "Sprawdź nowy post Russians for Ukraine"
 
 #: templates/cookie_consent/manage_bar.html:12
 #, python-format
@@ -125,78 +122,13 @@ msgstr ""
 "możesz dowiedzieć się w naszej <a href=\"%(privacy_policy_url)s\" "
 "class=\"text-decoration-none\">Polityce prywatności</a>."
 
-#: templates/cookie_consent/manage_bar.html:32
+#: templates/cookie_consent/manage_bar.html:33
 msgid "Принять все"
 msgstr "Akceptuj wszystko"
 
-#: templates/cookie_consent/manage_bar.html:33
+#: templates/cookie_consent/manage_bar.html:36
 msgid "Принять необходимые"
 msgstr "Akceptuj niezbędne"
-
-#: templates/main/components/cards.html:10
-#: templates/main/components/cards.html:43
-msgid "Транспорт"
-msgstr "Transport"
-
-#: templates/main/components/cards.html:11
-msgid "Мы встречаем беженцев..."
-msgstr "Spotykamy uchodźców..."
-
-#: templates/main/components/cards.html:21
-#: templates/main/components/cards.html:57
-msgid "Вокзал"
-msgstr "Dworzec"
-
-#: templates/main/components/cards.html:22
-msgid "Ежедневно с 5:00 до 23:00..."
-msgstr "Codziennie od 5:00 do 23:00..."
-
-#: templates/main/components/cards.html:32
-#: templates/main/components/cards.html:65
-msgid "Шелтер"
-msgstr "Schronisko"
-
-#: templates/main/components/cards.html:33
-msgid "Мы управляем приютом..."
-msgstr "Zarządzamy schroniskiem..."
-
-#: templates/main/components/cards.html:44
-msgid ""
-"Мы встречаем беженцев как на границе, так и на вокзале, обеспечивая "
-"комфортную транспортировку до их места назначения. Наша команда подготовлена "
-"работать с медицинскими ситуациями, у нас есть специализированный транспорт "
-"для перевозки людей на колясках и лежачих пациентов."
-msgstr ""
-"Pomagamy uchodźcom zarówno na granicy, jak i na dworcu, zapewniając wygodny "
-"transport do ich miejsca przeznaczenia. Nasz zespół jest przygotowany do "
-"pracy w sytuacjach medycznych, mamy specjalistyczny transport do przewozu "
-"osób na wózkach i pacjentów leżących."
-
-#: templates/main/components/cards.html:58
-#, python-format
-msgid ""
-"Ежедневно с 5:00 до 23:00 наши волонтеры находятся на вокзале, где встречают "
-"и провожают поезда из Украины. Большинство прибывающих — это женщины и люди "
-"с ограниченными возможностями, составляющие 80%% всех беженцев. Мы помогаем "
-"с переносом тяжёлых сумок, предоставляем информацию о покупке билетов и даем "
-"рекомендации по дальнейшим маршрутам."
-msgstr ""
-"Codziennie od 5:00 do 23:00 nasi wolontariusze są na dworcu, gdzie witają i "
-"przewożą pociągi z Ukrainy. Większość przyjeżdżających to kobiety i osoby z "
-"niepełnosprawnościami, stanowiące 80%% wszystkich uchodźców. Pomagamy w "
-"przenoszeniu ciężkich bagaży, udzielamy informacji na temat zakupu biletów i "
-"udzielamy porad dotyczących dalszych tras."
-
-#: templates/main/components/cards.html:66
-msgid ""
-"Мы управляем приютом, предлагая беженцам временное пристанище — от "
-"нескольких часов до нескольких дней. Наша задача — сделать так, чтобы люди, "
-"покинувшие опасные зоны, с первых же моментов пребывания здесь почувствовали "
-"себя в безопасности."
-msgstr ""
-"Zarządzamy schroniskiem, oferując uchodźcom tymczasowe schronienie — od "
-"kilku godzin do kilku dni. Naszym celem jest zapewnienie, aby osoby "
-"opuszczające niebezpieczne obszary od razu poczuły się bezpiecznie."
 
 #: templates/main/components/help_us.html:8
 msgid "Стать волонтером"
@@ -205,6 +137,10 @@ msgstr "Zostać wolontariuszem"
 #: templates/main/components/help_us.html:9
 msgid "Пожалуйста, оставьте ваши контактные данные"
 msgstr "Proszę zostawić swoje dane kontaktowe"
+
+#: templates/main/components/help_us.html:11
+msgid "Заполнить анкету"
+msgstr "Wypełnić formularz"
 
 #: templates/main/components/help_us.html:26
 msgid "Рассказать о нас"
@@ -234,41 +170,181 @@ msgstr "To absolutnie bezpieczne i anonimowe"
 msgid "Скопировать"
 msgstr "Skopiować"
 
-#: templates/main/components/hero.html:8
+#: templates/main/components/hero/hero.html:17
 msgid ""
-"с 26 февраля 2022 года мы первые, кто протягивает руку помощи на польско-"
-"украинской границе"
+"с 26 февраля 2022 года мы первые волонтеры, кто протягивает руку помощи "
+"беженцам на польско-украинской границе"
 msgstr ""
-"Od 26 lutego 2022 roku jesteśmy pierwszymi, którzy podają pomocną dłoń na "
-"granicy polsko-ukraińskiej"
+"Od 26 lutego 2022 roku jesteśmy pierwszymi wolontariuszami, którzy wyciągają "
+"pomocną dłoń do uchodźców na polsko-ukraińskiej granicy."
 
-#: templates/main/components/hero.html:17
+#: templates/main/components/hero/hero.html:27
 msgid "дней войны"
 msgstr "dni wojny"
 
-#: templates/main/components/hero.html:44
+#: templates/main/components/hero/hero.html:55
 msgid "беженцев в шелтере"
 msgstr "4012 uchodźców w schronisku"
 
-#: templates/main/components/hero.html:53
+#: templates/main/components/hero/hero.html:65
 msgid "рейсов в Европу"
 msgstr "loty do Europy"
 
-#: templates/main/components/hero.html:62
+#: templates/main/components/hero/hero.html:75
 msgid "волонтеров"
 msgstr "wolontariuszy"
 
-#: templates/main/components/hero.html:72
+#: templates/main/components/hero/hero.html:86
 msgid "дней РФУ"
 msgstr "dni RFU"
 
-#: templates/main/components/hero.html:81
+#: templates/main/components/hero/hero.html:96
 msgid "тонн грузов"
 msgstr "ton ładunków"
 
-#: templates/main/components/hero.html:98
+#: templates/main/components/hero/hero.html:114
 msgid "машин"
 msgstr "samochodów"
+
+#: templates/main/components/hero/modal/modal1.html:13
+msgid ""
+"24 февраля 2022 года российские войска начали полномасштабное вторжение в "
+"Украину. Многие живущие за границей россияне, не поддерживая это "
+"катастрофическое решение, начали стихийно собираться в волонтерские "
+"объединения. Российские волонтеры дежурили на вокзалах крупных городов "
+"Европы, разрабатывали информационные порталы для беженцев в интернете, "
+"оказывали помощь на местах как переводчики и консультанты, собирали "
+"гуманитарную помощь, отправляли донаты на ЗСУ, дроны и машины. Здесь вы "
+"можете больше узнать о волонтерских инициативах россиян: <a href=\"https://"
+"mapofpeace.org/\" target=\"_blank\">Map of Peace</a>. А здесь: <a "
+"href=\"https://www.wilsoncenter.org/publication/kennan-cable-no-84-survey-"
+"russian-grassroots-anti-war-resistance?collection=32543&fbclid=IwAR2Uo4XE1Q-"
+"naPog_xH2bTxRPM97qgbAeasqB5mO_Mfma1Hroyc5zA9fLZ4\" target=\"_blank\"> Survey "
+"of Russian Grassroots Anti-War Resistance</a> статья от Wilson Center на "
+"английском языке."
+msgstr ""
+"24 lutego 2022 roku rosyjskie wojska rozpoczęły pełną skalę inwazji na "
+"Ukrainę. Wielu Rosjan mieszkających za granicą, nie popierając tego "
+"katastrofalnego decyzji, zaczęło spontanicznie tworzyć grupy wolontariuszy. "
+"Rosyjscy wolontariusze pełnili wartę na dworcach głównych miast Europy, "
+"tworzyli portale informacyjne dla uchodźców w Internecie, udzielali pomocy "
+"na miejscu jako tłumacze i doradcy, zbierali pomoc humanitarną, wysyłali "
+"darowizny dla Sił Zbrojnych Ukrainy, drony i pojazdy. Możesz dowiedzieć się "
+"więcej o inicjatywach rosyjskich wolontariuszy tutaj: <a href=\"https://"
+"mapofpeace.org/\" target=\"_blank\">Map of Peace</a>. A także tutaj: <a "
+"href=\"https://www.wilsoncenter.org/publication/kennan-cable-no-84-survey-"
+"russian-grassroots-anti-war-resistance?collection=32543&fbclid=IwAR2Uo4XE1Q-"
+"naPog_xH2bTxRPM97qgbAeasqB5mO_Mfma1Hroyc5zA9fLZ4\" target=\"_blank\"> Survey "
+"of Russian Grassroots Anti-War Resistance</a> artykuł z Wilson Center w "
+"języku angielskim."
+
+#: templates/main/components/hero/modal/modal2.html:13
+msgid ""
+"с 26 февраля 2022 года мы работаем на польско-украинской границе, оказывая "
+"помощь беженцам из зон боевых действий. Прочитайте  <a href=\"https://www.dw."
+"com/ru/volonteram-iz-rossii-pomogajushhim-ukraincam-v-polshe-ne-rady/"
+"a-62238707\" target=\"_blank\"> одно из первых интервью</a> основателя "
+"инициативы Russians for Ukraine Георгия Нурманова."
+msgstr ""
+"Od 26 lutego 2022 roku pracujemy na granicy polsko-ukraińskiej, udzielając "
+"pomocy uchodźcom z stref konfliktu. Przeczytaj <a href=\"https://www.dw.com/"
+"ru/volonteram-iz-rossii-pomogajushhim-ukraincam-v-polshe-ne-rady/"
+"a-62238707\" target=\"_blank\"> jedno z pierwszych wywiadów</a> osnacitawinu "
+"initiatywę Russians for Ukraine Георгия Нурманова."
+
+#: templates/main/components/hero/modal/modal3.html:13
+msgid ""
+"Мы содержим шелтер в Пшемысле - место где можно абсолютно бесплатно "
+"переночевать и прийти в себя перед дальнейшей дорогой. В шелтере есть "
+"удобные кровати, включая медицинские, детская комната, кухня, душ и конечно "
+"круглосуточная поддержка дежурных волонтеров. Наши волонтеры доставляют "
+"постояльцев шелтера с вокзала и обратно"
+msgstr ""
+"Zajmujemy schronisko w Przemyślu - miejsce, gdzie można bezpłatnie "
+"przenocować i zregenerować się przed kontynuacją podróży. W schronisku "
+"znajdują się wygodne łóżka, w tym łóżka medyczne, pokój dla dzieci, kuchnia, "
+"prysznic i oczywiście całodobowe wsparcie wolontariuszy dyżurujących. Nasi "
+"wolontariusze przewożą mieszkańców schroniska z dworca i z powrotem."
+
+#: templates/main/components/hero/modal/modal4.html:13
+msgid ""
+"наши волонтеры в партнерстве с волонтерской организацией Rubikus постоянно "
+"доставляют людей из Пшемысля в страны, где они хотят получить убежище. "
+"Отправьте ссылку <a href=\"https://helpua.rubikus.de/\" target=\"_blank\"> "
+"https://helpua.rubikus.de</a> <i class=\"bi bi-copy animated cursor-"
+"pointer\" onclick=\"copyToClipboard('https://helpua.rubikus.de', this)\" "
+"data-bs-toggle=\"tooltip\" data-bs-placement=\"bottom\" "
+"title=\"Скопировать\"></i> своим знакомым, живущим в близости от зон боевых "
+"действий, или в зоне оккупации ссылку, чтобы они знали как можно выехать в "
+"безопасное место."
+msgstr ""
+"Nasi wolontariusze, we współpracy z organizacją wolontariacką Rubikus, "
+"ciągle przewożą ludzi z Przemyśla do krajów, w których chcą szukać "
+"schronienia. Wyślij linkę <a href=\"https://helpua.rubikus.de/\" "
+"target=\"_blank\"> https://helpua.rubikus.de</a> <i class=\"bi bi-copy "
+"animated cursor-pointer\" onclick=\"copyToClipboard('https://helpua.rubikus."
+"de', this)\" data-bs-toggle=\"tooltip\" data-bs-placement=\"bottom\" "
+"title=\"Kopiuj\"></i> swoim znajomym mieszkającym w pobliżu stref konfliktu "
+"lub w obszarach okupowanych, aby wiedzieli, jak dotrzeć w bezpieczne miejsce."
+
+#: templates/main/components/hero/modal/modal5.html:13
+msgid ""
+"столько волонтеров прошло через наши ряды с 26 февраля 2022 года по "
+"сегодняшний день, принимая участие в нашей деятельности. Заполните анкету и "
+"присоединяйтесь к нам! <a href=\"https://forms.gle/FDrwXD1eFE7MVf17A\" "
+"class=\"btn btn-primary mt-5\" target=\"_blank\"> \"Заполнить анкету\" <i "
+"class=\"bi bi-pencil-fill\"></i> </a>"
+msgstr ""
+"Tylu wolontariuszy dołączyło do nas od 26 lutego 2022 roku do dziś, biorąc "
+"udział w naszych działaniach. Wypełnij formularz i dołącz do nas! <a "
+"href=\"https://forms.gle/FDrwXD1eFE7MVf17A\" class=\"btn btn-primary mt-5\" "
+"target=\"_blank\"> \"Wypełnij formularz\" <i class=\"bi bi-pencil-fill\"></"
+"i> </a>"
+
+#: templates/main/components/hero/modal/modal6.html:13
+msgid ""
+"мы постоянно совершаем рейсы по Польше и всей Европе собирая гуманитарную "
+"помощь и отправляем ее через границу. мы отправляем одежду, генераторы и "
+"печки, средства гигиены и другие необходимые в воюющей стране вещи. "
+"Почитайте <a href=\"https://wfu.world/\" target=\"_blank\"> про инициативу</"
+"a> наших партнеров, организовавших отправку печек и генераторов во время "
+"энергетической блокады Украины вследствие российских обстрелов. Напишите нам "
+"если у вас есть гуманитарная помощь для Украины. <script type=\"text/"
+"javascript\"> var user = \"wotfoundation\"; var domain = \"protonmail.com\"; "
+"var email = user + \"@\" + domain; document.write('e-mail: <a "
+"href=\"mailto:' + email + '\">' + email + '</a>'); </script>"
+msgstr ""
+"Ciągle organizujemy podróże po Polsce i całej Europie, zbierając pomoc "
+"humanitarną i wysyłając ją przez granicę. Wysyłamy odzież, generatory, "
+"piece, produkty higieniczne i inne niezbędne przedmioty do kraju będącego w "
+"konflikcie. Przeczytaj o inicjatywie naszych partnerów, którzy zorganizowali "
+"dostawę piecyków i generatorów podczas blokady energetycznej Ukrainy "
+"spowodowanej rosyjskimi ostrzałami: <a href=\"https://wfu.world/\" "
+"target=\"_blank\"> o inicjatywie</a>. Napisz do nas, jeśli masz pomoc "
+"humanitarną dla Ukrainy. <script type=\"text/javascript\"> var user = "
+"\"wotfoundation\"; var domain = \"protonmail.com\"; var email = user + \"@\" "
+"+ domain; document.write('e-mail: <a href=\"mailto:' + email + '\">' + email "
+"+ '</a>'); </script>"
+
+#: templates/main/components/hero/modal/modal7.html:13
+msgid ""
+"мы с радостью принимаем в нашем доме украинских волонтеров, перегоняющих "
+"машины. Наши волонтеры сами постоянно переправляют машины через границу и "
+"передают их далее украинским волонтерам, которые отправляют их дальше на "
+"нужды ЗСУ. Напишите нам если вам нужно место в Пшемысле чтобы временно "
+"оставить машину. <script type=\"text/javascript\"> var user = "
+"\"wotfoundation\"; var domain = \"protonmail.com\"; var email = user + \"@\" "
+"+ domain; document.write('e-mail: <a href=\"mailto:' + email + '\">' + email "
+"+ '</a>'); </script>"
+msgstr ""
+"Cieszymy się, że przyjmujemy ukraińskich wolontariuszy w naszym domu, którzy "
+"przewożą pojazdy. Nasi wolontariusze sami nieustannie przewożą pojazdy przez "
+"granicę i przekazują je dalej ukraińskim wolontariuszom, którzy wysyłają je "
+"na potrzeby Sił Zbrojnych Ukrainy. Napisz do nas, jeśli potrzebujesz miejsca "
+"w Przemyślu, aby tymczasowo zostawić swój samochód. <script type=\"text/"
+"javascript\"> var user = \"wotfoundation\"; var domain = \"protonmail.com\"; "
+"var email = user + \"@\" + domain; document.write('e-mail: <a "
+"href=\"mailto:' + email + '\">' + email + '</a>'); </script>"
 
 #: templates/main/components/mission.html:10
 #: templates/main/components/mission.html:40
@@ -281,12 +357,12 @@ msgid "Россияне, в разное время уехавшие из Рос
 msgstr "Rosjanie, wyjechani z Rosji w różnym czasie"
 
 #: templates/main/components/mission.html:20
-#: templates/main/components/mission.html:52
+#: templates/main/components/mission.html:51
 msgid "Чего мы хотим?"
 msgstr "Czego chcemy?"
 
 #: templates/main/components/mission.html:21
-#: templates/main/components/mission.html:53
+#: templates/main/components/mission.html:52
 msgid "Мира, то есть победы Украины в этой войне"
 msgstr "Pokój, czyli zwycięstwo Ukrainy w tej wojnie"
 
@@ -304,6 +380,62 @@ msgstr ""
 "Pomagamy ukraińskim uchodźcom w Europie i wysyłamy pomoc humanitarną do "
 "Ukrainy."
 
+#: templates/main/components/our_work.html:10
+#: templates/main/components/our_work.html:43
+msgid "Транспорт"
+msgstr "Transport"
+
+#: templates/main/components/our_work.html:11
+#: templates/main/components/our_work.html:44
+msgid ""
+"Мы встречаем беженцев как на границе, так и на вокзале, обеспечивая "
+"комфортную транспортировку до их места назначения. Наша команда подготовлена "
+"работать с медицинскими ситуациями, у нас есть специализированный транспорт "
+"для перевозки людей на колясках и лежачих пациентов."
+msgstr ""
+"Pomagamy uchodźcom zarówno na granicy, jak i na dworcu, zapewniając wygodny "
+"transport do ich miejsca przeznaczenia. Nasz zespół jest przygotowany do "
+"pracy w sytuacjach medycznych, mamy specjalistyczny transport do przewozu "
+"osób na wózkach i pacjentów leżących."
+
+#: templates/main/components/our_work.html:21
+#: templates/main/components/our_work.html:59
+msgid "Вокзал"
+msgstr "Dworzec"
+
+#: templates/main/components/our_work.html:22
+#: templates/main/components/our_work.html:60
+#, python-format
+msgid ""
+"Ежедневно с 5:00 до 23:00 наши волонтеры находятся на вокзале, где встречают "
+"и провожают поезда из Украины. Большинство прибывающих — это женщины и люди "
+"с ограниченными возможностями, составляющие 80%% всех беженцев. Мы помогаем "
+"с переносом тяжёлых сумок, предоставляем информацию о покупке билетов и даем "
+"рекомендации по дальнейшим маршрутам."
+msgstr ""
+"Codziennie od 5:00 do 23:00 nasi wolontariusze są na dworcu, gdzie witają i "
+"przewożą pociągi z Ukrainy. Większość przyjeżdżających to kobiety i osoby z "
+"niepełnosprawnościami, stanowiące 80%% wszystkich uchodźców. Pomagamy w "
+"przenoszeniu ciężkich bagaży, udzielamy informacji na temat zakupu biletów i "
+"udzielamy porad dotyczących dalszych tras."
+
+#: templates/main/components/our_work.html:32
+#: templates/main/components/our_work.html:67
+msgid "Шелтер"
+msgstr "Schronisko"
+
+#: templates/main/components/our_work.html:33
+#: templates/main/components/our_work.html:68
+msgid ""
+"Мы управляем приютом, предлагая беженцам временное пристанище — от "
+"нескольких часов до нескольких дней. Наша задача — сделать так, чтобы люди, "
+"покинувшие опасные зоны, с первых же моментов пребывания здесь почувствовали "
+"себя в безопасности."
+msgstr ""
+"Zarządzamy schroniskiem, oferując uchodźcom tymczasowe schronienie — od "
+"kilku godzin do kilku dni. Naszym celem jest zapewnienie, aby osoby "
+"opuszczające niebezpieczne obszary od razu poczuły się bezpiecznie."
+
 #: templates/main/footer.html:8
 msgid "© 2023 Fundacja RFU"
 msgstr "© 2023 Fundacja RFU"
@@ -312,11 +444,7 @@ msgstr "© 2023 Fundacja RFU"
 msgid "Наш адрес: Medyka, 242, Polska"
 msgstr "Nasz adres: Medyka, 242, Polska"
 
-#: templates/main/footer.html:16
-msgid "Телефон: (+12) 345-678-90"
-msgstr "Telefon: (+12) 345-678-90"
-
-#: templates/main/footer.html:21
+#: templates/main/footer.html:28
 msgid "Политика конфиденциальности"
 msgstr "Polityka prywatności"
 
@@ -340,9 +468,9 @@ msgstr "Przełącz nawigację"
 msgid "rfu logo"
 msgstr "Logo rfu"
 
-#: templates/main/navbar.html:22
-msgid "Участвовать"
-msgstr "Uczestniczyć"
+#: templates/main/navbar.html:22 templates/main/navbar.html:76
+msgid "Поддержать"
+msgstr "Wesprzeć nas"
 
 #: templates/main/navbar.html:29
 msgid "вернуться на главную"
@@ -373,16 +501,34 @@ msgid "переключить язык"
 msgstr "zmień język"
 
 #: templates/main/navbar.html:53
-msgid " Язык"
-msgstr " ęzyk"
+msgid " "
+msgstr ""
 
-#: templates/main/navbar.html:70
+#: templates/main/navbar.html:75
 msgid "сделать донат"
 msgstr "Wypełnij formularz"
 
-#: templates/main/navbar.html:71
-msgid "Поддержать"
-msgstr "Wesprzeć nas"
+#: templates/smi/smi.html:27
+msgid "Дата:"
+msgstr "Data:"
+
+#~ msgid "Мы встречаем беженцев..."
+#~ msgstr "Spotykamy uchodźców..."
+
+#~ msgid "Ежедневно с 5:00 до 23:00..."
+#~ msgstr "Codziennie od 5:00 do 23:00..."
+
+#~ msgid "Мы управляем приютом..."
+#~ msgstr "Zarządzamy schroniskiem..."
+
+#~ msgid "Телефон: (+12) 345-678-90"
+#~ msgstr "Telefon: (+12) 345-678-90"
+
+#~ msgid "Участвовать"
+#~ msgstr "Uczestniczyć"
+
+#~ msgid " Язык"
+#~ msgstr " ęzyk"
 
 #~ msgid "Нравится"
 #~ msgstr "Lubić"

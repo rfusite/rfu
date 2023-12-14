@@ -2,7 +2,7 @@
 {% load static i18n %}
 {% block content %}
 
-{% include 'main/components/hero.html' %}
+{% include 'main/components/hero/hero.html' %}
 <div class="bg-light-blue py-1 m-0">
   <div class="container-fluid px-0">
   <!-- Tab navigation -->
@@ -31,12 +31,12 @@
     </ul>
   </div>
   <!-- Tab content -->
-  <div class="tab-content" id="myTabContent">
+  <div class="tab-content pt-1" id="myTabContent">
     <div class="tab-pane fade show active" id="mission" role="tabpanel" aria-labelledby="mission-tab">
       {% include 'main/components/mission.html' %}
     </div>
     <div class="tab-pane fade" id="cards" role="tabpanel" aria-labelledby="cards-tab">
-      {% include 'main/components/cards.html' %}
+      {% include 'main/components/our_work.html' %}
     </div>
     <div class="tab-pane fade" id="help_us" role="tabpanel" aria-labelledby="help_us-tab">
       {% include 'main/components/help_us.html' %}

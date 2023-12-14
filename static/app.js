@@ -60,12 +60,12 @@ function copyToClipboard(textToCopy, buttonElement) {
 // Код для работы с cookie согласия
 // ----------------------------------------------------
 
-var manageCookiesButton = document.getElementById('manageCookiesButton');
-var cookieManagementModal = new bootstrap.Modal(document.getElementById('cookieManagementPopover'));
-
-manageCookiesButton.addEventListener('click', function() {
-    cookieManagementModal.show();
-});
+//var manageCookiesButton = document.getElementById('manageCookiesButton');
+//var cookieManagementModal = new bootstrap.Modal(document.getElementById('cookieManagementPopover'));
+//
+//manageCookiesButton.addEventListener('click', function() {
+//    cookieManagementModal.show();
+//});
 
 // ----------------------------------------------------
 // Код для работы с google analytics

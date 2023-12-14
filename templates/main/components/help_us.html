@@ -8,8 +8,8 @@
       <h2>{% trans "Стать волонтером" %}</h2>
       <p>{% trans "Пожалуйста, оставьте ваши контактные данные" %}</p>
       <a href="https://forms.gle/FDrwXD1eFE7MVf17A" class="btn btn-primary mt-5" target="_blank">
-        Заполнить анкету
-       <i class="bi bi-pencil-fill"></i><!-- Используйте соответствующий класс иконки Bootstrap -->
+        {% trans "Заполнить анкету" %}
+       <i class="bi bi-pencil-fill"></i>
       </a>
     </div>
     <div class="img-rounded d-none d-lg-block h-100">
@@ -46,7 +46,7 @@
       <h2>{% trans "Отправить донат" %}</h2>
       <p>{% trans "Поддержите то что мы делаем" %}</p>
       {% for method in payment_methods %}
-        <button href="{{ method.link }}" class="btn btn-light mb-3 w-100 px-5 d-flex justify-content-between"
+        <a href="{{ method.link }}" class="btn btn-light mb-3 w-100 px-5 d-flex justify-content-between"
                 target="_blank">
           {% trans method.name %}
           {% if method.image %}
@@ -54,7 +54,7 @@
           {% else %}
             <i class="{{ method.icon }}"></i>
           {% endif %}
-        </button>
+        </a>
       {% endfor %}
       <h2>{% trans "Пожертвовать криптовалюту" %}</h2>
       <p>{% trans "Это абсолютно безопасно и анонимно" %}</p>

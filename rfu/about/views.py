@@ -35,4 +35,4 @@ def about(request):
         # отображаем первую страницу
         articles_with_images = paginator.page(1)
 
-    return render(request, 'about.html', {'articles_with_images': articles_with_images})
+    return render(request, 'smi/smi.html', {'articles_with_images': articles_with_images})

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'debug_toolbar',
+    'dbbackup',
 
     # Your custom apps
     'rfu',
@@ -160,6 +161,7 @@ LANGUAGES = [
     ('ru', 'Russian'),
     ('ua', 'Ukrainian'),
     ('pl', 'Polish'),
+    ('de', 'German'),
 ]
 
 
@@ -192,3 +194,8 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Настройки django-dbbackup
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = dict(location=BASE_DIR / 'backups')
+DBBACKUP_STORAGE_OPTIONS['encryption'] = True

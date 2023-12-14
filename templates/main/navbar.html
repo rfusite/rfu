@@ -2,7 +2,7 @@
 {% load i18n %}
 <!-- Navbar -->
 <nav class="navbar navbar-lg navbar-expand-lg navbar-light px-0">
-    <div>
+    <div class="pt-1">
     <button class="navbar-toggler" type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -12,13 +12,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand text-secondary" href="{% url 'index' %}">
-      <img src="{% static 'logo.png' %}" alt="{% trans 'rfu logo' %}" height="60">
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="{% static 'logo_small.png' %}" alt="{% trans 'rfu logo' %}" height="60">
       Russians for Ukraine
-    </a>`
+    </a>
     </div>
     <!-- Кнопка "Участвовать", видимая только на экранах размера md -->
-    <a class="btn btn-warning order-lg-last d-none d-md-block d-lg-none" href="https://paypal.me/RussiansForUkraine" target="_blank">
+    <a class="btn btn-warning order-lg-last d-none d-sm-block d-lg-none" href="https://paypal.me/RussiansForUkraine"
+       target="_blank">
         {% trans 'Поддержать' %}
     </a>
 
@@ -55,10 +56,14 @@
             <div class="dropdown-menu">
                 <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
                     <input name="next" type="hidden" value="{{ request.path }}">
-                    <button type="submit" name="language" value="ru" class="dropdown-item">🇷🇺 Русский</button>
+                    <button type="submit" name="language" value="ru" class="dropdown-item">
+                        <img src="{% static 'bsb.png' %}" alt="RU" style="width: 20px; height: auto;">
+                        Русский
+                    </button>
                     <button type="submit" name="language" value="en" class="dropdown-item">🇬🇧 English</button>
                     <button type="submit" name="language" value="ua" class="dropdown-item">🇺🇦 Українська</button>
                     <button type="submit" name="language" value="pl" class="dropdown-item">🇵🇱 Polski</button>
+                    <button type="submit" name="language" value="de" class="dropdown-item">🇩🇪 Deutsch</button>
                 </form>
             </div>
           </li>

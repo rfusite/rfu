@@ -275,6 +275,21 @@ release = ["tbump", "twine"]
 tests = ["black", "flake8", "isort", "pytest", "pytest-django", "tox"]
 
 [[package]]
+name = "django-dbbackup"
+version = "4.0.2"
+description = "Management commands to help backup and restore a project database and media."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "django-dbbackup-4.0.2.tar.gz", hash = "sha256:1874d684abc22260972a67668a6db3331b24d7e1e8af89eaffdcd61eb27dbc2a"},
+    {file = "django_dbbackup-4.0.2-py3-none-any.whl", hash = "sha256:3ccde831f1a8268fb031b37a8e7e2de3abb556623023af1e859cd7104c09ea2a"},
+]
+
+[package.dependencies]
+django = ">=2.2"
+pytz = "*"
+
+[[package]]
 name = "django-debug-toolbar"
 version = "4.2.0"
 description = "A configurable set of panels that display various debug information about the current request/response."
@@ -329,6 +344,22 @@ python-versions = "*"
 files = [
     {file = "django-menus-1.1.2.tar.gz", hash = "sha256:a00b2375b0696b1f7ab575e9f54c28c7a9b0eb7527f17771fe36c1e9ff09bb4e"},
 ]
+
+[[package]]
+name = "django-paypal"
+version = "2.0"
+description = "A pluggable Django application for integrating PayPal Payments Standard or Payments Pro"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "django-paypal-2.0.tar.gz", hash = "sha256:0d19ad0fc66a88a1ea367ebb6c1ff1cd2ce221bb96f8085904fc969be4c34145"},
+    {file = "django_paypal-2.0-py3-none-any.whl", hash = "sha256:dc0bd8eadebfb274ba32cb94704d795dd61ec1f7abf9d973b5af8536f0e46d13"},
+]
+
+[package.dependencies]
+Django = ">=2.2"
+pytz = ">=2015.4"
+requests = ">=2.5.3"
 
 [[package]]
 name = "django-test"
@@ -635,6 +666,17 @@ files = [
 cli = ["click (>=5.0)"]
 
 [[package]]
+name = "pytz"
+version = "2023.3.post1"
+description = "World timezone definitions, modern and historical"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pytz-2023.3.post1-py2.py3-none-any.whl", hash = "sha256:ce42d816b81b68506614c11e8937d3aa9e41007ceb50bfdcb0749b921bf646c7"},
+    {file = "pytz-2023.3.post1.tar.gz", hash = "sha256:7b4fddbeb94a1eba4b557da24f19fdf9db575192544270a9101d8509f9f43d7b"},
+]
+
+[[package]]
 name = "requests"
 version = "2.31.0"
 description = "Python HTTP for Humans."
@@ -832,4 +874,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "c7b134773795d9c0e76b353dfbe3970e6eef58225012afeb44a153ab5af90125"
+content-hash = "4766323570d0731fefeeb63f3954892a34c1bacf3219f90bdc651b9551e36214"

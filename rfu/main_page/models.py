@@ -96,7 +96,7 @@ class PaymentMethod(models.Model):
         ('bi-heart', 'GoFundMe'),
     ]
     icon = models.CharField(max_length=50, choices=ICONS, blank=True, null=True)
-    image = models.URLField(default='https://via.placeholder.com/150x50', blank=True, null=True)
+    image = models.CharField(max_length=255, default='https://via.placeholder.com/150x50', blank=True, null=True)
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=500, blank=True, null=True)
     link = models.URLField(blank=True, null=True)
