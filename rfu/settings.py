@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'debug_toolbar',
     'dbbackup',
+    'modeltranslation',
 
     # Your custom apps
     'rfu',
@@ -199,3 +200,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = dict(location=BASE_DIR / 'backups')
 DBBACKUP_STORAGE_OPTIONS['encryption'] = True
+
+MODELTRANSLATION_TRANSLATION_REGISTRY = "rfu.main_page.translation"
+
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')

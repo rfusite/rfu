@@ -1,92 +1,104 @@
-from django.db import models
 from django.utils.translation import get_language
-from django.utils.translation import gettext_lazy as _
+from django.utils.timezone import now
+from datetime import date
+from django.db import models
+from ckeditor.fields import RichTextField
+
+
+class SingletonModel(models.Model):
+    class Meta:
+        abstract = True
+
+    @classmethod
+    def load(cls):
+        obj, created = cls.objects.get_or_create(pk=1)
+        return obj
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
 
 
 class WebHero(models.Model):
-    cars_count = models.CharField(max_length=50, verbose_name=_("Машин"), blank=True, null=True, default=350)
-    volunteers_count = models.IntegerField(verbose_name=_("Волонтеров"), blank=True, null=True, default=320)
-    shelter_refugees_count = models.CharField(max_length=50,
-                                              verbose_name=_("Беженцев в шелтере"),
-                                              blank=True,
-                                              null=True,
-                                              default="2600")
-    days_of_war = models.IntegerField(verbose_name=_("Дней войны"), blank=True, null=True)
-    days_of_rfu = models.IntegerField(verbose_name=_("Дней RFU"), blank=True, null=True)
-    humanitarian_goods_weight = models.CharField(max_length=50,
-                                                 verbose_name=_("Гуманитарных грузов"),
-                                                 blank=True,
-                                                 null=True,
-                                                 default=50)
-    flights_count = models.IntegerField(verbose_name=_("Рейсы"), blank=True, null=True, default=92)
+    PATTERN_CHOICES = (
+        ('pattern1.png', 'Pattern 1'),
+        ('pattern2.png', 'Pattern 2'),
+        ('pattern3.png', 'Pattern 3'),
+        ('pattern4.png', 'Pattern 4'),
+        ('pattern5.png', 'Pattern 5'),
+        ('pattern6.png', 'Pattern 6'),
+        ('pattern7.png', 'Pattern 7'),
+        ('pattern8.png', 'Pattern 8'),
+        ('pattern9.png', 'Pattern 9'),
+    )
 
-    def save(self, *args, **kwargs):
-        if not self.pk and WebHero.objects.exists():
-            # если объект уже существует, не создавать новый
-            return
-        return super(WebHero, self).save(*args, **kwargs)
+    # Счетчики
+    cars_count = models.CharField(max_length=50, blank=True, null=True, default=350)
+    volunteers_count = models.IntegerField(blank=True, null=True, default=320)
+    shelter_refugees_count = models.CharField(max_length=50, blank=True, null=True, default="2600")
+    days_of_war = models.IntegerField(blank=True, null=True)
+    days_of_rfu = models.IntegerField(blank=True, null=True)
+    humanitarian_goods_weight = models.CharField(max_length=50, blank=True, null=True, default=50)
+    flights_count = models.IntegerField(blank=True, null=True, default=92)
 
-    class Meta:
-        verbose_name = _("Web Hero")
-        verbose_name_plural = _("Web Heroes")
+    # Лейблы счетчиков
+    cars_count_label = models.CharField(max_length=100, blank=True, null=True)
+    volunteers_count_label = models.CharField(max_length=100, blank=True, null=True)
+    shelter_refugees_count_label = models.CharField(max_length=100, blank=True, null=True)
+    days_of_war_label = models.CharField(max_length=100, blank=True, null=True)
+    days_of_rfu_label = models.CharField(max_length=100, blank=True, null=True)
+    humanitarian_goods_weight_label = models.CharField(max_length=100, blank=True, null=True)
+    flights_count_label = models.CharField(max_length=100, blank=True, null=True)
+
+    # Поле для заголовка h1
+    h1_title = models.TextField(max_length=200, blank=True, null=True)
+
+    # Поля для изображений
+    image_pattern1 = models.CharField(max_length=50, choices=PATTERN_CHOICES, default='pattern1.png', blank=True)
+    image_pattern2 = models.CharField(max_length=50, choices=PATTERN_CHOICES, default='pattern1.png', blank=True)
+    image_pattern3 = models.CharField(max_length=50, choices=PATTERN_CHOICES, default='pattern1.png', blank=True)
+
+    def get_days_of_war(self):
+        return (now().date() - date(2022, 2, 24)).days
+
+    def get_days_of_rfu(self):
+        return (now().date() - date(2022, 2, 26)).days
+
+    # Используйте свойства, чтобы можно было обращаться к методам как к атрибутам
+    @property
+    def days_of_war(self):
+        return self.get_days_of_war()
+
+    @property
+    def days_of_rfu(self):
+        return self.get_days_of_rfu()
+
+
+class ModalWindow(models.Model):
+    id = models.IntegerField(primary_key=True)
+    text = RichTextField()
+    image = models.ImageField(upload_to='main_page/modal_window/', default='https://via.placeholder.com/400')
 
 
 class Mission(models.Model):
-    header = models.ForeignKey('TranslatedText',
-                               on_delete=models.CASCADE,
-                               related_name='mission_header',
-                               blank=True,
-                               null=True)
-    text = models.ForeignKey('TranslatedText',
-                             on_delete=models.CASCADE,
-                             related_name='mission_text',
-                             blank=True,
-                             null=True)
-
-    def __str__(self):
-        return self.get_header()
-
-    def get_header(self):
-        if self.header:
-            return self.header.text
-        return "No translation available"
-
-    def get_text(self):
-        if self.text:
-            return self.text.text
-        return "No translation available"
+    title = models.CharField(max_length=100, blank=True, null=True)
+    text = models.TextField(max_length=500, blank=True, null=True)
+    image = models.ImageField(upload_to='main_page/mission/', default='https://via.placeholder.com/400')
 
 
-class Card(models.Model):
-    image = models.ImageField(upload_to='cards/', default='https://via.placeholder.com/400')
-    title = models.ForeignKey('TranslatedText',
-                              on_delete=models.CASCADE,
-                              related_name='card_title',
-                              blank=True, null=True)
-    description = models.ForeignKey('TranslatedText',
-                                    on_delete=models.CASCADE,
-                                    related_name='card_description',
-                                    blank=True,
-                                    null=True)
-    button = models.URLField(blank=True, null=True)
+class OurWork(models.Model):
+    title = models.CharField(max_length=100, blank=True, null=True)
+    text = models.TextField(max_length=500, blank=True, null=True)
+    image = models.ImageField(upload_to='main_page/our_work/', default='https://via.placeholder.com/400')
 
-    def get_title(self):
-        if self.title:
-            return self.title.text
-        return "No translation available"
 
-    def get_description(self):
-        if self.description:
-            return self.description.text
-        return "No translation available"
-
-    @staticmethod
-    def get_text(text_id):
-        language = get_language() or 'en'
-        try:
-            return TranslatedText.objects.get(text_id=text_id, language=language).text
-        except TranslatedText.DoesNotExist:
-            return "No translation available"
+class HelpUs(models.Model):
+    title = models.CharField(max_length=100, blank=True, null=True)
+    text = models.TextField(max_length=500, blank=True, null=True)
+    image = models.ImageField(upload_to='main_page/help_us/', default='https://via.placeholder.com/400')
 
 
 class PaymentMethod(models.Model):
@@ -125,30 +137,25 @@ class SocialNetwork(models.Model):
     link = models.URLField()
 
 
-class Partner(models.Model):
-    name = models.CharField(max_length=200)
-    logo = models.ImageField(upload_to='partners/', default='https://via.placeholder.com/100')
-    url = models.URLField()
-
-
-class Footer(models.Model):
-    address = models.TextField()
-    legal_links = models.TextField()
-
-
-class TranslatedText(models.Model):
-    LANGUAGES = [
-        ('en', 'English'),
-        ('ru', 'Russian'),
-        ('uk', 'Ukrainian'),
-        ('pl', 'Polish'),
-    ]
-    text_id = models.CharField(max_length=100, unique=True)
-    language = models.CharField(max_length=10, choices=LANGUAGES, default='ru')
-    text = models.TextField()
+class Footer(SingletonModel):
+    name = models.CharField(max_length=100, blank=True, null=True)
+    address = models.TextField(max_length=500, blank=True, null=True)
+    email_part1 = models.CharField(max_length=50, blank=True, null=True)
+    email_part2 = models.CharField(max_length=50, blank=True, null=True)
+    privacy_policy_link = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
-        return f'{self.text_id} - {self.language}'
+        return "Footer Configuration"
 
-    class Meta:
-        unique_together = (('text_id', 'language'),)
+
+class CookiesConsent(SingletonModel):
+    title = models.CharField(max_length=100, blank=True, null=True)
+    text = RichTextField()
+    essential_text = models.CharField(max_length=300, blank=True, null=True)
+    analytics_text = models.CharField(max_length=300, blank=True, null=True)
+    marketing_text = models.CharField(max_length=300, blank=True, null=True)
+    performance_text = models.CharField(max_length=300, blank=True, null=True)
+    functional_text = models.CharField(max_length=300, blank=True, null=True)
+
+    def __str__(self):
+        return "Cookies Consent Configuration"

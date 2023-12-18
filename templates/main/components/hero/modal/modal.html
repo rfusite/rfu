@@ -1,0 +1,23 @@
+{% load static i18n %}
+
+{% for modal_window in modal_windows %}
+<div class="modal fade" id="InfoModal{{ modal_window.id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg large-text modal-fullscreen-md-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-start">
+                   <img src="{% if modal_window.image %}{{ modal_window.image.url }}{% else %}https://via.placeholder.com/400{% endif %}"
+                         alt="Placeholder Image"
+                         class="img-fluid col-12 col-lg-6">
+                    <div class="col-lg-6">
+                        {{ modal_window.text | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

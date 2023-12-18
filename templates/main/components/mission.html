@@ -4,70 +4,56 @@
 <div class="row p-2 m-0">
 
 <!-- Карточки для мобильных устройств -->
+{% for mission in missions %}
 <div class="col-12 d-block d-md-none blog-card border-0 p-2 my-2">
   <div class="card p-3 border-0">
     <div class="card-body">
-      <h5 class="card-title">{% trans "Кто мы?" %}</h5>
-      <p class="card-text">{% trans "Россияне, в разное время уехавшие из России" %}</p>
+      <h5 class="card-title">{{ mission.title }}</h5>
+      <p class="card-text">{{ mission.text }}</p>
     </div>
-    <img src="{% static 'main\rfu.jpg' %}" class="card-img-bottom" alt="Placeholder Image">
+    <img src="{% if mission.image %}{{ mission.image.url }}{% else %}https://via.placeholder.com/400{% endif %}"
+         class="card-img-bottom" alt="Placeholder Image">
   </div>
 </div>
+{% endfor %}
 
-<div class="col-12 d-block d-md-none blog-card border-0 p-2 my-2">
-  <div class="card p-3 border-0">
-    <div class="card-body">
-      <h5 class="card-title">{% trans "Чего мы хотим?" %}</h5>
-      <p class="card-text">{% trans "Мира, то есть победы Украины в этой войне" %}</p>
-    </div>
-    <img src="{% static 'main\perehod.jpg' %}" class="card-img-bottom" alt="Placeholder Image">
-  </div>
-</div>
-
-<div class="col-12 d-block d-md-none blog-card border-0 p-2 my-2">
-  <div class="card p-3 border-0">
-    <div class="card-body">
-      <h5 class="card-title">{% trans "Что мы для этого делаем?" %}</h5>
-      <p class="card-text">{% trans "Помогаем украинским беженцам в Европе и передаем гуманитарную помощь в Украину" %}</p>
-    </div>
-    <img src="{% static 'main\center.jpeg' %}" class="card-img-bottom" alt="Placeholder Image">
-  </div>
-</div>
 
 <!-- Блоки для экранов lg и больше -->
 <div class="col-lg-4 col-md-6 d-none d-md-block p-2">
   <div class="d-flex flex-column h-100 justify-content-center align-items-center p-4 light-blue-box">
-    <h2>{% trans "Кто мы?" %}</h2>
-    <p>{% trans "Россияне, в разное время уехавшие из России" %}</p>
+    <h2>{{ missions.0.title }}</h2>
+    <p>{{ missions.0.text }}</p>
   </div>
 </div>
 <div class="col-lg-4 col-md-6 d-none d-md-block p-2">
   <div class="h-100 img-rounded">
-    <img src="{% static 'main\rfu.jpg' %}" class="img-fluid w-100 h-100" alt="Placeholder Image">
+    <img src="{% if missions.0.image %}{{ missions.0.image.url }}{% else %}https://via.placeholder.com/400{% endif %}"
+         class="img-fluid w-100 h-100" alt="Placeholder Image">
   </div>
 </div>
 <div class="col-lg-4 col-md-6 d-none d-md-block p-2">
   <div class="d-flex flex-column h-100 justify-content-center align-items-center p-4 dark-blue-box">
-    <h2>{% trans "Чего мы хотим?" %}</h2>
-    <p>{% trans "Мира, то есть победы Украины в этой войне" %}</p>
+    <h2>{{ missions.1.title }}</h2>
+    <p>{{ missions.1.text }}</p>
   </div>
 </div>
 
 <div class="col-lg-3 col-md-6 d-none d-md-block p-2">
   <div class="h-100 img-rounded">
-    <img src="{% static 'main\perehod.jpg' %}" class="img-fluid" alt="Placeholder Image"
+    <img src="{% if missions.1.image %}{{ missions.1.image.url }}{% else %}https://via.placeholder.com/400{% endif %}"
          style="object-fit: cover; width: 100%; height: 100%;">
   </div>
 </div>
 <div class="col-md-6 d-none d-md-block p-2">
   <div class="h-100 d-flex flex-column h-100 justify-content-center align-items-center p-4 light-blue-box">
-    <h2>{% trans "Что мы для этого делаем?" %}</h2>
-    <p>{% trans "Помогаем украинским беженцам в Европе и передаем гуманитарную помощь в Украину" %}</p>
+    <h2>{{ missions.2.title }}</h2>
+    <p>{{ missions.2.text }}</p>
   </div>
 </div>
 <div class="col-lg-3 col-md-6 d-none d-md-block p-2">
   <div class="h-100 img-rounded">
-    <img src="{% static 'main\center.jpeg' %}" class="img-fluid" alt="Placeholder Image"
+    <img src="{% if missions.2.image %}{{ missions.2.image.url }}{% else %}https://via.placeholder.com/400{% endif %}"
+         class="img-fluid" alt="Placeholder Image"
          style="object-fit: cover; width: 100%; height: 100%;">
   </div>
 </div>

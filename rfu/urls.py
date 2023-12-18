@@ -35,7 +35,6 @@ urlpatterns = [
     # path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('', IndexView.as_view(), name='index'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('main_page/', include('rfu.main_page.urls')),
     path('blog/', include('rfu.blog.urls')),
     path('about/', include('rfu.about.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
