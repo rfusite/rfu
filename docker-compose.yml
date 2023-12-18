@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3'
 
 services:
   web:
@@ -14,9 +14,11 @@ services:
     image: nginx:latest
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - static_volume:/app/staticfiles  # убедитесь, что это соответствует alias в nginx.conf
+      - /opt/bitnami/letsencrypt/certificates:/etc/nginx/certs:ro
+      - static_volume:/app/staticfiles
     depends_on:
       - web
 

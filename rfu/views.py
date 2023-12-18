@@ -2,7 +2,7 @@ from django.urls import reverse
 from django.views.generic import TemplateView
 from rfu.main_page.models import (Mission, OurWork, ModalWindow,
                                   PaymentMethod, SocialNetwork,
-                                  Footer, Crypto, CookiesConsent,
+                                  Crypto, CookiesConsent,
                                   WebHero, HelpUs)
 from django.shortcuts import render
 from cookie_consent.models import CookieGroup
@@ -23,7 +23,6 @@ class IndexView(TemplateView):
         context['payment_methods'] = PaymentMethod.objects.all()
         context['crypto'] = Crypto.objects.all()
         context['social_networks'] = SocialNetwork.objects.all()
-        context['footer'] = Footer.objects.first()
         context['cookies_consent'] = CookiesConsent.objects.first()
         context['cookie_groups'] = CookieGroup.objects.all()
         # Ensure cookie_groups is a QuerySet or list of CookieGroup objects

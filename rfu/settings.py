@@ -29,7 +29,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['rfu2022.org',
+                 'www.rfu2022.org',
+                 'rfu-production.up.railway.app',
+                 '127.0.0.1',
+                 'localhost',]
 
 # Application definition
 INSTALLED_APPS = [
@@ -96,6 +100,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 'django.template.context_processors.i18n',
                 'rfu.context_processors.cookie_settings',
+                'rfu.context_processors.footer_context',
             ],
         },
     },
@@ -126,7 +131,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator", },
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://rfu-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://rfu-production.up.railway.app',
+                        'https://rfu2022.org',
+                        'https://www.rfu2022.org']
 
 # LOGGING = {
 #     'version': 1,

@@ -66,9 +66,3 @@ function copyToClipboard(textToCopy, buttonElement) {
 //manageCookiesButton.addEventListener('click', function() {
 //    cookieManagementModal.show();
 //});
-
-// ----------------------------------------------------
-// Код для работы с google analytics
-// ----------------------------------------------------
-
-
