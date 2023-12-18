@@ -5,27 +5,25 @@
   <div class="container p-3">
     <div class="row text-center text-lg-left">
       <div class="col-lg-4 col-md-4 mb-3 mb-md-0">
-        {% trans "© 2023 Fundacja RFU" %}
+        {{ footer.name }}
       </div>
 
       <div class="col-lg-4 col-md-4 mb-3 mb-md-0">
-        {% trans "Наш адрес: Medyka, 242, Polska" %}
+        {{ footer.address }}
       </div>
 
       <div class="col-lg-2 col-md-2 mb-3 mb-md-0">
           <script type="text/javascript">
-              var user = "wotfoundation";
-              var domain = "protonmail.com";
+              var user = "{{ footer.email_part1 }}";
+              var domain = "{{ footer.email_part1 }}";
               var email = user + "@" + domain;
               document.write('e-mail: <a href="mailto:' + email + '">' + email + '</a>');
           </script>
       </div>
 
-
-
       <div class="col-lg-2 col-md-2 mb-3 mb-md-0">
-        <a href="/privacy/" class="text-decoration-none">
-          {% trans "Политика конфиденциальности" %}
+        <a href="{{ footer.privacy_policy_link }}" class="text-decoration-none">
+            {% trans 'Политика конфиденциальности' %}
         </a>
       </div>
     </div>

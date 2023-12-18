@@ -1,21 +1,22 @@
 {% load static i18n %}
 {% load my_tags %}
 
-<div class="modal show" style="display: block;">
+<div class="modal fade"
+     id="cookieConsentModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="cookieConsentModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog modal-lg modal-fullscreen-md-down">
         <div class="modal-content">
             <div class="modal-header border-0">
-                <h5 class="modal-title">Управление Cookies</h5>
+                <h5 class="modal-title">{{ cookies_consent.title }}</h5>
             </div>
             <div class="modal-body">
-                <p>
-                  {% blocktrans trimmed %}
-                    Мы используем cookies для повышения удобства использования сайта, анализа трафика и персонализации контента.
-                    Некоторые из этих cookies необходимы для функционирования сайта, в то время как другие помогают нам улучшать ваш опыт и сайт в целом.
-                    Подробнее о нашем использовании cookies вы можете узнать в нашей <a href="{{ privacy_policy_url }}" class="text-decoration-none">Политике конфиденциальности</a>.
-                  {% endblocktrans %}
-                </p>
-                <form class="mt-2" action="{% url 'save_cookie_settings' %}" method="post">
+                <div>
+                  {{ cookies_consent.text | safe }}
+                </div>
+                <form class="mt-1" action="{% url 'save_cookie_settings' %}" method="post">
                     {% csrf_token %}
                     {% for group in cookie_groups %}
                         {% with cookie_value=current_settings|get_item:group.varname %}
@@ -28,17 +29,9 @@
                             </div>
                         {% endwith %}
                     {% endfor %}
-                    <div class="form-group mt-5 row p-3 mx-0">
-                        <button type="submit" name="accept_all" class="btn btn-primary col-12 col-lg-4 m-1">
-                            {% trans 'Принять все' %}
-                        </button>
-                        <button type="submit" name="accept_necessary" class="btn btn-primary col-12 col-lg-4 m-1">
-                            {% trans 'Принять необходимые' %}
-                        </button>
-                        <button type="submit" class="btn btn-secondary col-12 col-lg-4 m-1">
-                            Сохранить настройки
-                        </button>
-                    </div>
+                    <button type="submit" class="btn btn-secondary col-6 col-lg-4 mt-3 text-nowrap">
+                        {% trans 'Сохранить настройки' %}
+                    </button>
                 </form>
             </div>
         </div>

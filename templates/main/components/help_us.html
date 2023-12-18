@@ -5,26 +5,31 @@
   <!-- Карточка анкета -->
   <div class="col-md-6 col-lg-4 px-2 d-flex flex-column">
     <div class="p-3 dark-blue-box mb-3 animated">
-      <h2>{% trans "Стать волонтером" %}</h2>
-      <p>{% trans "Пожалуйста, оставьте ваши контактные данные" %}</p>
+      <h2>{{ help_us.0.title }}</h2>
+      <p>{{ help_us.0.text }}</p>
       <a href="https://forms.gle/FDrwXD1eFE7MVf17A" class="btn btn-primary mt-5" target="_blank">
         {% trans "Заполнить анкету" %}
        <i class="bi bi-pencil-fill"></i>
       </a>
     </div>
     <div class="img-rounded d-none d-lg-block h-100">
-      <img src="{% static 'main\home.jpg' %}" class="img-fluid" alt="Placeholder Image" style="object-fit: cover; width: 100%; height: 100%;">
+      <img src="{% if help_us.0.image %}{{ help_us.0.image.url }}{% else %}https://via.placeholder.com/400{% endif %}"
+           class="img-fluid" alt="Placeholder Image"
+           style="object-fit: cover; width: 100%; height: 100%;">
     </div>
   </div>
 
   <!-- Карточка соцсети -->
   <div class="col-md-6 col-lg-4 px-2 d-flex flex-column">
     <div class="img-rounded mb-3 d-none d-lg-block h-100">
-      <img src="{% static 'main\rfu2.jpg' %}" class="img-fluid" alt="Placeholder Image" style="object-fit: cover; width: 100%; height: 100%;">
+      <img src="{% if help_us.1.image %}{{ help_us.1.image.url }}{% else %}https://via.placeholder.com/400{% endif %}"
+           class="img-fluid"
+           alt="Placeholder Image"
+           style="object-fit: cover; width: 100%; height: 100%;">
     </div>
     <div class="p-3 dark-blue-box animated mb-3 mb-lg-0">
-      <h2>{% trans "Рассказать о нас" %}</h2>
-      <p class="mb-5">{% trans "Поделитесь ссылкой на нас в соцсетях" %}</p>
+      <h2>{{ help_us.1.title }}</h2>
+      <p class="mb-5">{{ help_us.1.text }}</p>
       {% for method in social_networks %}
         <a href="{{ method.link }}" class="social-icon" target="_blank"
            data-bs-toggle="tooltip" data-bs-placement="top" title="{{ method.name }}">
@@ -36,15 +41,17 @@
 
   <div class="col-md-6 col-lg-4 d-none d-md-block d-sm-none d-xl-none d-lg-none px-2 d-flex flex-column">
     <div class="img-rounded">
-      <img src="{% static 'main\perehod.jpg' %}" class="img-fluid" alt="Placeholder Image" style="object-fit: cover; width: 100%; height: 100%;">
+      <img src="{% if help_us.2.image %}{{ help_us.2.image.url }}{% else %}https://via.placeholder.com/400{% endif %}"
+           class="img-fluid" alt="Placeholder Image"
+           style="object-fit: cover; width: 100%; height: 100%;">
     </div>
   </div>
 
   <!-- Карточка деньги -->
   <div class="col-md-6 col-lg-4 px-2 d-flex flex-column">
     <div class="p-3 yellow-box animated">
-      <h2>{% trans "Отправить донат" %}</h2>
-      <p>{% trans "Поддержите то что мы делаем" %}</p>
+      <h2>{{ help_us.2.title }}</h2>
+      <p>{{ help_us.2.text }}</p>
       {% for method in payment_methods %}
         <a href="{{ method.link }}" class="btn btn-light mb-3 w-100 px-5 d-flex justify-content-between"
                 target="_blank">
@@ -56,8 +63,8 @@
           {% endif %}
         </a>
       {% endfor %}
-      <h2>{% trans "Пожертвовать криптовалюту" %}</h2>
-      <p>{% trans "Это абсолютно безопасно и анонимно" %}</p>
+      <h2>{{ help_us.3.title }}</h2>
+      <p>{{ help_us.3.text }}</p>
 
       <!-- Группа кнопок с дропдауном -->
       {% for method in crypto %}
