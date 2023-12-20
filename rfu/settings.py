@@ -77,6 +77,7 @@ MIDDLEWARE = [
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'djangorescue.middleware.StaticMediaMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
     # 'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
@@ -135,6 +136,15 @@ CSRF_TRUSTED_ORIGINS = ['https://rfu-production.up.railway.app',
                         'https://rfu2022.org',
                         'https://www.rfu2022.org']
 
+
+ROLLBAR = {
+    'access_token': os.getenv('ROLLBAR_ACCESS_TOKEN'),
+    'environment': 'development' if DEBUG else 'production',
+    'code_version': '1.0',
+    'root': BASE_DIR,
+}
+
+
 # LOGGING = {
 #     'version': 1,
 #     'disable_existing_loggers': False,
@@ -149,9 +159,10 @@ CSRF_TRUSTED_ORIGINS = ['https://rfu-production.up.railway.app',
 #     },
 #     'root': {
 #         'handlers': ['console', 'rollbar'],
-#         'level': 'DEBUG',
+#         'level': 'ERROR',  # Устанавливаем уровень ERROR для корневого логгера
 #     },
 # }
+
 
 
 # Internationalization
