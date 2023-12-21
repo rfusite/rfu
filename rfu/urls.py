@@ -23,6 +23,7 @@ from rfu.settings import BASE_DIR
 from rfu.views import IndexView, GDPRView, manage_cookies, save_cookie_settings, CookiePolicyView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic.base import RedirectView
 
 # sitemaps = {
 #     'mainpage': WebHeroSitemap,
@@ -42,6 +43,16 @@ urlpatterns = [
     path('manage-cookies/', manage_cookies, name='manage_cookies'),
     path('save-cookie-settings/', save_cookie_settings, name='save_cookie_settings'),
     path("cookies/", include("cookie_consent.urls")),
+
+    # Редиректы для главной страницы
+    path('pl/', RedirectView.as_view(url='/', permanent=True)),
+    path('en/', RedirectView.as_view(url='/', permanent=True)),
+    path('en/#howtohelpus', RedirectView.as_view(url='/', permanent=True)),
+
+    # Редиректы для страницы "about"
+    path('media/', RedirectView.as_view(pattern_name='about', permanent=True)),
+    path('pl/media/', RedirectView.as_view(pattern_name='about', permanent=True)),
+    path('en/media/', RedirectView.as_view(pattern_name='about', permanent=True)),
 ]
 
 if settings.DEBUG:
