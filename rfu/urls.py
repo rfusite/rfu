@@ -24,6 +24,7 @@ from rfu.views import IndexView, GDPRView, manage_cookies, save_cookie_settings,
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic.base import RedirectView
+from django.views.generic.base import TemplateView
 
 # sitemaps = {
 #     'mainpage': WebHeroSitemap,
@@ -43,6 +44,9 @@ urlpatterns = [
     path('manage-cookies/', manage_cookies, name='manage_cookies'),
     path('save-cookie-settings/', save_cookie_settings, name='save_cookie_settings'),
     path("cookies/", include("cookie_consent.urls")),
+    path('google1a7ec7e933d1c3cac.html',
+         TemplateView.as_view(template_name='google_console/google1ca7ec933d1c3cac.html'),
+         name='google-verification'),
 
     # Редиректы для главной страницы
     path('pl/', RedirectView.as_view(url='/', permanent=True)),
