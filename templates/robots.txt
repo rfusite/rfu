@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /pages/
+
+Sitemap: https://rfu2022.org/sitemap.xml

@@ -13,28 +13,26 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import os
-
 from django.contrib import admin
 from django.urls import path, include
-
-from rfu.settings import BASE_DIR
-# from django.contrib.sitemaps.views import sitemap
-from rfu.views import IndexView, GDPRView, manage_cookies, save_cookie_settings, CookiePolicyView
+from django.contrib.sitemaps.views import sitemap
+from rfu.sitemap import StaticViewSitemap, BlogSitemap, FlatPageSitemap, MediaSiteMap
+from rfu.views import IndexView, manage_cookies, save_cookie_settings, CookiePolicyView
 from django.conf import settings
-from django.conf.urls.static import static
 from django.views.generic.base import RedirectView
 from django.views.generic.base import TemplateView
+from django.views.static import serve
+from django.conf.urls.static import static
 
-# sitemaps = {
-#     'mainpage': WebHeroSitemap,
-#     'pressreleases': PressReleaseSitemap,
-#     'blogposts': BlogPostSitemap,
-# }
+sitemaps = {
+    'static': StaticViewSitemap,
+    'blog': BlogSitemap,
+    'about': MediaSiteMap,
+    'flatpages': FlatPageSitemap,
+}
 
 urlpatterns = [
     path('verwaltung2023/kontrollraum/', admin.site.urls),
-    # path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('', IndexView.as_view(), name='index'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('blog/', include('rfu.blog.urls')),
@@ -47,6 +45,14 @@ urlpatterns = [
     path('google1a7ec7e933d1c3cac.html',
          TemplateView.as_view(template_name='google_console/google1ca7ec933d1c3cac.html'),
          name='google-verification'),
+
+    # маршрут для sitemap
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
+
+    # маршрут для robotx.txt
+    path('robots.txt',
+         TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
 
     # Редиректы для главной страницы
     path('pl/', RedirectView.as_view(url='/', permanent=True)),
@@ -61,4 +67,6 @@ urlpatterns = [
 
 if settings.DEBUG:
     import debug_toolbar
-    urlpatterns += [path('__debug__/', include(debug_toolbar.urls))]
+    urlpatterns += [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ]
