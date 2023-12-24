@@ -21,7 +21,7 @@ djangorescue = "^0.0.4"
 django-dbbackup = "^4.0.2"
 django-paypal = "^2.0"
 django-modeltranslation = "^0.18.11"
-openai = "^1.5.0"
+openai = "^1.6.1"
 
 
 [tool.poetry.group.dev.dependencies]

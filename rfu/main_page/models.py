@@ -81,24 +81,28 @@ class ModalWindow(models.Model):
     id = models.IntegerField(primary_key=True)
     text = RichTextField()
     image = models.ImageField(upload_to='main_page/modal_window/', default='https://via.placeholder.com/400')
+    image_alt_text = models.CharField(max_length=200, blank=True, null=True)
 
 
 class Mission(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
     text = models.TextField(max_length=500, blank=True, null=True)
     image = models.ImageField(upload_to='main_page/mission/', default='https://via.placeholder.com/400')
+    image_alt_text = models.CharField(max_length=200, blank=True, null=True)
 
 
 class OurWork(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
     text = models.TextField(max_length=500, blank=True, null=True)
     image = models.ImageField(upload_to='main_page/our_work/', default='https://via.placeholder.com/400')
+    image_alt_text = models.CharField(max_length=200, blank=True, null=True)
 
 
 class HelpUs(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
     text = models.TextField(max_length=500, blank=True, null=True)
     image = models.ImageField(upload_to='main_page/help_us/', default='https://via.placeholder.com/400')
+    image_alt_text = models.CharField(max_length=200, blank=True, null=True)
 
 
 class PaymentMethod(models.Model):
@@ -109,6 +113,7 @@ class PaymentMethod(models.Model):
     ]
     icon = models.CharField(max_length=50, choices=ICONS, blank=True, null=True)
     image = models.CharField(max_length=255, default='https://via.placeholder.com/150x50', blank=True, null=True)
+    image_alt_text = models.CharField(max_length=200, blank=True, null=True)
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=500, blank=True, null=True)
     link = models.URLField(blank=True, null=True)

@@ -18,7 +18,6 @@ jobs:
           POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         ports: ['5432:5432']
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
@@ -37,24 +36,35 @@ jobs:
     - name: Install Poetry
       run: |
         curl -sSL https://install.python-poetry.org | python3 -
+
     - name: Install dependencies
       run: |
         make install
+
     - name: Create database migrations
       run: |
         export DATABASE_URL=postgres://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@localhost:5432/${{ secrets.POSTGRES_DB }}
         poetry run python manage.py makemigrations
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
     - name: Apply database migrations
       run: |
         export DATABASE_URL=postgres://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@localhost:5432/${{ secrets.POSTGRES_DB }}
         poetry run python manage.py migrate
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
     - name: Collect static files
       run: |
-        poetry run python manage.py collectstatic --noinput    
+        poetry run python manage.py collectstatic --noinput
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
     - name: Test with django.test
       run: |
         export DATABASE_URL=postgres://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@localhost:5432/${{ secrets.POSTGRES_DB }}
         export SECRET_KEY=${{ secrets.SECRET_KEY }}
         make test
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

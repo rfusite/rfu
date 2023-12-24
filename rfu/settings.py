@@ -145,6 +145,8 @@ ROLLBAR = {
 }
 
 
+# settings.py
+
 # LOGGING = {
 #     'version': 1,
 #     'disable_existing_loggers': False,
@@ -152,16 +154,15 @@ ROLLBAR = {
 #         'console': {
 #             'class': 'logging.StreamHandler',
 #         },
-#         'rollbar': {
-#             'level': 'ERROR',
-#             'class': 'rollbar.logger.RollbarHandler',
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console'],
+#             'level': 'INFO',
 #         },
 #     },
-#     'root': {
-#         'handlers': ['console', 'rollbar'],
-#         'level': 'ERROR',  # Устанавливаем уровень ERROR для корневого логгера
-#     },
 # }
+
 
 
 
