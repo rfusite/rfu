@@ -21,13 +21,11 @@ from rfu.views import IndexView, manage_cookies, save_cookie_settings, CookiePol
 from django.conf import settings
 from django.views.generic.base import RedirectView
 from django.views.generic.base import TemplateView
-from django.views.static import serve
-from django.conf.urls.static import static
 
 sitemaps = {
     'static': StaticViewSitemap,
     'blog': BlogSitemap,
-    'about': MediaSiteMap,
+    'media': MediaSiteMap,
     'flatpages': FlatPageSitemap,
 }
 
@@ -36,7 +34,7 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('blog/', include('rfu.blog.urls')),
-    path('about/', include('rfu.about.urls')),
+    path('media/', include('rfu.media.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
     path('cookie_policy/', CookiePolicyView.as_view(), name='cookie_policy'),
     path('manage-cookies/', manage_cookies, name='manage_cookies'),
@@ -60,9 +58,9 @@ urlpatterns = [
     path('en/#howtohelpus', RedirectView.as_view(url='/', permanent=True)),
 
     # Редиректы для страницы "about"
-    path('media/', RedirectView.as_view(pattern_name='about', permanent=True)),
-    path('pl/media/', RedirectView.as_view(pattern_name='about', permanent=True)),
-    path('en/media/', RedirectView.as_view(pattern_name='about', permanent=True)),
+    # path('media/', RedirectView.as_view(pattern_name='about', permanent=True)),
+    path('pl/media/', RedirectView.as_view(pattern_name='media', permanent=True)),
+    path('en/media/', RedirectView.as_view(pattern_name='media', permanent=True)),
 ]
 
 if settings.DEBUG:

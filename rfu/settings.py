@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'rfu',
     "rfu.main_page",
     "rfu.blog",
-    "rfu.about",
+    "rfu.media",
     "rfu.extended_flatpages",
 ]
 
@@ -206,8 +206,8 @@ STATICFILES_FINDERS = [
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/uploads/'
 
 
 # Default primary key field type

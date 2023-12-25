@@ -2,8 +2,7 @@ from django.contrib.sitemaps import Sitemap
 from django.contrib.flatpages.models import FlatPage
 from django.urls import reverse
 from math import ceil
-
-from rfu.about.models import PressRelease
+from rfu.media.models import PressRelease
 from rfu.blog.models import BlogPost
 
 
@@ -13,7 +12,7 @@ class StaticViewSitemap(Sitemap):
 
     def items(self):
         # Возвращает список имен URL-адресов статических страниц
-        return ['index', 'about', 'blog']  # Замените на ваши URL-имена
+        return ['index', 'media', 'blog']  # Замените на ваши URL-имена
 
     def location(self, item):
         return reverse(item)
@@ -50,9 +49,9 @@ class MediaSiteMap(Sitemap):
 
     def location(self, page_number):
         if page_number == 1:
-            return reverse('about')  # URL первой страницы раздела "about"
+            return reverse('media')  # URL первой страницы раздела "about"
         else:
-            return reverse('about') + f'?page={page_number}'  # URL для пагинированных страниц
+            return reverse('media') + f'?page={page_number}'  # URL для пагинированных страниц
 
 
 class FlatPageSitemap(Sitemap):

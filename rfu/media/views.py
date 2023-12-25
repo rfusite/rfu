@@ -4,7 +4,7 @@ from .models import PressRelease
 import random
 
 
-def about(request):
+def media(request):
     articles = PressRelease.objects.all()
     for article in articles:
         article.css_class = random.choice(['media-card-light-blue',
