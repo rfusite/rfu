@@ -5,7 +5,7 @@ import random
 
 
 def media(request):
-    articles = PressRelease.objects.all()
+    articles = PressRelease.objects.all().order_by('-date')
     for article in articles:
         article.css_class = random.choice(['media-card-light-blue',
                                            'media-card-yellow',
