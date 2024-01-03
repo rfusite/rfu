@@ -359,6 +359,9 @@ class PaymentMethodAdmin(admin.ModelAdmin):
                 'image_alt_text_ru',
                 'image_alt_text_ua',
                 'image_alt_text_pl',
+                'icon',  # Add 'icon' field to the fieldset
+                'name',  # Add 'name' field to the fieldset
+                'link',  # Add 'link' field to the fieldset
             )
         }),
     )
