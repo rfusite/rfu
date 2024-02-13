@@ -23,4 +23,5 @@ add-and-commit:
 build:
 	docker build -t django-app .
 
-
+deploy:
+	@python deploy.py
