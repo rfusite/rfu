@@ -33,7 +33,8 @@ ALLOWED_HOSTS = ['rfu2022.org',
                  'www.rfu2022.org',
                  'rfu-production.up.railway.app',
                  '127.0.0.1',
-                 'localhost',]
+                 'localhost',
+                 'rfu-production-e319.up.railway.app']
 
 # Application definition
 INSTALLED_APPS = [
