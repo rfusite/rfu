@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-18 02:16+0100\n"
+"POT-Creation-Date: 2024-03-09 12:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,6 +53,10 @@ msgstr "Poprzednia strona"
 msgid "Текущая страница"
 msgstr "Obecna strona"
 
+#: templates/blog/blog.html:98 templates/smi/smi.html:50
+msgid "из"
+msgstr "z"
+
 #: templates/blog/blog.html:102 templates/smi/smi.html:54
 msgid "Next"
 msgstr "Następna"
@@ -69,7 +73,7 @@ msgstr "Ostatnia"
 msgid "Последняя страница"
 msgstr "Ostatnia strona"
 
-#: templates/cookie_consent/manage_bar.html:33
+#: templates/cookie_consent/manage_bar.html:34
 msgid "Сохранить настройки"
 msgstr "Zapisać ustawienia"
 
@@ -80,6 +84,21 @@ msgstr "Akceptuj niezbędne"
 #: templates/cookie_consent/start_banner.html:21
 msgid "Управление cookies"
 msgstr "Zarządzanie cookies"
+
+#: templates/main/base.html:13
+msgid "Russians for Ukraine - Волонтерская помощь украинским беженцам в Польше"
+msgstr ""
+
+#: templates/main/base.html:18
+msgid ""
+"Ассоциация россиян-волонтеров в помощь украинским беженцам на польско-"
+"украинской границе, предоставляем услуги транспорта и свой шелтер и "
+"организуем отправку гуманитарной помощи в Украину."
+msgstr ""
+
+#: templates/main/base.html:19
+msgid "Russians for Ukraine"
+msgstr ""
 
 #: templates/main/components/help_us.html:11
 msgid "Заполнить анкету"
@@ -93,15 +112,15 @@ msgstr "Skopiować"
 msgid "Политика конфиденциальности"
 msgstr "Polityka prywatności"
 
-#: templates/main/index.html:15
+#: templates/main/index.html:16
 msgid "Наша миссия"
 msgstr "Nasza misja"
 
-#: templates/main/index.html:21
+#: templates/main/index.html:23
 msgid "Наша работа"
 msgstr "Nasza praca"
 
-#: templates/main/index.html:28
+#: templates/main/index.html:31
 msgid "Чем нам помочь"
 msgstr "Jak możesz nam pomóc"
 
@@ -113,43 +132,39 @@ msgstr "Przełącz nawigację"
 msgid "rfu logo"
 msgstr "Logo rfu"
 
-#: templates/main/navbar.html:23 templates/main/navbar.html:77
+#: templates/main/navbar.html:25 templates/main/navbar.html:86
 msgid "Поддержать"
 msgstr "Wesprzeć nas"
 
-#: templates/main/navbar.html:30
+#: templates/main/navbar.html:33
 msgid "вернуться на главную"
 msgstr "wrócić na stronę główną"
 
-#: templates/main/navbar.html:31
+#: templates/main/navbar.html:35
 msgid "Главная"
 msgstr "Główna"
 
-#: templates/main/navbar.html:36
+#: templates/main/navbar.html:40
 msgid "публикации в СМИ о нас"
 msgstr "publikacje o nas w mediach"
 
-#: templates/main/navbar.html:37
+#: templates/main/navbar.html:42
 msgid "СМИ"
 msgstr "Media"
 
-#: templates/main/navbar.html:42
+#: templates/main/navbar.html:47
 msgid "истории наших волонтеров и беженцев"
 msgstr "historie naszych wolontariuszy i uchodźców"
 
-#: templates/main/navbar.html:43
+#: templates/main/navbar.html:49
 msgid "Истории"
 msgstr "Historie"
 
-#: templates/main/navbar.html:53
-msgid "переключить язык"
-msgstr "zmień język"
-
-#: templates/main/navbar.html:54
+#: templates/main/navbar.html:58
 msgid " "
 msgstr ""
 
-#: templates/main/navbar.html:76
+#: templates/main/navbar.html:84
 msgid "сделать донат"
 msgstr "Wypełnij formularz"
 
@@ -157,3 +172,5 @@ msgstr "Wypełnij formularz"
 msgid "Дата:"
 msgstr "Data:"
 
+#~ msgid "переключить язык"
+#~ msgstr "zmień język"

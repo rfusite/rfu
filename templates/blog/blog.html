@@ -94,8 +94,8 @@
         </li>
 
         <!-- Текущая страница -->
-        <li class="page-item active">
-          <span class="page-link" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Текущая страница' %}">{{ posts.number }}</span>
+        <li class="page-item disabled">
+          <span class="page-link" title="{% trans 'Текущая страница' %}">{{ posts.number }} {% trans 'из' %} {{ posts.paginator.num_pages }}</span>
         </li>
 
         <li class="page-item {% if not posts.has_next %}disabled{% endif %}">

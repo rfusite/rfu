@@ -46,8 +46,8 @@
         </li>
 
         <!-- Текущая страница -->
-        <li class="page-item active">
-          <span class="page-link" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Текущая страница' %}">{{ articles_with_images.number }}</span>
+        <li class="page-item disabled">
+           <span class="page-link" title="{% trans 'Текущая страница' %}">{{ articles_with_images.number }} {% trans 'из' %} {{ articles_with_images.paginator.num_pages }}</span>
         </li>
 
         <li class="page-item {% if not articles_with_images.has_next %}disabled{% endif %}">
