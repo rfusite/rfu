@@ -134,6 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://rfu-production.up.railway.app',
+                        'https://rfu-production-e319.up.railway.app',
                         'https://rfu2022.org',
                         'https://www.rfu2022.org']
 
