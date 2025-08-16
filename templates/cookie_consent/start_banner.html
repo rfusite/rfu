@@ -11,14 +11,14 @@
                 <p>{{ cookies_consent.text | safe }}</p>
                 <div class="d-grid gap-2 d-sm-block">
                     <button type="submit" name="accept_all" class="btn btn-primary text-nowrap mb-1">
-                        OK
+                        {% trans 'Принять все' %}
                     </button>
-                    <button type="submit" name="accept_necessary" class="btn btn-primary text-nowrap mb-1">
-                        {% trans 'Принять необходимые' %}
+                    <button type="submit" name="accept_necessary" class="btn btn-secondary text-nowrap mb-1">
+                        {% trans 'Только необходимые' %}
                     </button>
-                    <button id="manageCookiesButton" type="button" class="btn btn-secondary text-nowrap"
+                    <button id="manageCookiesButton" type="button" class="btn btn-outline-secondary text-nowrap"
                             data-bs-toggle="modal" data-bs-target="#cookieConsentModal">
-                        {% trans 'Управление cookies' %}
+                        {% trans 'Настроить' %}
                     </button>
                 </div>
             </form>

@@ -1,22 +1,21 @@
 # context_processors.py
-from cookie_consent.models import CookieGroup
-from cookie_consent.util import get_cookie_value_from_request
-
 from rfu.main_page.models import Footer, CookiesConsent
 
 
 def cookie_settings(request):
-    cookie_groups = CookieGroup.objects.all()
-    current_settings = {group.varname: request.COOKIES.get(group.varname, 'False') == 'True'
-                        for group in cookie_groups}
-    consent_cookie = get_cookie_value_from_request(request, 'cookie_consent')
     cookies_consent = CookiesConsent.objects.first()
-    show_cookie_banner = consent_cookie is None
+    cookie_consent = request.COOKIES.get('cookie_consent_accepted')
+    show_cookie_banner = not cookie_consent
+    analytics_accepted = request.COOKIES.get('analytics_cookies', 'false') == 'true'
+    marketing_accepted = request.COOKIES.get('marketing_cookies', 'false') == 'true'
+    functional_accepted = request.COOKIES.get('functional_cookies', 'false') == 'true'
+    
     return {
-        'cookie_groups': cookie_groups,
-        'current_settings': current_settings,
         'show_cookie_banner': show_cookie_banner,
-        'cookies_consent': cookies_consent
+        'cookies_consent': cookies_consent,
+        'analytics_accepted': analytics_accepted,
+        'marketing_accepted': marketing_accepted,
+        'functional_accepted': functional_accepted,
     }
 
 
