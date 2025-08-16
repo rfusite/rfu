@@ -7,6 +7,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 def blog(request):
     posts_list = BlogPost.objects.all().order_by('-date')
+    top_post = posts_list.first()  # Предполагая, что первый элемент — это самый свежий пост
     paginator = Paginator(posts_list, 4)  # 5 постов на странице
 
     page = request.GET.get('page')
@@ -19,7 +20,10 @@ def blog(request):
         # Если страница вне диапазона, показываем последнюю страницу результатов.
         posts = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog/blog.html', {'posts': posts})
+    # Объединяем словари контекста в один
+    context = {'posts': posts, 'top_post': top_post}
+
+    return render(request, 'blog/blog.html', context)
 
 
 class LikeView(View):

@@ -2,8 +2,40 @@
 {% load static i18n %}
 {% block content %}
 
+
+
 <div class="m-1 container">
     <div class="row m-1">
+
+        <!-- Верхний пост -->
+        <div class="blog-card top-post-container bg-dark text-white p-4">
+            <div class="post-date fw-bold mb-3">
+                {{ top_post.date|date:"j F Y" }} <!-- Форматируйте дату, как вам нужно -->
+            </div>
+            <h2 class="post-title fw-bold">
+                {{ top_post.title }}
+            </h2>
+            <div class="post-content mt-3">
+                {{ top_post.content|safe }}
+            </div>
+            <a href="#" class="btn btn-primary mt-3">
+                Узнать детали
+            </a>
+            <div class="social-icons d-flex justify-content-start mt-3">
+                <a href="#" class="social-icon me-2" target="_blank">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="social-icon me-2" target="_blank">
+                    <i class="bi bi-twitter"></i>
+                </a>
+                <a href="#" class="social-icon" target="_blank">
+                    <i class="bi bi-telegram"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- /Верхний пост -->
+
         {% for post in posts %}
         <div class="col-lg-6 col-12 p-2">
             <div class="blog-card p-5 h-100 d-flex flex-column">
