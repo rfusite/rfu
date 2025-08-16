@@ -1,40 +1,50 @@
-{% load static i18n %}
-{% load my_tags %}
+{% load i18n %}
 
-<div class="modal fade"
-     id="cookieConsentModal"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="cookieConsentModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-fullscreen-md-down">
+<!-- Modal для управления cookies -->
+<div class="modal fade" id="cookieConsentModal" tabindex="-1" aria-labelledby="cookieConsentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title">{{ cookies_consent.title }}</h5>
+            <div class="modal-header">
+                <h5 class="modal-title" id="cookieConsentModalLabel">{% trans 'Управление cookies' %}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div>
-                  {{ cookies_consent.text | safe }}
-                </div>
-                <form class="mt-1" action="{% url 'save_cookie_settings' %}" method="post">
-                    {% csrf_token %}
-                    {% for group in cookie_groups %}
-                        {% with cookie_value=current_settings|get_item:group.varname %}
-                            <div class="form-group form-switch">
-                                <input type="checkbox" class="form-check-input" id="{{ group.varname }}" name="{{ group.varname }}"
-                                       {% if not group.is_deletable %} checked disabled {% endif %}
-                                       {% if cookie_value %} checked {% endif %}>
-                                <label class="form-check-label" for="{{ group.varname }}">{{ group.name }}</label>
-                                <small class="text-muted d-block">{{ group.description }}</small>
-                            </div>
-                        {% endwith %}
+            <form action="{% url 'save_cookie_settings' %}" method="post">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <p>{% trans 'Выберите, какие типы cookies вы хотите разрешить:' %}</p>
+                    
+                    <!-- Необходимые cookies -->
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" checked disabled>
+                            <label class="form-check-label">
+                                <strong>{% trans 'Необходимые cookies' %}</strong>
+                            </label>
+                        </div>
+                        <small class="text-muted">{% trans 'Эти cookies необходимы для базовой функциональности сайта' %}</small>
+                    </div>
+                    
+                    <!-- Другие типы cookies -->
+                    {% for cookie_type in cookie_types %}
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" 
+                                   name="{{ cookie_type.name }}" 
+                                   id="{{ cookie_type.name }}"
+                                   {% if cookie_type.is_checked %}checked{% endif %}>
+                            <label class="form-check-label" for="{{ cookie_type.name }}">
+                                <strong>{{ cookie_type.label }}</strong>
+                            </label>
+                        </div>
+                        <small class="text-muted">{{ cookie_type.description }}</small>
+                    </div>
                     {% endfor %}
-                    <button type="submit" class="btn btn-secondary col-6 col-lg-4 mt-3 text-nowrap">
-                        {% trans 'Сохранить настройки' %}
-                    </button>
-                </form>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Отмена' %}</button>
+                    <button type="submit" class="btn btn-primary">{% trans 'Сохранить настройки' %}</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

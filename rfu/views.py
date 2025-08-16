@@ -5,7 +5,6 @@ from rfu.main_page.models import (Mission, OurWork, ModalWindow,
                                   Crypto, CookiesConsent,
                                   WebHero, HelpUs)
 from django.shortcuts import render
-from cookie_consent.models import CookieGroup
 from django.views.decorators.http import require_POST
 from django.http import HttpResponseRedirect, HttpResponseForbidden
 import rollbar
@@ -31,7 +30,6 @@ class IndexView(TemplateView):
             context['crypto'] = Crypto.objects.all()
             context['social_networks'] = SocialNetwork.objects.all()
             context['cookies_consent'] = CookiesConsent.objects.first()
-            context['cookie_groups'] = CookieGroup.objects.all()
             return context
 
         except Exception as e:
@@ -48,62 +46,74 @@ class CookiePolicyView(TemplateView):
 
 
 def manage_cookies(request):
-    # Список для хранения информации о группах и их состоянии
-    cookie_info = []
-    for group in CookieGroup.objects.all():
-        cookie_info.append({
-            'varname': group.varname,
-            'name': group.name,
-            'description': group.description,
-            'is_checked': request.COOKIES.get(group.varname, 'False') == 'True',
-            'is_deletable': group.is_deletable,
-        })
-    return render(request, 'cookie_consent/manage_bar.html', {'cookie_info': cookie_info})
+    """
+    Простое управление cookies без сторонних пакетов
+    """
+    # Определяем типы cookies и их текущее состояние
+    cookie_types = [
+        {
+            'name': 'analytics_cookies',
+            'label': 'Аналитические cookies',
+            'description': 'Помогают нам понимать, как посетители используют сайт',
+            'is_checked': request.COOKIES.get('analytics_cookies', 'false') == 'true',
+            'required': False,
+        },
+        {
+            'name': 'marketing_cookies',
+            'label': 'Маркетинговые cookies',
+            'description': 'Используются для показа релевантной рекламы',
+            'is_checked': request.COOKIES.get('marketing_cookies', 'false') == 'true',
+            'required': False,
+        },
+        {
+            'name': 'functional_cookies',
+            'label': 'Функциональные cookies',
+            'description': 'Обеспечивают дополнительную функциональность сайта',
+            'is_checked': request.COOKIES.get('functional_cookies', 'false') == 'true',
+            'required': False,
+        }
+    ]
+    
+    return render(request, 'cookie_consent/manage_bar.html', {
+        'cookie_types': cookie_types
+    })
 
 
 @require_POST
 def save_cookie_settings(request):
+    """
+    Простое сохранение настроек cookies
+    """
     try:
         response = HttpResponseRedirect(reverse('index'))
-
-        # Получаем объекты всех групп кук
-        cookie_groups = CookieGroup.objects.all()
-
-        # Создаём словарь для хранения состояния согласия
-        consent_dict = {
-            group.varname: 'False'  # Устанавливаем начальное значение 'False'
-            for group in cookie_groups
-        }
-
+        
+        # Устанавливаем основной cookie согласия
+        response.set_cookie('cookie_consent_accepted', 'true', max_age=365 * 24 * 60 * 60)
+        
         if 'accept_all' in request.POST:
-            # Если приняты все куки, устанавливаем каждую группу в 'True'
-            consent_dict.update({group.varname: 'True' for group in cookie_groups})
+            # Принять все cookies
+            response.set_cookie('analytics_cookies', 'true', max_age=365 * 24 * 60 * 60)
+            response.set_cookie('marketing_cookies', 'true', max_age=365 * 24 * 60 * 60)
+            response.set_cookie('functional_cookies', 'true', max_age=365 * 24 * 60 * 60)
+            
         elif 'accept_necessary' in request.POST:
-            # Если приняты только необходимые куки
-            for group in cookie_groups:
-                consent_dict[group.varname] = 'True' if not group.is_deletable else 'False'
+            # Принять только необходимые cookies
+            response.set_cookie('analytics_cookies', 'false', max_age=365 * 24 * 60 * 60)
+            response.set_cookie('marketing_cookies', 'false', max_age=365 * 24 * 60 * 60)
+            response.set_cookie('functional_cookies', 'false', max_age=365 * 24 * 60 * 60)
+            
         else:
-            # Если пользователь устанавливает кастомные настройки
-            for group in cookie_groups:
-                # Для неизменяемых кук устанавливаем значение True
-                if not group.is_deletable:
-                    consent_dict[group.varname] = 'True'
-                else:
-                    consent_given = request.POST.get(group.varname) == 'on'
-                    consent_dict[group.varname] = 'True' if consent_given else 'False'
-
-        # Устанавливаем куки согласно словарю согласия
-        for varname, value in consent_dict.items():
-            response.set_cookie(varname, value, max_age=365 * 24 * 60 * 60)
-
-        # Создание строки для куки 'cookie_consent'
-        consent_values = "|".join([f"{varname}={value}" for varname, value in consent_dict.items()])
-        response.set_cookie('cookie_consent', consent_values, max_age=365 * 24 * 60 * 60)
-
+            # Кастомные настройки от пользователя
+            analytics = 'true' if request.POST.get('analytics_cookies') else 'false'
+            marketing = 'true' if request.POST.get('marketing_cookies') else 'false'
+            functional = 'true' if request.POST.get('functional_cookies') else 'false'
+            
+            response.set_cookie('analytics_cookies', analytics, max_age=365 * 24 * 60 * 60)
+            response.set_cookie('marketing_cookies', marketing, max_age=365 * 24 * 60 * 60)
+            response.set_cookie('functional_cookies', functional, max_age=365 * 24 * 60 * 60)
+        
         return response
-
-    except PermissionDenied as e:
-        if isinstance(e, CsrfViewMiddleware):
-            logger.error("CSRF token mismatch encountered.")
-            # Также можно добавить дополнительные детали в лог, если требуется
-        return HttpResponseForbidden("Ошибка CSRF: Несоответствие токена")
+        
+    except Exception as e:
+        logger.error(f"Error saving cookie settings: {e}")
+        return HttpResponseRedirect(reverse('index'))
