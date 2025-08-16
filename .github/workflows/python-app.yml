@@ -68,17 +68,3 @@ jobs:
         make test
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-
-    - name: Deploy to Lightsail
-      if: github.ref == 'refs/heads/main' && success()
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.LIGHTSAIL_HOST }}
-        username: ${{ secrets.LIGHTSAIL_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          cd rfu
-          git pull
-          docker-compose build
-          docker-compose down
-          docker-compose up -d
